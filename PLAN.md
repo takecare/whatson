@@ -109,10 +109,56 @@ class BaseAggregator(ABC):
 | Royal Albert Hall | HTTP 403 from Incapsula bot protection | Playwright, or look for a feed/partner API; may need deferring | Hard |
 
 GitHub Actions runners use datacenter IPs, which bot protection blocks more
-readily. If that bites, fallback: run the scraper somewhere else (home machine /
-small VPS) and push the JSON; the site doesn't change.
+readily. See §4 for how the scrape job moves to a home machine without changing
+the site.
 
-## 4. Web frontend (`web/`)
+## 4. Hosting
+
+The site is static and stays on **GitHub Pages**. Only the scrape job moves.
+
+**Stage A: GitHub-hosted runners (start here).**
+`scrape-and-deploy.yml` has three jobs:
+
+1. `scrape`: runs the aggregators and uploads `data/*.json` as an artifact.
+2. `publish`: commits the JSON to the `data` branch.
+3. `deploy`: builds `web/` with that data and deploys to Pages.
+
+Venues that get blocked show as failing in `status.json`, and their last-known-good
+data is kept.
+
+**Stage B: self-hosted runner on Proxmox.**
+The `scrape` job doesn't hard-code where it runs:
+
+```yaml
+scrape:
+  runs-on: ${{ fromJSON(vars.SCRAPE_RUNS_ON || '"ubuntu-latest"') }}
+```
+
+To move, set the repository variable `SCRAPE_RUNS_ON` to `["self-hosted","whatson"]`.
+That needs no code change, and deleting the variable moves the job back to hosted
+runners. `publish` and `deploy` stay on hosted runners, so the home box only needs
+the runner registration and no deploy permissions. If the home box is offline, the
+job waits in the queue (up to 24h) and the site keeps serving the previous data.
+
+Proxmox guest:
+- A small **VM** (Debian 12, 2 vCPU, 2–4 GB RAM, 20 GB disk). A VM rather than an
+  LXC container gives better isolation, since the guest runs code from the repo, and
+  Chromium/Playwright works in it without adjusting container settings.
+- The Actions runner is registered at repo level with the label `whatson` and runs
+  as a systemd service under an unprivileged user. `infra/proxmox/` holds a setup
+  script plus a README covering VM creation, runner install, Playwright deps and
+  updates.
+- Security for a public repo: jobs with `runs-on: self-hosted` are only triggered by
+  `schedule` / `workflow_dispatch` on `main`, never by `pull_request`. Fork PR
+  workflows require approval (repo setting). If the network allows, put the VM on
+  an isolated VLAN or firewall it off from the rest of the LAN.
+
+**Later, optionally: split by venue.** If only a few venues need a home IP, add
+`network: residential` to those entries in `venues.yaml`. A matrix then runs two
+scrape jobs (hosted and self-hosted), and a merge step combines their outputs.
+Only do this if keeping everything on the home box turns out to be a problem.
+
+## 5. Web frontend (`web/`)
 
 Vite + TypeScript, lightweight (Preact or vanilla), no server.
 
@@ -127,7 +173,7 @@ Vite + TypeScript, lightweight (Preact or vanilla), no server.
 - Cards show title, venue/space, date(s), price range, tags, sold-out badge, link out.
 - Mobile-first, light/dark theme, "last updated" + per-source status.
 
-## 5. Repository layout
+## 6. Repository layout
 
 ```
 scraper/
@@ -141,31 +187,40 @@ scraper/
     test_<venue>.py
 web/
   index.html  src/...  vite.config.ts
+infra/proxmox/                    # self-hosted runner VM setup script + README
 .github/workflows/
+  access-check.yml                # manual: fetch every venue, report HTTP status
   ci.yml                          # lint + tests (scraper and web) on PRs
   scrape-and-deploy.yml           # cron + manual: scrape → build → deploy Pages
 ```
 
-## 6. Execution phases
+## 7. Execution phases
 
-1. **Scaffold** — Python package (uv, ruff, pytest), Vite app, CI workflow, README.
+1. **Scaffold** — Python package (uv, ruff, pytest), Vite app, CI workflow, README,
+   and `access-check.yml`, which confirms which venues GitHub-hosted runners can reach.
 2. **Core** — models, taxonomy, HTTP client (cache/retry/rate-limit), `BaseAggregator`,
    registry, CLI (`whatson scrape [--venue X] --out data/`), JSON schema for output.
 3. **First venues end-to-end** — Top Secret, Union Chapel, Saatchi, each with
    fixture-based tests.
 4. **Frontend MVP** — load JSON, tags/date/price/location/search filters, URL state.
-5. **Deploy** — scheduled scrape → `data` branch → build → GitHub Pages; status page.
+5. **Deploy (Stage A)** — scheduled scrape on hosted runners → `data` branch → build
+   → GitHub Pages; status page. The `scrape` job gets its runner from `SCRAPE_RUNS_ON`.
 6. **More venues** — Prince Charles Cinema, Barbican.
-7. **Hard venues** — Playwright-based Southwark Playhouse, then Royal Albert Hall
-   (investigate; defer if blocked).
-8. **Hardening** — dedupe, drop past events, schema validation, a script to refresh
+7. **Self-hosted (Stage B)** — `infra/proxmox/` setup script and README; register
+   the runner; set `SCRAPE_RUNS_ON`; re-run `access-check.yml` on the home runner.
+8. **Hard venues** — Playwright-based Southwark Playhouse, then Royal Albert Hall
+   (look for a ticketing-platform feed first; defer if still blocked).
+9. **Hardening** — dedupe, drop past events, schema validation, a script to refresh
    fixtures, alert (issue/comment) when a source fails N runs in a row.
-9. **Later** — map view, "add to calendar" (.ics), favourites (localStorage),
+10. **Later** — map view, "add to calendar" (.ics), favourites (localStorage),
    more UK cities, CONTRIBUTING guide on adding a venue.
 
-## 7. Open questions
+## 8. Open questions
 
 1. Python for scrapers + TypeScript for the site (recommended), or all TypeScript?
 2. Is the repo public? GitHub Pages on a free plan needs a public repo.
 3. Is a daily refresh enough?
 4. OK to defer Royal Albert Hall / Southwark Playhouse if bot protection blocks them?
+
+Decided: scraping runs on GitHub-hosted runners first, then moves to a self-hosted
+runner on Proxmox (§4).
