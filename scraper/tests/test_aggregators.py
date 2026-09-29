@@ -7,6 +7,11 @@ from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
+from whatson.aggregators.sadlerswells import (
+    PeacockTheatre,
+    SadlersWellsClerkenwell,
+    SadlersWellsEast,
+)
 from whatson.aggregators.southbank import SouthbankCentre
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
@@ -281,3 +286,27 @@ def test_southbank(venues):
     tice = events["Tice Cin: Safe Spaces"]
     assert tice.category == "Talks" and "Music" in tice.tags
     assert events["Playing with Fire"].end == date(2027, 1, 3)
+
+
+def test_sadlerswells_stages(venues):
+    base = "https://www.sadlerswells.com/whats-on/"
+    routes = {base: "sadlerswells/page1.html"}
+    routes |= {f"{base}page/{n}/": f"sadlerswells/page{n}.html" for n in range(2, 6)}
+    today = date(2026, 9, 29)
+
+    def run(cls, venue_id):
+        return list(cls(venues[venue_id], FakeFetcher(routes), today).fetch_events())
+
+    clerkenwell = run(SadlersWellsClerkenwell, "sadlerswells")
+    peacock = run(PeacockTheatre, "peacock")
+    east = run(SadlersWellsEast, "sadlerswellseast")
+
+    assert (len(clerkenwell), len(peacock), len(east)) == (28, 3, 15)
+    # Page one repeats highlights; each event appears once.
+    assert len({e.url for e in clerkenwell}) == len(clerkenwell)
+    assert {e.space for e in clerkenwell} == {"Sadler's Wells Theatre", "Lilian Baylis Studio"}
+    snowman = next(e for e in peacock if e.title == "The Snowman")
+    assert (snowman.start, snowman.end) == (date(2026, 11, 21), date(2027, 1, 3))
+    assert snowman.space is None and snowman.image_url and "640" in snowman.image_url
+    rhythm = next(e for e in clerkenwell if e.title == "English National Ballet - Rhythm Riot")
+    assert (rhythm.start, rhythm.end) == (date(2026, 9, 30), date(2026, 10, 3))

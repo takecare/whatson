@@ -91,6 +91,36 @@ venues:
     lng: -0.1166
     tags: [Art, Classical, Comedy, Dance, Exhibition, Music, Talks, Theatre]
 
+  - id: sadlerswells
+    name: Sadler's Wells
+    url: https://www.sadlerswells.com/whats-on/
+    address: Rosebery Avenue, London EC1R 4TN
+    city: London
+    area: Clerkenwell
+    lat: 51.5294
+    lng: -0.1063
+    tags: [Dance]  # events carry no tags of their own; most are dance
+
+  - id: peacock
+    name: Peacock Theatre
+    url: https://www.sadlerswells.com/whats-on/
+    address: Portugal Street, London WC2A 2HT
+    city: London
+    area: Holborn
+    lat: 51.5140
+    lng: -0.1178
+    tags: [Dance]
+
+  - id: sadlerswellseast
+    name: Sadler's Wells East
+    url: https://www.sadlerswells.com/whats-on/
+    address: Queen Elizabeth Olympic Park, London E20
+    city: London
+    area: Stratford
+    lat: 51.5436
+    lng: -0.0147
+    tags: [Dance]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
@@ -113,17 +143,6 @@ venues:
     lat: 51.4979
     lng: -0.0976
     tags: [Theatre]
-    enabled: false
-
-  - id: sadlerswells
-    name: Sadler's Wells
-    url: https://www.sadlerswells.com/whats-on/
-    address: Rosebery Avenue, London EC1R 4TN
-    city: London
-    area: Clerkenwell
-    lat: 51.5294
-    lng: -0.1063
-    tags: [Dance]
     enabled: false
 
   - id: earthackney

@@ -101,7 +101,9 @@ shows the current state.
 | indigo at The O2 | ✅ Collected | Same aggregator as The O2 arena. |
 | Wilton's Music Hall | ✅ Collected | Listing pages (`?event-page=N`; the theme's `/page/N/` links repeat page one) give dates, time, availability, and, in HTML comments, full-price range and genre. Runs show as date ranges. |
 | Southbank Centre | ✅ Collected (nearly all) | Only the first page of any listing is open; page 2 onwards (and the WordPress API) sit behind a Cloudflare challenge, which we don't get around. So it reads the first page of each art-form filter plus one page per day for 90 days. A page holds 12 events: in a check on 29 Sep 2026 only 2 of 90 days (both Saturdays) had more, so a few events on the busiest days can be missing. Paid prices aren't shown; free events are marked. |
-| Sadler's Wells | 🔜 Planned | Listing is in the page with date ranges and which theatre (Sadler's Wells, Peacock, Lilian Baylis Studio). The Peacock is in Holborn, so it may become its own venue. |
+| Sadler's Wells | ✅ Collected | One listing (`/whats-on/page/N/`) covers all their stages; each card names its stage. This venue is the Clerkenwell building (Sadler's Wells Theatre and Lilian Baylis Studio as spaces). Dates or runs only: no times or prices on the cards. Events are tagged Dance via the venue. |
+| Peacock Theatre | ✅ Collected | Sadler's Wells' Holborn stage, from the same listing. |
+| Sadler's Wells East | ✅ Collected | Sadler's Wells' Stratford stage, from the same listing. |
 | Southwark Park Galleries | 🔜 Planned | WordPress REST API (exhibitions category); dates are in each post's text. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
