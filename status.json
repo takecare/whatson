@@ -1,10 +1,10 @@
-{"generated_at":"2026-09-29T15:07:51+00:00","sources":[
+{"generated_at":"2026-09-29T15:24:46+00:00","sources":[
 {"venue_id":"topsecret","ok":true,"event_count":273,"error":null,"duration_s":72.6,"last_success":"2026-09-29T15:07:51Z","stale":false},
 {"venue_id":"unionchapel","ok":true,"event_count":109,"error":null,"duration_s":110.2,"last_success":"2026-09-29T15:07:51Z","stale":false},
 {"venue_id":"saatchi","ok":true,"event_count":7,"error":null,"duration_s":7.8,"last_success":"2026-09-29T15:07:51Z","stale":false},
 {"venue_id":"barbican","ok":true,"event_count":319,"error":null,"duration_s":348.7,"last_success":"2026-09-29T15:07:51Z","stale":false},
 {"venue_id":"princecharles","ok":true,"event_count":334,"error":null,"duration_s":2.6,"last_success":"2026-09-29T15:07:51Z","stale":false},
-{"venue_id":"o2arena","ok":false,"event_count":0,"error":"FetchError: HTTP 406 for https://www.theo2.co.uk/events/rss","duration_s":85.7,"last_success":null,"stale":false},
+{"venue_id":"o2arena","ok":true,"event_count":100,"error":null,"duration_s":15.2,"last_success":"2026-09-29T15:24:46Z","stale":false},
 {"venue_id":"indigo","ok":false,"event_count":0,"error":"FetchError: HTTP 406 for https://www.theo2.co.uk/events/rss","duration_s":79.5,"last_success":null,"stale":false},
 {"venue_id":"wiltons","ok":true,"event_count":30,"error":null,"duration_s":5.8,"last_success":"2026-09-29T15:07:51Z","stale":false},
 {"venue_id":"southbankcentre","ok":true,"event_count":188,"error":null,"duration_s":166.9,"last_success":"2026-09-29T15:07:51Z","stale":false},
