@@ -49,8 +49,10 @@ class TheO2(BaseAggregator):
     min_interval = 3.0  # the site answers 406 for a while if asked quickly
 
     def fetch_events(self) -> Iterator[Event]:
-        cards = self._cards()
+        # The feed first: it's the one request we can't do without, and the site
+        # starts answering 406 after a handful of requests.
         feed = BeautifulSoup(self.http.get_text(RSS), "xml")
+        cards = self._cards()
         for item in feed.find_all("item"):
             if text_of(item.find("location")).lower() != self.venue.name.lower():
                 continue
