@@ -217,6 +217,14 @@ def test_theo2(venues):
     assert sum(1 for e in listed if e.image_url) == 47
 
 
+def test_o2_venues_share_one_feed_request(venues):
+    http = FakeFetcher({RSS: "theo2/rss.xml"})
+    today = date(2026, 9, 29)
+    list(O2Arena(venues["o2arena"], http, today).fetch_events())
+    list(Indigo(venues["indigo"], http, today).fetch_events())
+    assert http.requested.count(RSS) == 1
+
+
 def test_indigo_without_listing(venues):
     # If the listing pages fail, events still come from the feed, just without images.
     http = FakeFetcher({RSS: "theo2/rss.xml"})

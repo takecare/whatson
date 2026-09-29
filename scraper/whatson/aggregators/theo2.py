@@ -7,6 +7,7 @@ import re
 from collections.abc import Iterator
 from datetime import datetime
 from typing import Any, ClassVar
+from weakref import WeakKeyDictionary
 
 from bs4 import BeautifulSoup
 
@@ -32,6 +33,8 @@ TYPES = {
     "sport": ["Sport"],
     "family": ["Family"],
 }
+_FEEDS: WeakKeyDictionary[Any, str] = WeakKeyDictionary()
+
 # Suffixes added to titles of events that aren't going ahead here.
 _NOT_ON = re.compile(r"\s*\|\s*(cancelled|postponed|venue change|rescheduled)\s*$", re.I)
 
@@ -50,8 +53,11 @@ class TheO2(BaseAggregator):
 
     def fetch_events(self) -> Iterator[Event]:
         # The feed first: it's the one request we can't do without, and the site
-        # starts answering 406 after a handful of requests.
-        feed = BeautifulSoup(self.http.get_text(RSS), "xml")
+        # starts answering 406 after a handful of requests. Both venues read the same
+        # feed, so it's fetched once per HTTP client (i.e. once per run).
+        if self.http not in _FEEDS:
+            _FEEDS[self.http] = self.http.get_text(RSS)
+        feed = BeautifulSoup(_FEEDS[self.http], "xml")
         cards = self._cards()
         for item in feed.find_all("item"):
             if text_of(item.find("location")).lower() != self.venue.name.lower():
