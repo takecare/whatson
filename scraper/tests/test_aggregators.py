@@ -16,6 +16,10 @@ from whatson.aggregators.sadlerswells import (
     SadlersWellsClerkenwell,
     SadlersWellsEast,
 )
+from whatson.aggregators.signaturebrew import (
+    SignatureBrewBlackhorseRoad,
+    SignatureBrewHaggerston,
+)
 from whatson.aggregators.southbank import SouthbankCentre
 from whatson.aggregators.southwarkparkgalleries import API as SPG_API
 from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
@@ -451,3 +455,28 @@ def test_rio(venues):
     shorts = events["Hackney Children's Film Fest: Young Neurospicy: Family Shorts"]
     assert "Relaxed" in shorts.tags  # from the performance's RS flag
     assert events["Pink Palace: DESERT HEARTS"].sold_out  # its only showing is sold out
+
+
+def test_signaturebrew_taprooms(venues):
+    routes = {"https://events.signaturebrew.co.uk/": "signaturebrew/events.html"}
+    today = date(2026, 9, 29)
+    haggerston = list(
+        SignatureBrewHaggerston(
+            venues["signaturebrew-haggerston"], FakeFetcher(routes), today
+        ).fetch_events()
+    )
+    blackhorse = list(
+        SignatureBrewBlackhorseRoad(
+            venues["signaturebrew-blackhorse"], FakeFetcher(routes), today
+        ).fetch_events()
+    )
+
+    assert (len(haggerston), len(blackhorse)) == (42, 43)
+    comedy = haggerston[0]  # "Tuesday, September 29, 2026" / "6:00 pm"
+    assert comedy.title == "Comedy Incorporated"
+    assert comedy.start == datetime(2026, 9, 29, 18, 0, tzinfo=LONDON)
+    assert comedy.category == "Comedy" and comedy.url == "https://tixr.com/e/201579"
+    uefa = blackhorse[0]
+    assert uefa.title == "UEFA Nations League - Czech Republic v England"  # "| London" dropped
+    assert uefa.category == "Sport"
+    assert any(e.category == "Music" for e in haggerston)  # the default

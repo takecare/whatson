@@ -9,6 +9,7 @@ from whatson.aggregators import (  # noqa: F401
     rio,
     saatchi,
     sadlerswells,
+    signaturebrew,
     southbank,
     southwarkparkgalleries,
     theo2,

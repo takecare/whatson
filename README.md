@@ -110,6 +110,8 @@ shows the current state.
 | Cafe OTO | ✅ Collected | Server-rendered listing, paged by following its own next-page link (`?page=N`; past the end it answers 404). Cards give date and time, door/advance/DICE prices (members' prices ignored) and sold-out state. |
 | Arcola Theatre | ✅ Collected | Server-rendered list of shows with run, studio and blurb (the "all shows" view is the same list, filtered in the browser). No times or prices on the listing. |
 | Rio Cinema | ✅ Collected | The What's On page (Savoy's Rio.dll ticketing) embeds the programme as JSON: films with every showtime, screen, sold-out and accessibility flags (relaxed, captioned). One event per film. No prices. |
+| Signature Brew Haggerston | ✅ Collected | One Webflow page lists both taprooms' events with date, time and Tixr link. Its category field is almost always empty, so quiz, football screenings and comedy are recognised from the title; everything else is tagged Music. Addresses approximate. |
+| Signature Brew Blackhorse Road | ✅ Collected | Same page and aggregator as Haggerston. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |

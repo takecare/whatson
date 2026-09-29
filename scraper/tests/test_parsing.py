@@ -18,6 +18,12 @@ REF = date(2026, 9, 29)
         # No year: the next occurrence that isn't long past.
         ("14 February", [date(2027, 2, 14)]),
         ("1 September", [date(2026, 9, 1)]),
+        # Month first
+        ("Tuesday, September 29, 2026", [date(2026, 9, 29)]),
+        ("October 1, 2026, 7:00 PM", [date(2026, 10, 1)]),
+        ("Oct 3rd", [date(2026, 10, 3)]),
+        # A month followed by a year or a time isn't month-first.
+        ("September 2026", []),
     ],
 )
 def test_parse_dates(text, expected):

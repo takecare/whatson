@@ -34,6 +34,9 @@ _DATE_TOKEN = re.compile(
     rf"\b(\d{{1,2}})(?:st|nd|rd|th)?(?:\s+({_MONTH_RE})[a-z]*\.?)?(?:,?\s+(\d{{4}}))?\b",
     re.IGNORECASE,
 )
+_MONTH_FIRST = re.compile(
+    rf"\b((?:{_MONTH_RE})[a-z]*\.?)\s+(\d{{1,2}})(?:st|nd|rd|th)?\b(?!:)", re.IGNORECASE
+)
 _ISO_DATE = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
 _WEEKDAY = r"(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?"
 # What may stand between a bare day number and the next date: "3 - 11 Oct",
@@ -67,6 +70,9 @@ def parse_dates(text: str, ref: date | None = None) -> list[date]:
     iso = [date(int(y), int(m), int(d)) for y, m, d in _ISO_DATE.findall(text)]
     if iso:
         return iso
+
+    # Month-first ("September 29, 2026", "Oct 3") → day-first ("29 September, 2026").
+    text = _MONTH_FIRST.sub(r"\2 \1", text)
 
     tokens: list[list[int | None]] = []
     spans: list[tuple[int, int]] = []

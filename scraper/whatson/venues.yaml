@@ -180,6 +180,26 @@ venues:
     lng: -0.0755
     tags: [Film]
 
+  - id: signaturebrew-haggerston
+    name: Signature Brew Haggerston
+    url: https://events.signaturebrew.co.uk/
+    address: Haggerston, London E2  # approximate
+    city: London
+    area: Haggerston
+    lat: 51.5387
+    lng: -0.0756
+    tags: [Music]
+
+  - id: signaturebrew-blackhorse
+    name: Signature Brew Blackhorse Road
+    url: https://events.signaturebrew.co.uk/
+    address: Blackhorse Lane, London E17  # approximate
+    city: London
+    area: Walthamstow
+    lat: 51.5895
+    lng: -0.0413
+    tags: [Music]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
