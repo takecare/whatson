@@ -31,8 +31,6 @@ venues:
     lng: -0.1587
     tags: [Art, Exhibition]
 
-  # Not collected yet (enabled: false). Listed so `whatson access-check --all`
-  # covers them. Coordinates are approximate.
   - id: barbican
     name: Barbican
     url: https://www.barbican.org.uk/whats-on
@@ -42,8 +40,9 @@ venues:
     lat: 51.5202
     lng: -0.0938
     tags: [Art, Classical, Dance, Exhibition, Film, Music, Theatre]
-    enabled: false
 
+  # Not collected yet (enabled: false). Listed so `whatson access-check --all`
+  # covers them. Coordinates are approximate.
   - id: princecharles
     name: Prince Charles Cinema
     url: https://princecharlescinema.com/whats-on/

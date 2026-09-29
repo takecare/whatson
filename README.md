@@ -95,7 +95,7 @@ shows the current state.
 | The Top Secret Comedy Club | ✅ Collected | Asks the per-day endpoint their date picker uses; the listing's own page links are broken. |
 | Union Chapel | ✅ Collected | Listing page plus each event's page for the start time. They don't publish prices. |
 | Saatchi Gallery | ✅ Collected | WordPress REST API; dates come from each exhibition's description. |
-| Barbican | 🔜 Planned (next) | Listing pages (`?page=N`) plus each event's page for dates, times, prices and spaces. |
+| Barbican | ✅ Collected | Day-by-day listing pages (`?page=N`, about six months ahead) plus each event's page for the first and last performance, hall and standard price. Showtimes load with JavaScript, so events on several days (films, runs) show as date ranges. About 6 minutes per run. |
 | Prince Charles Cinema | 🔜 Planned | The whole programme is on one large page; screenings are grouped into one event per film. |
 | Southbank Centre | 🔜 Planned | Listing is in the page (titles, date ranges, categories). Its WordPress API is behind a Cloudflare challenge, so it has to be the HTML. |
 | Sadler's Wells | 🔜 Planned | Listing is in the page with date ranges and which theatre (Sadler's Wells, Peacock, Lilian Baylis Studio). The Peacock is in Holborn, so it may become its own venue. |

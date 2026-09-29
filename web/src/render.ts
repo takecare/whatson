@@ -99,7 +99,7 @@ export function renderResults(
     const section = h(
       "section",
       { class: "day runs" },
-      h("h2", { class: "day-heading" }, "Exhibitions & runs", h("small", {}, `${results.runs.length}`)),
+      h("h2", { class: "day-heading" }, "On over several days", h("small", {}, `${results.runs.length}`)),
       list,
     );
     if (more > 0) {

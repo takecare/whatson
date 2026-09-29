@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlencode
 
 import pytest
 
@@ -16,8 +17,9 @@ class FakeFetcher:
     """Serves saved pages instead of hitting the network.
 
     ``routes`` maps a key to a fixture path (relative to tests/fixtures). The key is the
-    URL for GETs, or "URL|value" for POSTs, where value is the first form field that
-    isn't "action". Unknown keys raise FetchError, like a failed request would.
+    URL (with its query string) for HTML GETs, "URL|page=N" for JSON GETs, or
+    "URL|value" for POSTs, where value is the first form field that isn't "action".
+    Unknown keys raise FetchError, like a failed request would.
     """
 
     def __init__(self, routes: dict[str, str]) -> None:
@@ -31,7 +33,7 @@ class FakeFetcher:
         return (FIXTURES / self.routes[key]).read_text()
 
     def get_text(self, url: str, params: dict[str, Any] | None = None) -> str:
-        return self._load(url)
+        return self._load(f"{url}?{urlencode(params)}" if params else url)
 
     def get_json(self, url: str, params: dict[str, Any] | None = None) -> Any:
         page = (params or {}).get("page", 1)

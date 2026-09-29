@@ -1,3 +1,3 @@
 """One module per venue. Importing this package registers all of them."""
 
-from whatson.aggregators import saatchi, topsecret, unionchapel  # noqa: F401
+from whatson.aggregators import barbican, saatchi, topsecret, unionchapel  # noqa: F401

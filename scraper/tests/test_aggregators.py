@@ -3,6 +3,7 @@ from datetime import date, datetime
 from conftest import FakeFetcher
 
 from whatson import LONDON
+from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
@@ -89,3 +90,63 @@ def test_saatchi(venues):
 
     # Exhibitions that ended before today are dropped.
     assert all(e.last_day() >= date(2026, 9, 29) for e in events)
+
+
+def test_barbican(venues):
+    base = "https://www.barbican.org.uk/whats-on/2026/event/"
+    http = FakeFetcher(
+        {
+            venues["barbican"].url: "barbican/whats-on.html",
+            f"{venues['barbican'].url}?page=1": "barbican/whats-on-page1.html",
+            **{
+                base + slug: f"barbican/{slug}.html"
+                for slug in (
+                    "1765-times-of-transition",
+                    "sense-and-sensibility",
+                    "pam-tanowitz-dance-pastoral",
+                )
+            },
+        }
+    )
+    agg = Barbican(venues["barbican"], http, today=date(2026, 9, 29))
+    agg.max_pages = 2
+    events = {e.url.rsplit("/", 1)[1]: e for e in agg.fetch_events()}
+
+    # Only events whose page is in the fixtures come out; the rest are skipped.
+    assert set(events) == {
+        "1765-times-of-transition",
+        "sense-and-sensibility",
+        "pam-tanowitz-dance-pastoral",
+    }
+
+    concert = events["1765-times-of-transition"]
+    assert concert.start == datetime(2026, 10, 1, 19, 30, tzinfo=LONDON)
+    assert concert.end is None
+    assert concert.space == "Milton Court Concert Hall"
+    assert (concert.price_min, concert.price_max) == (19.0, 19.0)  # "From £19 (£15 + £4 fee)"
+    assert concert.category == "Classical" and "Music" in concert.tags
+    assert concert.image_url and concert.image_url.startswith("https://www.barbican.org.uk/")
+    assert concert.summary
+
+    film = events["sense-and-sensibility"]  # shown daily: a run, dates only
+    assert (film.start, film.end) == (date(2026, 9, 25), date(2026, 10, 1))
+    assert film.category == "Film" and film.space == "Barbican Cinemas"
+    assert film.price_min == 15.5
+
+    dance = events["pam-tanowitz-dance-pastoral"]
+    assert (dance.start, dance.end) == (date(2026, 10, 1), date(2026, 10, 3))
+    assert set(dance.tags) == {"Theatre", "Dance"}
+    assert dance.space == "Barbican Theatre"
+
+
+def test_barbican_prices():
+    from bs4 import BeautifulSoup
+    from conftest import FIXTURES
+
+    from whatson.aggregators.barbican import _price
+
+    page = BeautifulSoup(
+        (FIXTURES / "barbican/bsl-architectural-tour-with-martin-glover.html").read_text(), "lxml"
+    )
+    assert _price(page) == (0.0, 12.0)  # "Pay What You Can £0 | £3 | … | £12"
+    assert _price(BeautifulSoup("<p>No prices here</p>", "lxml")) == (None, None)
