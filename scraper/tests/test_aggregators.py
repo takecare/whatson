@@ -7,6 +7,7 @@ from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
+from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
 from whatson.aggregators.unionchapel import UnionChapel
@@ -175,3 +176,46 @@ def test_princecharles(venues):
     assert events["Silence"].sold_out and events["Teen Wolf"].sold_out
     assert not events["Barry Lyndon"].sold_out
     assert len(events["In The Mood For Love"].performances) == 14
+
+
+def test_theo2(venues):
+    arena = venues["o2arena"]
+    http = FakeFetcher(
+        {
+            RSS: "theo2/rss.xml",
+            arena.url: "theo2/the-o2-arena.html",
+            f"{AJAX.format(offset=24)}?category=0&venue=1&team=0&exclude=&per_page=24"
+            "&came_from_page=event-list-page": "theo2/events_ajax-24.json",
+        }
+    )
+    agg = O2Arena(arena, http, today=date(2026, 9, 29))
+    agg.max_pages = 2
+    listed = list(agg.fetch_events())
+    events = {e.title: e for e in listed}
+
+    assert len(listed) == 100  # the arena's 102 feed items, minus 2 cancelled
+    assert "Brandi Carlile" not in events and "Brandi Carlile | Cancelled" not in events
+    niall = events["Niall Horan"]  # two nights: a run
+    assert (niall.start, niall.end) == (date(2026, 10, 2), date(2026, 10, 3))
+    assert niall.tags == ["Music"]
+    assert niall.summary == "Plus special guest Flowerovlove"  # the card's tagline
+    assert niall.image_url and niall.booking_url and "axs.com" in niall.booking_url
+    bailey = events["Bill Bailey : Vaudevillean"]
+    assert bailey.start == datetime(2026, 11, 22, 18, 0, tzinfo=LONDON)
+    assert bailey.category == "Comedy"
+    assert events["Dubois vs Wardley 2"].category == "Sport"
+    # The two listing pages hold 48 cards, one of them for a cancelled event.
+    assert sum(1 for e in listed if e.image_url) == 47
+
+
+def test_indigo_without_listing(venues):
+    # If the listing pages fail, events still come from the feed, just without images.
+    http = FakeFetcher({RSS: "theo2/rss.xml"})
+    agg = Indigo(venues["indigo"], http, today=date(2026, 9, 29))
+    listed = list(agg.fetch_events())
+    events = {e.title: e for e in listed}
+    assert len(listed) == 52  # 57 feed items, 5 cancelled
+    assert not any(t.endswith("Cancelled") for t in events)
+    assert events["Wahala Comedy Clash"].category == "Comedy"
+    assert events["Wahala Comedy Clash"].summary  # from the feed's description
+    assert not any(e.image_url for e in listed)

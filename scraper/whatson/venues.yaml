@@ -51,6 +51,26 @@ venues:
     lng: -0.1304
     tags: [Film]
 
+  - id: o2arena
+    name: The O2 arena
+    url: https://www.theo2.co.uk/events/venue/the-o2-arena
+    address: Peninsula Square, London SE10 0DX
+    city: London
+    area: Greenwich
+    lat: 51.5030
+    lng: 0.0032
+    tags: []  # events are tagged from the RSS feed's event type
+
+  - id: indigo
+    name: indigo at The O2
+    url: https://www.theo2.co.uk/events/venue/indigo-at-the-o2
+    address: Peninsula Square, London SE10 0DX
+    city: London
+    area: Greenwich
+    lat: 51.5027
+    lng: 0.0035
+    tags: []  # events are tagged from the RSS feed's event type
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
@@ -117,28 +137,6 @@ venues:
     lat: 51.5130
     lng: -0.0461
     tags: [Music, Nightlife]
-    enabled: false
-
-  - id: o2arena
-    name: The O2 arena
-    url: https://www.theo2.co.uk/events/venue/the-o2-arena
-    address: Peninsula Square, London SE10 0DX
-    city: London
-    area: Greenwich
-    lat: 51.5030
-    lng: 0.0032
-    tags: [Comedy, Family, Music]
-    enabled: false
-
-  - id: indigo
-    name: indigo at The O2
-    url: https://www.theo2.co.uk/events/venue/indigo-at-the-o2
-    address: Peninsula Square, London SE10 0DX
-    city: London
-    area: Greenwich
-    lat: 51.5027
-    lng: 0.0035
-    tags: [Comedy, Music]
     enabled: false
 
   - id: richmix

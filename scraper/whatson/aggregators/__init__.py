@@ -4,6 +4,7 @@ from whatson.aggregators import (  # noqa: F401
     barbican,
     princecharles,
     saatchi,
+    theo2,
     topsecret,
     unionchapel,
 )

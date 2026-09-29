@@ -21,6 +21,11 @@ USER_AGENT = os.environ.get(
     "Mozilla/5.0 (compatible; whatson-bot/0.1; +https://github.com/takecare/whatson)",
 )
 
+ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,application/json;q=0.8,*/*;q=0.7"
+
+# Statuses some sites use to say "slow down" (The O2 answers 406 for a while).
+RATE_LIMITED = {406, 429}
+
 
 class FetchError(Exception):
     pass
@@ -45,7 +50,11 @@ class HttpClient:
         respect_robots: bool = True,
     ) -> None:
         self._client = httpx.Client(
-            headers={"User-Agent": USER_AGENT, "Accept-Language": "en-GB,en;q=0.9"},
+            headers={
+                "User-Agent": USER_AGENT,
+                "Accept": ACCEPT,
+                "Accept-Language": "en-GB,en;q=0.9",
+            },
             timeout=timeout,
             follow_redirects=True,
         )
@@ -54,6 +63,7 @@ class HttpClient:
         self._cache_dir = cache_dir
         self._respect_robots = respect_robots
         self._last_request: dict[str, float] = {}
+        self._host_interval: dict[str, float] = {}
         self._robots: dict[str, RobotFileParser | None] = {}
 
     def close(self) -> None:
@@ -108,17 +118,27 @@ class HttpClient:
                         cached.write_bytes(resp.content)
                     return resp.content
                 last_error = FetchError(f"HTTP {resp.status_code} for {full}")
-                if resp.status_code < 500 and resp.status_code != 429:
+                if resp.status_code in RATE_LIMITED:
+                    # Back off properly: these clear after tens of seconds.
+                    log.info("rate limited on %s; waiting", full)
+                    time.sleep(10 * 2**attempt)
+                    continue
+                if resp.status_code < 500:
                     break
             log.info("retrying %s after %s", full, last_error)
             time.sleep(2**attempt)
         raise FetchError(str(last_error)) from last_error
 
+    def throttle(self, url: str, seconds: float) -> None:
+        """Wait at least ``seconds`` between requests to ``url``'s host."""
+        self._host_interval[urlsplit(url).netloc] = seconds
+
     def _wait(self, url: str) -> None:
         host = urlsplit(url).netloc
+        interval = self._host_interval.get(host, self._min_interval)
         elapsed = time.monotonic() - self._last_request.get(host, 0.0)
-        if elapsed < self._min_interval:
-            time.sleep(self._min_interval - elapsed)
+        if elapsed < interval:
+            time.sleep(interval - elapsed)
         self._last_request[host] = time.monotonic()
 
     def _allowed(self, url: str) -> bool:

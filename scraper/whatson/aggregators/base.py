@@ -21,11 +21,16 @@ class BaseAggregator(ABC):
     """
 
     venue_id: ClassVar[str]
+    min_interval: ClassVar[float | None] = None
+    """Seconds between requests to this venue's site, for sites that rate-limit."""
 
     def __init__(self, venue: Venue, http: Fetcher, today: date | None = None) -> None:
         self.venue = venue
         self.http = http
         self.today = today or date.today()
+        throttle = getattr(http, "throttle", None)
+        if self.min_interval and throttle:
+            throttle(venue.url, self.min_interval)
 
     @abstractmethod
     def fetch_events(self) -> Iterable[Event]: ...
@@ -43,8 +48,9 @@ class BaseAggregator(ABC):
         return self.http.get_json(url, params)
 
     @staticmethod
-    def json_ld(soup: BeautifulSoup, type_: str = "Event") -> list[dict[str, Any]]:
-        """schema.org objects of ``type_`` embedded as JSON-LD, if the page has any."""
+    def json_ld(soup: BeautifulSoup, type_: str | None = "Event") -> list[dict[str, Any]]:
+        """schema.org objects of ``type_`` embedded as JSON-LD, if the page has any.
+        With ``type_=None``, every object whose type ends in "Event" (MusicEvent, ...)."""
         found: list[dict[str, Any]] = []
 
         def walk(node: Any) -> None:
@@ -53,7 +59,11 @@ class BaseAggregator(ABC):
                     walk(n)
             elif isinstance(node, dict):
                 t = node.get("@type")
-                if t == type_ or (isinstance(t, list) and type_ in t):
+                types = t if isinstance(t, list) else [t]
+                if any(
+                    isinstance(x, str) and (x == type_ if type_ else x.endswith("Event"))
+                    for x in types
+                ):
                     found.append(node)
                 walk(node.get("@graph"))
 

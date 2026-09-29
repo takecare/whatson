@@ -18,6 +18,7 @@ TAGS: tuple[str, ...] = (
     "Music",
     "Nightlife",
     "Opera",
+    "Sport",
     "Talks",
     "Theatre",
     "Tours",
