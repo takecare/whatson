@@ -98,6 +98,8 @@ class BaseAggregator(ABC):
 
 ### What the example venues look like (probed 2026-09-28)
 
+The up-to-date list of venues and their status is in README.md ("Venues").
+
 | Venue | What I found | Approach | Difficulty |
 |---|---|---|---|
 | Top Secret Comedy Club | WordPress, list is server-rendered with date, site, times, price, sold-out | parse list HTML | Easy |

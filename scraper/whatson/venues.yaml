@@ -76,3 +76,113 @@ venues:
     lng: -0.0976
     tags: [Theatre]
     enabled: false
+
+  - id: southbankcentre
+    name: Southbank Centre
+    url: https://www.southbankcentre.co.uk/whats-on/
+    address: Belvedere Road, London SE1 8XX
+    city: London
+    area: South Bank
+    lat: 51.5059
+    lng: -0.1166
+    tags: [Art, Classical, Comedy, Dance, Exhibition, Music, Talks, Theatre]
+    enabled: false
+
+  - id: sadlerswells
+    name: Sadler's Wells
+    url: https://www.sadlerswells.com/whats-on/
+    address: Rosebery Avenue, London EC1R 4TN
+    city: London
+    area: Clerkenwell
+    lat: 51.5294
+    lng: -0.1063
+    tags: [Dance]
+    enabled: false
+
+  - id: earthackney
+    name: EartH Hackney
+    url: https://earthackney.co.uk/events/
+    address: 11-17 Stoke Newington Road, London N16 8BH
+    city: London
+    area: Dalston
+    lat: 51.5497
+    lng: -0.0754
+    tags: [Comedy, Film, Music, Talks]
+    enabled: false
+
+  - id: troxy
+    name: Troxy
+    url: https://troxy.co.uk/whats-on/
+    address: 490 Commercial Road, London E1 0HX
+    city: London
+    area: Limehouse
+    lat: 51.5130
+    lng: -0.0461
+    tags: [Music, Nightlife]
+    enabled: false
+
+  - id: o2arena
+    name: The O2 arena
+    url: https://www.theo2.co.uk/events/venue/the-o2-arena
+    address: Peninsula Square, London SE10 0DX
+    city: London
+    area: Greenwich
+    lat: 51.5030
+    lng: 0.0032
+    tags: [Comedy, Family, Music]
+    enabled: false
+
+  - id: indigo
+    name: indigo at The O2
+    url: https://www.theo2.co.uk/events/venue/indigo-at-the-o2
+    address: Peninsula Square, London SE10 0DX
+    city: London
+    area: Greenwich
+    lat: 51.5027
+    lng: 0.0035
+    tags: [Comedy, Music]
+    enabled: false
+
+  - id: richmix
+    name: Rich Mix
+    url: https://richmix.org.uk/live-events/
+    address: 35-47 Bethnal Green Road, London E1 6LA
+    city: London
+    area: Shoreditch
+    lat: 51.5237
+    lng: -0.0741
+    tags: [Comedy, Dance, Film, Music, Theatre]
+    enabled: false
+
+  - id: wiltons
+    name: Wilton's Music Hall
+    url: https://wiltons.org.uk/whats-on/
+    address: 1 Graces Alley, London E1 8JB
+    city: London
+    area: Whitechapel
+    lat: 51.5105
+    lng: -0.0674
+    tags: [Comedy, Music, Opera, Theatre]
+    enabled: false
+
+  - id: southwarkparkgalleries
+    name: Southwark Park Galleries
+    url: https://southwarkparkgalleries.org/category/exhibitions/
+    address: Southwark Park, London SE16 2UA
+    city: London
+    area: Bermondsey
+    lat: 51.4940
+    lng: -0.0550
+    tags: [Art, Exhibition]
+    enabled: false
+
+  - id: whitechapelgallery
+    name: Whitechapel Gallery
+    url: https://www.whitechapelgallery.org/events-2-2/
+    address: 77-82 Whitechapel High Street, London E1 7QX
+    city: London
+    area: Whitechapel
+    lat: 51.5160
+    lng: -0.0703
+    tags: [Art, Exhibition, Talks]
+    enabled: false

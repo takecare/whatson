@@ -94,7 +94,7 @@ CHALLENGE_MARKERS = {
     b"sgcaptcha": "SiteGround captcha",
     b"cf-challenge": "Cloudflare",
     b"Attention Required! | Cloudflare": "Cloudflare",
-    b"Just a moment...": "Cloudflare",
+    b"<title>Just a moment": "Cloudflare",
     b"captcha-delivery.com": "DataDome",
 }
 

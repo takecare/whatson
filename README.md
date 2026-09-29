@@ -85,15 +85,33 @@ you can use directly.
 
 ## Venues
 
-| Venue | Status |
-|---|---|
-| The Top Secret Comedy Club | ✅ collected (per-day endpoint used by their date picker) |
-| Union Chapel | ✅ collected (listing + event pages; no prices published) |
-| Saatchi Gallery | ✅ collected (WordPress REST API) |
-| Barbican | planned |
-| Prince Charles Cinema | planned |
-| Royal Albert Hall | postponed: blocked by bot protection (Incapsula) |
-| Southwark Playhouse | postponed: blocked by bot protection (SiteGround captcha) |
+Status: ✅ collected · 🔜 planned (reachable, approach known) · ❓ needs a decision ·
+⏸️ postponed (blocked by bot protection). "Blocked" means the venue's site refuses
+our requests; `whatson access-check --all` (or the **Venue access check** workflow)
+shows the current state.
+
+| Venue | Status | Why / how |
+|---|---|---|
+| The Top Secret Comedy Club | ✅ Collected | Asks the per-day endpoint their date picker uses; the listing's own page links are broken. |
+| Union Chapel | ✅ Collected | Listing page plus each event's page for the start time. They don't publish prices. |
+| Saatchi Gallery | ✅ Collected | WordPress REST API; dates come from each exhibition's description. |
+| Barbican | 🔜 Planned (next) | Listing pages (`?page=N`) plus each event's page for dates, times, prices and spaces. |
+| Prince Charles Cinema | 🔜 Planned | The whole programme is on one large page; screenings are grouped into one event per film. |
+| Southbank Centre | 🔜 Planned | Listing is in the page (titles, date ranges, categories). Its WordPress API is behind a Cloudflare challenge, so it has to be the HTML. |
+| Sadler's Wells | 🔜 Planned | Listing is in the page with date ranges and which theatre (Sadler's Wells, Peacock, Lilian Baylis Studio). The Peacock is in Holborn, so it may become its own venue. |
+| The O2 arena | 🔜 Planned | Listing is in the page, with some schema.org event data; same site and layout as indigo, so one aggregator can serve both. |
+| indigo at The O2 | 🔜 Planned | As The O2 arena. |
+| Wilton's Music Hall | 🔜 Planned | Listing is in the page with dates, times and prices; WordPress also exposes a `whatson` post type. |
+| Southwark Park Galleries | 🔜 Planned | WordPress REST API (exhibitions category); dates are in each post's text. |
+| Troxy | ❓ Needs a decision | Its Cloudflare setup lets `curl` through but blocks the scraper's Python HTTP client, even with the same headers: it recognises the client's TLS fingerprint. Getting through means switching HTTP library to one that looks like another client, which works around a block the venue chose to have. |
+| Whitechapel Gallery | ❓ Needs a decision | Same as Troxy: `curl` gets the page, the Python client gets 403. |
+| Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |
+| EartH Hackney | ⏸️ Postponed | SiteGround captcha for every client we tried. |
+| Royal Albert Hall | ⏸️ Postponed | Incapsula bot protection. |
+| Southwark Playhouse | ⏸️ Postponed | SiteGround captcha. |
+
+Postponed venues are worth retrying from the self-hosted runner (a home IP) and
+checking for a ticketing-platform feed before giving up on them.
 
 Listings are collected from each venue's public website with an identifying
 User-Agent, at most one request per second per site, respecting robots.txt. Every
