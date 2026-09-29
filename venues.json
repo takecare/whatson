@@ -1,6 +1,15 @@
-{"generated_at":"2026-09-29T09:58:29+00:00","venues":[
+{"generated_at":"2026-09-29T15:07:51+00:00","venues":[
 {"id":"topsecret","name":"The Top Secret Comedy Club","url":"https://thetopsecretcomedyclub.co.uk/events-listings/","address":"170 Drury Lane, London WC2B 5QF","city":"London","area":"Covent Garden","lat":51.5155,"lng":-0.1219,"tags":["Comedy"]},
 {"id":"unionchapel","name":"Union Chapel","url":"https://unionchapel.org.uk/venue/whats-on","address":"19b Compton Terrace, London N1 2UN","city":"London","area":"Islington","lat":51.5437,"lng":-0.1026,"tags":["Music"]},
 {"id":"saatchi","name":"Saatchi Gallery","url":"https://www.saatchigallery.com/whats-on","address":"Duke of York's HQ, King's Road, London SW3 4RY","city":"London","area":"Chelsea","lat":51.4906,"lng":-0.1587,"tags":["Art","Exhibition"]},
-{"id":"barbican","name":"Barbican","url":"https://www.barbican.org.uk/whats-on","address":"Silk Street, London EC2Y 8DS","city":"London","area":"City of London","lat":51.5202,"lng":-0.0938,"tags":["Art","Classical","Dance","Exhibition","Film","Music","Theatre"]}
+{"id":"barbican","name":"Barbican","url":"https://www.barbican.org.uk/whats-on","address":"Silk Street, London EC2Y 8DS","city":"London","area":"City of London","lat":51.5202,"lng":-0.0938,"tags":["Art","Classical","Dance","Exhibition","Film","Music","Theatre"]},
+{"id":"princecharles","name":"Prince Charles Cinema","url":"https://princecharlescinema.com/whats-on/","address":"7 Leicester Place, London WC2H 7BY","city":"London","area":"Leicester Square","lat":51.5116,"lng":-0.1304,"tags":["Film"]},
+{"id":"o2arena","name":"The O2 arena","url":"https://www.theo2.co.uk/events/venue/the-o2-arena","address":"Peninsula Square, London SE10 0DX","city":"London","area":"Greenwich","lat":51.503,"lng":0.0032,"tags":[]},
+{"id":"indigo","name":"indigo at The O2","url":"https://www.theo2.co.uk/events/venue/indigo-at-the-o2","address":"Peninsula Square, London SE10 0DX","city":"London","area":"Greenwich","lat":51.5027,"lng":0.0035,"tags":[]},
+{"id":"wiltons","name":"Wilton's Music Hall","url":"https://wiltons.org.uk/whats-on/","address":"1 Graces Alley, London E1 8JB","city":"London","area":"Whitechapel","lat":51.5105,"lng":-0.0674,"tags":["Comedy","Music","Opera","Theatre"]},
+{"id":"southbankcentre","name":"Southbank Centre","url":"https://www.southbankcentre.co.uk/whats-on/","address":"Belvedere Road, London SE1 8XX","city":"London","area":"South Bank","lat":51.5059,"lng":-0.1166,"tags":["Art","Classical","Comedy","Dance","Exhibition","Music","Talks","Theatre"]},
+{"id":"sadlerswells","name":"Sadler's Wells","url":"https://www.sadlerswells.com/whats-on/","address":"Rosebery Avenue, London EC1R 4TN","city":"London","area":"Clerkenwell","lat":51.5294,"lng":-0.1063,"tags":["Dance"]},
+{"id":"peacock","name":"Peacock Theatre","url":"https://www.sadlerswells.com/whats-on/","address":"Portugal Street, London WC2A 2HT","city":"London","area":"Holborn","lat":51.514,"lng":-0.1178,"tags":["Dance"]},
+{"id":"sadlerswellseast","name":"Sadler's Wells East","url":"https://www.sadlerswells.com/whats-on/","address":"Queen Elizabeth Olympic Park, London E20","city":"London","area":"Stratford","lat":51.5436,"lng":-0.0147,"tags":["Dance"]},
+{"id":"southwarkparkgalleries","name":"Southwark Park Galleries","url":"https://southwarkparkgalleries.org/category/exhibitions/","address":"Southwark Park, London SE16 2UA","city":"London","area":"Bermondsey","lat":51.494,"lng":-0.055,"tags":["Art","Exhibition"]}
 ]}
