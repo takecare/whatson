@@ -287,3 +287,14 @@ venues:
     lng: -0.0703
     tags: [Art, Exhibition, Talks]
     enabled: false
+
+  - id: excel
+    name: ExCeL London
+    url: https://www.excel.london/visitor/whats-on
+    address: 1 Western Gateway, London E16 1XL
+    city: London
+    area: Royal Docks
+    lat: 51.5085
+    lng: 0.0295
+    tags: [Exhibition]
+    enabled: false

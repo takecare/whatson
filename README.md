@@ -85,8 +85,8 @@ you can use directly.
 
 ## Venues
 
-Status: ✅ collected · 🔜 planned (reachable, approach known) · ⏸️ postponed
-(blocked by bot protection). "Blocked" means the venue's site refuses
+Status: ✅ collected · 🔜 planned (reachable, approach known) · ❓ needs a decision ·
+⏸️ postponed (blocked by bot protection). "Blocked" means the venue's site refuses
 our requests; `whatson access-check --all` (or the **Venue access check** workflow)
 shows the current state.
 
@@ -114,6 +114,7 @@ shows the current state.
 | Signature Brew Blackhorse Road | ✅ Collected | Same page and aggregator as Haggerston. |
 | SJQ | ✅ Collected | The programme page shows an Elfsight calendar widget; we read the JSON the widget itself loads (Elfsight's public boot endpoint): name, date and time, image, ticket link. Club nights running past midnight are tagged Nightlife. |
 | The Courtyard Theatre | ✅ Collected | WordPress page of cards (`?event_page=N`) with title, date and time, image and See Tickets link. No categories or prices, so events are tagged Theatre via the venue. |
+| ExCeL London | ❓ Needs a decision | The listing is in the page, but about 70% of it is trade and B2B shows. Its consumer/trade filter works through \`/ajax/\`, which robots.txt disallows, and event pages don't say which kind they are. Options: include everything, filter by title keywords (Expo, Congress… — unreliable), or skip. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |
