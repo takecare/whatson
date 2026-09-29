@@ -210,6 +210,16 @@ venues:
     lng: -0.0749
     tags: [Music]
 
+  - id: courtyard
+    name: The Courtyard Theatre
+    url: https://thecourtyard.org.uk/whats-on/
+    address: Bowling Green Walk, 40 Pitfield Street, London N1 6EU
+    city: London
+    area: Hoxton
+    lat: 51.5285
+    lng: -0.0830
+    tags: [Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

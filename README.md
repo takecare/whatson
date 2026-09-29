@@ -113,6 +113,7 @@ shows the current state.
 | Signature Brew Haggerston | ✅ Collected | One Webflow page lists both taprooms' events with date, time and Tixr link. Its category field is almost always empty, so quiz, football screenings and comedy are recognised from the title; everything else is tagged Music. Addresses approximate. |
 | Signature Brew Blackhorse Road | ✅ Collected | Same page and aggregator as Haggerston. |
 | SJQ | ✅ Collected | The programme page shows an Elfsight calendar widget; we read the JSON the widget itself loads (Elfsight's public boot endpoint): name, date and time, image, ticket link. Club nights running past midnight are tagged Nightlife. |
+| The Courtyard Theatre | ✅ Collected | WordPress page of cards (`?event_page=N`) with title, date and time, image and See Tickets link. No categories or prices, so events are tagged Theatre via the venue. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |

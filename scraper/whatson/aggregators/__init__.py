@@ -4,6 +4,7 @@ from whatson.aggregators import (  # noqa: F401
     arcola,
     barbican,
     cafeoto,
+    courtyard,
     enb,
     princecharles,
     rio,

@@ -6,6 +6,7 @@ from whatson import LONDON
 from whatson.aggregators.arcola import ArcolaTheatre
 from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.cafeoto import CafeOto
+from whatson.aggregators.courtyard import CourtyardTheatre
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.rio import RioCinema
@@ -498,3 +499,19 @@ def test_sjq(venues):
     afrique = events["Afrique Express"]
     assert afrique.start == datetime(2026, 10, 2, 22, 0, tzinfo=LONDON)
     assert afrique.end is None and "Nightlife" in afrique.tags
+
+
+def test_courtyard(venues):
+    url = venues["courtyard"].url
+    routes = {url: "courtyard/whats-on-1.html"}
+    routes |= {f"{url}?event_page={n}": f"courtyard/whats-on-{n}.html" for n in range(2, 6)}
+    http = FakeFetcher(routes)
+    events = list(CourtyardTheatre(venues["courtyard"], http, date(2026, 9, 29)).fetch_events())
+
+    assert len(events) == 62
+    assert http.requested[-1] == f"{url}?event_page=5"  # the last page links no further
+    first = events[0]  # "October 1, 2026, 7:00 PM"
+    assert first.title == "favourite daughter"
+    assert first.start == datetime(2026, 10, 1, 19, 0, tzinfo=LONDON)
+    assert first.url.startswith("https://thecourtyardtheatre.seetickets.com/")
+    assert first.image_url
