@@ -35,7 +35,12 @@ _DATE_TOKEN = re.compile(
     re.IGNORECASE,
 )
 _ISO_DATE = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
-_JOINER = re.compile(r"\s*(?:-|–|—|,|&|\band\b|\bto\b|\buntil\b)\s*", re.IGNORECASE)
+_WEEKDAY = r"(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?"
+# What may stand between a bare day number and the next date: "3 - 11 Oct",
+# "Wed 7 - Thu 8 Oct", "3, 4 & 5 Oct".
+_JOINER = re.compile(
+    rf"\s*(?:-|–|—|,|&|\band\b|\bto\b|\buntil\b)\s*(?:{_WEEKDAY}\s+)?", re.IGNORECASE
+)
 _RANGE_SEP = re.compile(r"\s*(?:-|–|—|\bto\b|\buntil\b)\s*", re.IGNORECASE)
 _TIME = re.compile(r"\b(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)\b|\b(\d{1,2})[:.](\d{2})\b", re.I)
 _PRICE = re.compile(r"£\s*(\d+(?:[.,]\d{1,2})?)")

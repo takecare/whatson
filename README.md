@@ -99,9 +99,9 @@ shows the current state.
 | Prince Charles Cinema | ✅ Collected | The whole programme is one page: each film with its showtimes by day, so one event per film with every showing. Format tags (35mm, 70mm, sing-along) go in the summary. Prices aren't listed. |
 | The O2 arena | ✅ Collected | The O2's RSS feed (`/events/rss`) gives every event with start/end times and type, in one request; the listing pages (plus their "load more" endpoint) add images, taglines and ticket links. Events on several nights show as date ranges. The site rate-limits (HTTP 406), so requests are spaced 3 s apart. |
 | indigo at The O2 | ✅ Collected | Same aggregator as The O2 arena. |
+| Wilton's Music Hall | ✅ Collected | Listing pages (`?event-page=N`; the theme's `/page/N/` links repeat page one) give dates, time, availability, and, in HTML comments, full-price range and genre. Runs show as date ranges. |
 | Southbank Centre | 🔜 Planned | Listing is in the page (titles, date ranges, categories). Its WordPress API is behind a Cloudflare challenge, so it has to be the HTML. |
 | Sadler's Wells | 🔜 Planned | Listing is in the page with date ranges and which theatre (Sadler's Wells, Peacock, Lilian Baylis Studio). The Peacock is in Holborn, so it may become its own venue. |
-| Wilton's Music Hall | 🔜 Planned | Listing is in the page with dates, times and prices; WordPress also exposes a `whatson` post type. |
 | Southwark Park Galleries | 🔜 Planned | WordPress REST API (exhibitions category); dates are in each post's text. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |

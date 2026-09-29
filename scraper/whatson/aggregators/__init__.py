@@ -7,4 +7,5 @@ from whatson.aggregators import (  # noqa: F401
     theo2,
     topsecret,
     unionchapel,
+    wiltons,
 )

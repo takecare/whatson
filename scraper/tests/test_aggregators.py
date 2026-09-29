@@ -11,6 +11,7 @@ from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
 from whatson.aggregators.unionchapel import UnionChapel
+from whatson.aggregators.wiltons import WiltonsMusicHall
 from whatson.registry import load_aggregators
 
 
@@ -219,3 +220,34 @@ def test_indigo_without_listing(venues):
     assert events["Wahala Comedy Clash"].category == "Comedy"
     assert events["Wahala Comedy Clash"].summary  # from the feed's description
     assert not any(e.image_url for e in listed)
+
+
+def test_wiltons(venues):
+    url = venues["wiltons"].url
+    http = FakeFetcher(
+        {
+            url: "wiltons/whats-on.html",
+            f"{url}?event-page=2": "wiltons/whats-on-page2.html",
+            f"{url}?event-page=3": "wiltons/whats-on-page3.html",
+        }
+    )
+    listed = list(WiltonsMusicHall(venues["wiltons"], http, today=date(2026, 9, 29)).fetch_events())
+    events = {e.title: e for e in listed}
+
+    assert len(listed) == 30  # 28 cards; two "History Tours" cards list two dates each
+    tim = events["Tim Key: Loganberry"]  # "Mon 28 Sep - Sat 3 Oct, 7:45pm"
+    assert (tim.start, tim.end) == (date(2026, 9, 28), date(2026, 10, 3))
+    assert (tim.price_min, tim.price_max) == (12.0, 26.0)  # full price, not concessions
+    assert tim.category == "Comedy" and tim.image_url
+    film = events["The Cabinet of Dr Caligari (1920) with live score"]
+    assert film.start == datetime(2026, 10, 6, 19, 0, tzinfo=LONDON)
+    assert film.category == "Film"
+    incendiary = events["INCENDIARY – Samuel Pepys in Words and Music"]  # "Wed 7 - Thu 8 Oct"
+    assert (incendiary.start, incendiary.end) == (date(2026, 10, 7), date(2026, 10, 8))
+    assert events["Stewart Lee’s Pea Green Boat"].sold_out
+    tours = sorted(e.start for e in listed if e.title == "History Tours")
+    assert tours[:2] == [
+        datetime(2026, 10, 24, 17, 0, tzinfo=LONDON),
+        datetime(2026, 10, 31, 17, 0, tzinfo=LONDON),
+    ]
+    assert http.requested[-1] == f"{url}?event-page=3"  # stops at the first short page

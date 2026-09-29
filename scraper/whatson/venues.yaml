@@ -71,6 +71,16 @@ venues:
     lng: 0.0035
     tags: []  # events are tagged from the RSS feed's event type
 
+  - id: wiltons
+    name: Wilton's Music Hall
+    url: https://wiltons.org.uk/whats-on/
+    address: 1 Graces Alley, London E1 8JB
+    city: London
+    area: Whitechapel
+    lat: 51.5105
+    lng: -0.0674
+    tags: [Comedy, Music, Opera, Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
@@ -148,17 +158,6 @@ venues:
     lat: 51.5237
     lng: -0.0741
     tags: [Comedy, Dance, Film, Music, Theatre]
-    enabled: false
-
-  - id: wiltons
-    name: Wilton's Music Hall
-    url: https://wiltons.org.uk/whats-on/
-    address: 1 Graces Alley, London E1 8JB
-    city: London
-    area: Whitechapel
-    lat: 51.5105
-    lng: -0.0674
-    tags: [Comedy, Music, Opera, Theatre]
     enabled: false
 
   - id: southwarkparkgalleries

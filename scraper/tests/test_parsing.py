@@ -29,6 +29,8 @@ def test_parse_dates(text, expected):
     [
         ("11 November 2026 - 5 May 2027", date(2026, 11, 11), date(2027, 5, 5), []),
         ("3 - 11 October", date(2026, 10, 3), date(2026, 10, 11), []),
+        ("Wed 7 - Thu 8 Oct", date(2026, 10, 7), date(2026, 10, 8), []),
+        ("Mon 28 Sep - Sat 3 Oct", date(2026, 9, 28), date(2026, 10, 3), []),
         ("18 – 19 September", date(2026, 9, 18), date(2026, 9, 19), []),
         ("3 October - 5 November 2026", date(2026, 10, 3), date(2026, 11, 5), []),
         ("30 December - 5 January 2027", date(2026, 12, 30), date(2027, 1, 5), []),
