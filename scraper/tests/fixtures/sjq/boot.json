@@ -1,0 +1,704 @@
+{
+ "status": 1,
+ "data": {
+  "widgets": {
+   "d24ece57-4cf0-4357-a18a-5f40f33590a9": {
+    "status": 1,
+    "data": {
+     "app": "event-calendar",
+     "settings": {
+      "events": [
+       {
+        "id": "4cf063d1-30b1-4b23-bd54-241c23ebf048",
+        "name": "Rothko+ Minus Pilots & special guest",
+        "start": {
+         "type": "datetime",
+         "date": "2026-09-29",
+         "time": "19:30"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-09-29",
+         "time": "23:00"
+        },
+        "timeZone": "Africa/Ceuta",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><strong>Mark Beazley // Rothko</strong><br>Mark Beazley is a London-based experimental musician, bassist, producer and mastering engineer, best known as the founder and driving force behind Rothko. Formed in 1997, the band created atmospheric, largely instrumental music using only bass guitars.",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/4e5939a5-24c7-4a5d-a586-dcf36613c10b/rothko-sjq-sep-2026.jpg",
+         "name": "rothko-sjq-sep-2026.jpg",
+         "size": 4938584,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 3508,
+         "height": 4961,
+         "meta": {
+          "width": 3508,
+          "height": 4961
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "id": "3eb5d4a3-28a9-481b-aafc-32fdfe857dfd",
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://www.ticketsource.com/championversion/t-dkgplnz",
+           "rawValue": "https://www.ticketsource.com/championversion/t-dkgplnz",
+           "target": "_blank"
+          },
+          "primary": true
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "46ba9285-82e5-44e1-b2c2-ac9241360b26",
+        "name": "Nordic Creative Innovations presents: A. Blomqvist - Modern Nocturne",
+        "start": {
+         "type": "datetime",
+         "date": "2026-09-30",
+         "time": "19:30"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-09-30",
+         "time": "23:00"
+        },
+        "timeZone": "Africa/Ceuta",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div>he European tour of<strong><em> A. Blomqvist</em></strong>—begins right here in your city, London!</div><br><div>This intimate and deeply moving solo piano show at <strong>SJQ London</strong> marks the very first steps for one of the new era’s rising classical superstars. This is a definitive m",
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "video": null,
+        "file": null,
+        "isAllDay": false,
+        "actions": [
+         {
+          "id": "fdaa0e595ce0c",
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "rawValue": "https://www.eventbrite.co.uk/e/a-blomqvist-modern-nocturne-tickets-1990948543689?aff=oddtdtcreator",
+           "value": "https://www.eventbrite.co.uk/e/a-blomqvist-modern-nocturne-tickets-1990948543689?aff=oddtdtcreator",
+           "type": "url",
+           "target": "_blank"
+          },
+          "primary": true
+         }
+        ],
+        "actionsCaption": "",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/4a93f225-91b3-40d5-98f4-51a0fe1e6aa9/A-Blomqvist_Promo8.jpg",
+         "name": "A.Blomqvist_Promo8.jpg",
+         "size": 46378898,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 14844,
+         "height": 9896,
+         "meta": {
+          "width": 14844,
+          "height": 9896
+         }
+        }
+       },
+       {
+        "id": "07025020-e90d-48f0-ba51-97e4889c31e2",
+        "name": "Speed Of Sound presents: John Myrtle",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-01",
+         "time": "19:30"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-01",
+         "time": "23:00"
+        },
+        "timeZone": "Africa/Ceuta",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div>Speed of Sound are delighted to welcome John Myrtle to SJQ for a very special London headline show as part of his UK / EU tour!</div>",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/841c6a9f-ec88-4ed8-b9f5-3acaa21492c2/eec44c25-f798-4d5a-bfad-a938b1e36bd9.jpg",
+         "name": "eec44c25-f798-4d5a-bfad-a938b1e36bd9.jpeg",
+         "size": 17992433,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 4000,
+         "height": 5000,
+         "meta": {
+          "width": 4000,
+          "height": 5000
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://dice.fm/partner/tickets/event/8eq3vw-john-myrtle-jackson-roy-1st-oct-sjq-london-tickets?dice_id=9598224&dice_channel=web&dice_tags=organic&dice_campaign=Speed+of+Sound+Events+LTD&dice_feature=mio_marketing&_branch_match_id=1536740192222916625&utm_source=web&utm_campaign=Speed+of+Sound+Events+LTD&utm_medium=mio_marketing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1S8zSEo0T7RMMrQwS7KvK0pNSy0qysxLj08qyi8vTi2ydc4oys9NBQATM5laOwAAAA%3D%3D",
+           "rawValue": "https://dice.fm/partner/tickets/event/8eq3vw-john-myrtle-jackson-roy-1st-oct-sjq-london-tickets?dice_id=9598224&dice_channel=web&dice_tags=organic&dice_campaign=Speed+of+Sound+Events+LTD&dice_feature=mio_marketing&_branch_match_id=1536740192222916625&utm_source=web&utm_campaign=Speed+of+Sound+Events+LTD&utm_medium=mio_marketing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1S8zSEo0T7RMMrQwS7KvK0pNSy0qysxLj08qyi8vTi2ydc4oys9NBQATM5laOwAAAA%3D%3D",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "8e4c74e4-2642-462c-90f1-c68efcb9d704"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "2a8bef31-2224-46b5-8d75-f3047324ab19",
+        "name": "10a Sessions: Jali Bakary Konteh Trio",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-02",
+         "time": "20:00"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-02",
+         "time": "21:30"
+        },
+        "timeZone": "Europe/London",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><span>Jali Bakary is the grandson and son, respectively, of the legendary Gambian kora players Alhaji Bai Konte (who helped to bring kora music to the wider world with his iconic album Kora Melodies From the Republic of the Gambia, West Africa in 1973) and Dembo Konte. Born into this remarkable",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/fdf5f6ed-2da3-4b5d-a3d2-81604109c5b0/Screenshot-2026-09-10-at-14-18-22.png",
+         "name": "Screenshot 2026-09-10 at 14.18.22.png",
+         "size": 2928096,
+         "type": "image/png",
+         "extension": "png",
+         "width": 1086,
+         "height": 1152,
+         "meta": {
+          "width": 1086,
+          "height": 1152
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://link.dice.fm/aa82d86e6dbb",
+           "rawValue": "https://link.dice.fm/aa82d86e6dbb",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "0b07c9ee-22a1-474b-a2af-3d7631d0f1c1"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "f7b21ce3-2560-4ae1-88cf-456e79e53034",
+        "name": "Afrique Express",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-02",
+         "time": "22:00"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-03",
+         "time": "02:00"
+        },
+        "timeZone": "Europe/London",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><span>After a few international stops in Lisbon and Copenhagen over the summer, DJ Afrodesi’s Afrique Express returns to SJQ on 02 October, joined by special guest Henri Gaobi, master percussionist from Côte d’Ivoire, for another celebration of dance music from Africa, the Antilles and beyond.<",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/50e7d20b-c456-43d6-bb02-690d36a3770c/Designer-2026-08-28T224847-960.png",
+         "name": "Designer - 2026-08-28T224847.960.png",
+         "size": 1185219,
+         "type": "image/png",
+         "extension": "png",
+         "width": 894,
+         "height": 1118,
+         "meta": {
+          "width": 894,
+          "height": 1118
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://link.dice.fm/T3d849afd2a1",
+           "rawValue": "https://link.dice.fm/T3d849afd2a1",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "754b8a8a-da5e-42d6-8987-fa2ab3b61249"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "9f3df01b-1dc8-4bb4-a8a1-f1bc05e829d8",
+        "name": "10a Sessions: Novos Londrinos",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-03",
+         "time": "20:00"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-03",
+         "time": "21:30"
+        },
+        "timeZone": "Europe/London",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><span>Novos Londrinos are a Brazilian-inspired band based in North London.</span></div><br><div><span>Claudia, Jackson, Jonny, Gio and Rachel were brought together in 2021 by their love of bossa nova, samba and música popular brasileira.</span></div><br><div><span>With original songs channellin",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/c568c798-3e5b-47db-8dc8-5b63438b573a/novos-10a-copy.jpg",
+         "name": "novos 10a copy.jpg",
+         "size": 8646218,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 4500,
+         "height": 6000,
+         "meta": {
+          "width": 4500,
+          "height": 6000
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "id": "107c3a03-f84e-45b0-87b0-6df94ba98856",
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://link.dice.fm/uf468f59c4ac",
+           "rawValue": "https://link.dice.fm/uf468f59c4ac",
+           "target": "_blank"
+          },
+          "primary": true
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "8e3c5082-7828-4306-8054-3b10f89063b0",
+        "name": "Stolen Moments",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-03",
+         "time": "22:00"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-04",
+         "time": "03:00"
+        },
+        "timeZone": "Europe/London",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><span>Loose format eclectic dance.  </span></div><br><div><span>Disco, soul, funk sounds from across the globe. Exclusivley on vinyl.</span></div>",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/045075fc-c7d4-4f3e-b157-0bcd4f74af7b/3_10-copy.jpg",
+         "name": "3_10 copy.jpg",
+         "size": 7187938,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 3543,
+         "height": 4724,
+         "meta": {
+          "width": 3543,
+          "height": 4724
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [
+         {
+          "tagName": "",
+          "id": "8a270039-b46c-48d4-8230-6782332d25bc"
+         }
+        ],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Free Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://link.dice.fm/Ba264c29a1f1",
+           "rawValue": "https://link.dice.fm/Ba264c29a1f1",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "3dfd9667-0d60-4f1d-b5ff-2b15b4d814f0"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "84d4b438-0aec-45ce-a22e-db047b1f1a6c",
+        "name": "Sonic Cathedral presents: Andy Bell & Masal",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-05",
+         "time": "19:30"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-05",
+         "time": "23:00"
+        },
+        "timeZone": "Africa/Ceuta",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><strong>Andy Bell </strong>(Ride / Oasis) has collaborated with Essex-based harp / synth duo <strong>Masal</strong> for a second album of kosmische, astral jazz and Turkish folk.</div><br><div><strong>'Common Primitives'</strong> is released via Sonic Cathedral on October 9, 2026 and to launch ",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/5de04b05-0022-48d9-b7ef-6334bc741ff0/AB-Masal-SJQ-gigs-1080x1080.jpg",
+         "name": "AB+Masal SJQ gigs 1080x1080.jpg",
+         "size": 893137,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 1080,
+         "height": 1080,
+         "meta": {
+          "width": 1080,
+          "height": 1080
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://www.seetickets.com/event/andy-bell-masal/sjq/3678354",
+           "rawValue": "https://www.seetickets.com/event/andy-bell-masal/sjq/3678354",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "4bb638dd-1587-41d3-ad6b-07624e8cb06f"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "id": "141ff2fe-0d47-4c09-8db6-84d85b6767aa",
+        "name": "Sonic Cathedral presents: Andy Bell & Masal",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-06",
+         "time": "19:30"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-06",
+         "time": "23:00"
+        },
+        "timeZone": "Africa/Ceuta",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div><strong>Andy Bell </strong>(Ride / Oasis) has collaborated with Essex-based harp / synth duo <strong>Masal</strong> for a second album of kosmische, astral jazz and Turkish folk.</div><br><div><strong>'Common Primitives'</strong> is released via Sonic Cathedral on October 9, 2026 and to launch ",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/d5af3490-38e8-49f3-8bb7-5e87aa40154f/AB-Masal-SJQ-gigs-1080x1080.jpg",
+         "name": "AB+Masal SJQ gigs 1080x1080.jpg",
+         "size": 893137,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 1080,
+         "height": 1080,
+         "meta": {
+          "width": 1080,
+          "height": 1080
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://www.seetickets.com/event/andy-bell-masal/sjq/3678587",
+           "rawValue": "https://www.seetickets.com/event/andy-bell-masal/sjq/3678587",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "3bc9b6b7-4549-444c-8a67-07c963951f19"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false
+       },
+       {
+        "name": "Haseeb Iqbal Presents: Studio Crumb Midweek Sessions",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-08",
+         "time": "20:00"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-09",
+         "time": "01:00"
+        },
+        "timeZone": "Europe/London",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatWeeklyOnDays": [],
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/f9ca7790-3512-48ab-9a0e-73c853840032/Haseeb-Glasto-2025.jpg",
+         "name": "Haseeb Glasto 2025.jpeg",
+         "size": 521445,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 1920,
+         "height": 1440,
+         "meta": {
+          "width": 1920,
+          "height": 1440
+         }
+        },
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "actions": [
+         {
+          "type": "link",
+          "text": "Tickets",
+          "link": {
+           "type": "url",
+           "value": "https://link.dice.fm/e8e40247e097",
+           "rawValue": "https://link.dice.fm/e8e40247e097",
+           "target": "_blank"
+          },
+          "primary": true,
+          "id": "3be6d871-e054-4f9d-9d16-1cc0e2fa77b3"
+         }
+        ],
+        "actionsCaption": "",
+        "video": null,
+        "file": null,
+        "isAllDay": false,
+        "id": "adb3b4db-16f4-4750-8c99-c3b3d5e09976"
+       },
+       {
+        "id": "fd4ef3ea-a94a-4384-abd2-5e62c35c9678",
+        "name": "Soul System",
+        "start": {
+         "type": "datetime",
+         "date": "2026-10-09",
+         "time": "22:00"
+        },
+        "end": {
+         "type": "datetime",
+         "date": "2026-10-10",
+         "time": "02:00"
+        },
+        "timeZone": "Europe/London",
+        "repeatPeriod": "noRepeat",
+        "repeatFrequency": "daily",
+        "repeatInterval": 1,
+        "repeatEnds": "never",
+        "repeatEndsDate": null,
+        "repeatEndsOccurrences": 1,
+        "repeatMonthlyOnDay": "sameDay",
+        "exceptions": [],
+        "description": "<div>A dance dedicated to burning the torch for the Rare Groove and Blues dances that used to flood London week in, week out from the late 70’s to the mid 90’s.</div><br><div>Residents Mark Professor, Chippy T, Jake the Tailor and Sir Kells will rotate throughout the year, joined by esteemed (and lo",
+        "eventType": [],
+        "location": [],
+        "host": [],
+        "tags": [],
+        "color": "transparent",
+        "video": null,
+        "file": null,
+        "actions": [
+         {
+          "id": "0e24abdad5078",
+          "type": "link",
+          "text": "Free",
+          "link": {
+           "rawValue": "",
+           "value": "",
+           "type": "url",
+           "target": "_blank"
+          },
+          "primary": true
+         }
+        ],
+        "actionsCaption": "",
+        "images": [],
+        "coverImage": {
+         "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/93747570-c821-4472-9bca-387f98e501ee/Newest-Resident-2.jpg",
+         "name": "Newest Resident-2.jpg",
+         "size": 216549,
+         "type": "image/jpeg",
+         "extension": "jpg",
+         "width": 1080,
+         "height": 1350
+        }
+       }
+      ]
+     }
+    }
+   }
+  },
+  "assets": [
+   {
+    "url": "https://universe-static.elfsightcdn.com/app-releases/event-calendar/stable/v2.52.0/8788b8b6ef2bf63a206c6621e80727135ad966c4/widget/eventCalendar.js",
+    "integrity": "sha384-FHyjS6ChAvZ880rKJfY4Pewuj4Eh9nc+TFmGSLXR7qvkiYcNjd4/GX010hh4lAjs"
+   }
+  ]
+ }
+}

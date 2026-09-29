@@ -20,6 +20,8 @@ from whatson.aggregators.signaturebrew import (
     SignatureBrewBlackhorseRoad,
     SignatureBrewHaggerston,
 )
+from whatson.aggregators.sjq import BOOT as SJQ_BOOT
+from whatson.aggregators.sjq import SJQ
 from whatson.aggregators.southbank import SouthbankCentre
 from whatson.aggregators.southwarkparkgalleries import API as SPG_API
 from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
@@ -480,3 +482,19 @@ def test_signaturebrew_taprooms(venues):
     assert uefa.title == "UEFA Nations League - Czech Republic v England"  # "| London" dropped
     assert uefa.category == "Sport"
     assert any(e.category == "Music" for e in haggerston)  # the default
+
+
+def test_sjq(venues):
+    # The widget request's "page" parameter is the programme page's URL.
+    http = FakeFetcher({f"{SJQ_BOOT}|page={venues['sjq'].url}": "sjq/boot.json"})
+    events = {e.title: e for e in SJQ(venues["sjq"], http, date(2026, 9, 29)).fetch_events()}
+
+    rothko = events["Rothko+ Minus Pilots & special guest"]
+    assert rothko.start == datetime(2026, 9, 29, 19, 30, tzinfo=LONDON)
+    assert rothko.end is None and rothko.category == "Music"
+    assert rothko.booking_url and "ticketsource" in rothko.booking_url
+    assert rothko.image_url and rothko.summary
+    # 22:00 to 02:00 is a late night, not a two-day event.
+    afrique = events["Afrique Express"]
+    assert afrique.start == datetime(2026, 10, 2, 22, 0, tzinfo=LONDON)
+    assert afrique.end is None and "Nightlife" in afrique.tags

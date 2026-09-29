@@ -10,9 +10,10 @@ import time
 from pathlib import Path
 from typing import Any, Protocol
 from urllib.parse import urlsplit
-from urllib.robotparser import RobotFileParser
 
 import httpx
+
+from whatson.robots import Robots
 
 log = logging.getLogger(__name__)
 
@@ -64,7 +65,7 @@ class HttpClient:
         self._respect_robots = respect_robots
         self._last_request: dict[str, float] = {}
         self._host_interval: dict[str, float] = {}
-        self._robots: dict[str, RobotFileParser | None] = {}
+        self._robots: dict[str, Robots | None] = {}
 
     def close(self) -> None:
         self._client.close()
@@ -147,18 +148,16 @@ class HttpClient:
         parts = urlsplit(url)
         origin = f"{parts.scheme}://{parts.netloc}"
         if origin not in self._robots:
-            parser: RobotFileParser | None = RobotFileParser()
+            robots: Robots | None = None  # no robots.txt (or unreadable): allow
             try:
                 resp = self._client.get(f"{origin}/robots.txt")
                 if resp.status_code == 200:
-                    parser.parse(resp.text.splitlines())
-                else:
-                    parser = None  # no robots.txt (or unreadable): allow
+                    robots = Robots(resp.text)
             except httpx.HTTPError:
-                parser = None
-            self._robots[origin] = parser
-        parser = self._robots[origin]
-        return parser is None or parser.can_fetch(USER_AGENT, url)
+                pass
+            self._robots[origin] = robots
+        robots = self._robots[origin]
+        return robots is None or robots.allows(url)
 
     def _cache_path(self, url: str) -> Path | None:
         if not self._cache_dir:
