@@ -109,6 +109,7 @@ shows the current state.
 | Trinity Buoy Wharf | ✅ Collected | Server-rendered list; its category pages (art & design, music, events, history) give the tags. Permanent works marked "Open year round" aren't events and are skipped. |
 | Cafe OTO | ✅ Collected | Server-rendered listing, paged by following its own next-page link (`?page=N`; past the end it answers 404). Cards give date and time, door/advance/DICE prices (members' prices ignored) and sold-out state. |
 | Arcola Theatre | ✅ Collected | Server-rendered list of shows with run, studio and blurb (the "all shows" view is the same list, filtered in the browser). No times or prices on the listing. |
+| Rio Cinema | ✅ Collected | The What's On page (Savoy's Rio.dll ticketing) embeds the programme as JSON: films with every showtime, screen, sold-out and accessibility flags (relaxed, captioned). One event per film. No prices. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |

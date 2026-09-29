@@ -6,6 +6,7 @@ from whatson.aggregators import (  # noqa: F401
     cafeoto,
     enb,
     princecharles,
+    rio,
     saatchi,
     sadlerswells,
     southbank,

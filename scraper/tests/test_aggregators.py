@@ -8,6 +8,7 @@ from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.princecharles import PrinceCharlesCinema
+from whatson.aggregators.rio import RioCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
 from whatson.aggregators.sadlerswells import (
@@ -432,3 +433,21 @@ def test_arcola(venues):
     assert screw.booking_url and screw.booking_url.endswith("#event-booking")
     squid = events["SQUID: A Victim Impact Statement"]
     assert (squid.start, squid.end) == (date(2026, 11, 11), date(2026, 11, 14))  # "11 - 14 Nov"
+
+
+def test_rio(venues):
+    http = FakeFetcher({venues["rio"].url: "rio/whats-on.html"})
+    events = {e.title: e for e in RioCinema(venues["rio"], http, date(2026, 9, 29)).fetch_events()}
+
+    assert len(events) == 6
+    hell = events["HER PRIVATE HELL"]
+    assert hell.performances == [
+        datetime(2026, 9, 29, 18, 20, tzinfo=LONDON),
+        datetime(2026, 9, 29, 20, 45, tzinfo=LONDON),
+        datetime(2026, 9, 30, 20, 45, tzinfo=LONDON),
+    ]
+    assert hell.category == "Film" and hell.image_url and hell.summary
+    assert hell.url.endswith("WhatsOn?f=2902916")
+    shorts = events["Hackney Children's Film Fest: Young Neurospicy: Family Shorts"]
+    assert "Relaxed" in shorts.tags  # from the performance's RS flag
+    assert events["Pink Palace: DESERT HEARTS"].sold_out  # its only showing is sold out
