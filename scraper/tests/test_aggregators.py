@@ -1,5 +1,6 @@
 from datetime import date, datetime
 
+import pytest
 from conftest import FakeFetcher
 
 from whatson import LONDON
@@ -8,6 +9,7 @@ from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.courtyard import CourtyardTheatre
 from whatson.aggregators.enb import EnglishNationalBallet
+from whatson.aggregators.excel import ExcelLondon, is_trade
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.rio import RioCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
@@ -515,3 +517,33 @@ def test_courtyard(venues):
     assert first.start == datetime(2026, 10, 1, 19, 0, tzinfo=LONDON)
     assert first.url.startswith("https://thecourtyardtheatre.seetickets.com/")
     assert first.image_url
+
+
+def test_excel_leaves_out_trade_shows(venues):
+    base = "https://www.excel.london/visitor/whats-on"
+    routes = {venues["excel"].url: "excel/whats-on.html"}
+    for slug in ("house-of-dreamers-london", "hett-show", "megacon-live", "london-vet-show-2026"):
+        routes[f"{base}/{slug}"] = f"excel/{slug}.html"
+    agg = ExcelLondon(venues["excel"], FakeFetcher(routes), date(2026, 9, 29))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    # Of the four events with a saved page, the two trade shows are left out.
+    assert set(events) == {"House of Dreamers London", "MegaCon Live"}
+    dreamers = events["House of Dreamers London"]
+    assert (dreamers.start, dreamers.end) == (date(2026, 7, 1), date(2026, 11, 30))
+    assert dreamers.category == "Exhibition" and dreamers.image_url and dreamers.summary
+    assert "Family" in events["MegaCon Live"].tags
+
+
+@pytest.mark.parametrize(
+    ("title", "intro", "trade"),
+    [
+        ("Food Service Industry Expo", "the perfect environment for professionals", True),
+        ("London Vet Show 2026", "Europe's largest veterinary conference and exhibition", True),
+        ("Dentistry Show London", "the UK's leading dental event", True),
+        ("MCM Comic Con", "cosplay, comics, gaming and anime fans", False),
+        ("Wundrful World Of Christmas", "a festive day out", False),
+    ],
+)
+def test_excel_is_trade(title, intro, trade):
+    assert is_trade(title, intro) is trade

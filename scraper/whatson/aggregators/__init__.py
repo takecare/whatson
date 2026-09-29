@@ -6,6 +6,7 @@ from whatson.aggregators import (  # noqa: F401
     cafeoto,
     courtyard,
     enb,
+    excel,
     princecharles,
     rio,
     saatchi,
