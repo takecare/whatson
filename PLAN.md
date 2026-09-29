@@ -117,11 +117,12 @@ the site.
 The site is static and stays on **GitHub Pages**. Only the scrape job moves.
 
 **Stage A: GitHub-hosted runners (start here).**
-`scrape-and-deploy.yml` has three jobs:
+`scrape-and-deploy.yml` runs hourly and has four jobs:
 
-1. `scrape`: runs the aggregators and uploads `data/*.json` as an artifact.
-2. `publish`: commits the JSON to the `data` branch.
-3. `deploy`: builds `web/` with that data and deploys to Pages.
+1. `plan`: decides whether a scrape is due (`SCRAPE_INTERVAL_HOURS`, default 24).
+2. `scrape`: runs the aggregators and uploads the JSON as an artifact.
+3. `publish`: commits the JSON to the `data` branch.
+4. `deploy`: builds `web/` with that data and deploys to Pages.
 
 Venues that get blocked show as failing in `status.json`, and their last-known-good
 data is kept.
@@ -196,6 +197,8 @@ infra/proxmox/                    # self-hosted runner VM setup script + README
 
 ## 7. Execution phases
 
+Built: 1–5 (with three venues: Top Secret Comedy Club, Union Chapel, Saatchi Gallery).
+
 1. **Scaffold** — Python package (uv, ruff, pytest), Vite app, CI workflow, README,
    and `access-check.yml`, which confirms which venues GitHub-hosted runners can reach.
 2. **Core** — models, taxonomy, HTTP client (cache/retry/rate-limit), `BaseAggregator`,
@@ -215,12 +218,13 @@ infra/proxmox/                    # self-hosted runner VM setup script + README
 10. **Later** — map view, "add to calendar" (.ics), favourites (localStorage),
    more UK cities, CONTRIBUTING guide on adding a venue.
 
-## 8. Open questions
+## 8. Decisions
 
-1. Python for scrapers + TypeScript for the site (recommended), or all TypeScript?
-2. Is the repo public? GitHub Pages on a free plan needs a public repo.
-3. Is a daily refresh enough?
-4. OK to defer Royal Albert Hall / Southwark Playhouse if bot protection blocks them?
-
-Decided: scraping runs on GitHub-hosted runners first, then moves to a self-hosted
-runner on Proxmox (§4).
+1. Python for scraping; TypeScript (Vite, no framework) for the site.
+2. The repo is public (needed for GitHub Pages on a free plan).
+3. Scrape daily by default, configurable with the `SCRAPE_INTERVAL_HOURS` repository
+   variable: the workflow checks hourly and scrapes once that many hours have passed
+   since the last scrape (`0` pauses it).
+4. Royal Albert Hall and Southwark Playhouse are postponed (bot protection).
+5. Hosting: GitHub-hosted runners first, then a self-hosted runner on Proxmox (§4).
+6. Changes are committed straight to `main`, without pull requests.

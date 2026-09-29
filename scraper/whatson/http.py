@@ -75,11 +75,11 @@ class HttpClient:
         """POST form data (e.g. to a WordPress admin-ajax endpoint the page itself uses)."""
         return self._get(url, None, data).decode("utf-8", errors="replace")
 
-    def status(self, url: str) -> tuple[int, int]:
-        """Fetch ``url`` without raising; return (status code, body size). For access checks."""
+    def probe(self, url: str) -> tuple[int, bytes]:
+        """Fetch ``url`` once without raising; return (status code, body). For access checks."""
         self._wait(url)
         resp = self._client.get(url)
-        return resp.status_code, len(resp.content)
+        return resp.status_code, resp.content
 
     def _get(
         self, url: str, params: dict[str, Any] | None, data: dict[str, str] | None = None

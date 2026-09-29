@@ -30,3 +30,49 @@ venues:
     lat: 51.4906
     lng: -0.1587
     tags: [Art, Exhibition]
+
+  # Not collected yet (enabled: false). Listed so `whatson access-check --all`
+  # covers them. Coordinates are approximate.
+  - id: barbican
+    name: Barbican
+    url: https://www.barbican.org.uk/whats-on
+    address: Silk Street, London EC2Y 8DS
+    city: London
+    area: City of London
+    lat: 51.5202
+    lng: -0.0938
+    tags: [Art, Classical, Dance, Exhibition, Film, Music, Theatre]
+    enabled: false
+
+  - id: princecharles
+    name: Prince Charles Cinema
+    url: https://princecharlescinema.com/whats-on/
+    address: 7 Leicester Place, London WC2H 7BY
+    city: London
+    area: Leicester Square
+    lat: 51.5116
+    lng: -0.1304
+    tags: [Film]
+    enabled: false
+
+  - id: royalalberthall
+    name: Royal Albert Hall
+    url: https://www.royalalberthall.com/tickets/list
+    address: Kensington Gore, London SW7 2AP
+    city: London
+    area: South Kensington
+    lat: 51.5010
+    lng: -0.1774
+    tags: [Classical, Comedy, Dance, Music]
+    enabled: false
+
+  - id: southwarkplayhouse
+    name: Southwark Playhouse
+    url: https://southwarkplayhouse.co.uk/
+    address: 77-85 Newington Causeway, London SE1 6BD
+    city: London
+    area: Elephant & Castle
+    lat: 51.4979
+    lng: -0.0976
+    tags: [Theatre]
+    enabled: false

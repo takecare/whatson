@@ -1,0 +1,25 @@
+name: Venue access check
+
+# Fetches each venue's What's On page once and reports the HTTP status in the job
+# summary, to see which venues a runner can reach (bot protection often blocks
+# datacenter IPs). Run it from the Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: Where to run the check
+        type: choice
+        options: [github-hosted, self-hosted]
+        default: github-hosted
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ${{ inputs.runner == 'self-hosted' && fromJSON('["self-hosted","whatson"]') || 'ubuntu-latest' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - working-directory: scraper
+        run: uv run whatson access-check --all

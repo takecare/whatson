@@ -69,8 +69,13 @@ def access_check(include_all: bool) -> int:
             if not include_all and v.id not in aggregators:
                 continue
             try:
-                code, size = http.status(v.url)
-                result = str(code) + (" ✅" if code == 200 else " ❌")
+                code, body = http.probe(v.url)
+                challenge = _challenge(body)
+                if challenge:
+                    result = f"{code} ❌ blocked ({challenge})"
+                else:
+                    result = str(code) + (" ✅" if code == 200 else " ❌")
+                size = len(body)
             except Exception as e:
                 result, size = f"{type(e).__name__} ❌", 0
             rows.append(f"| {v.name} | {v.url} | {result} | {size:,} B |")
@@ -81,6 +86,22 @@ def access_check(include_all: bool) -> int:
         with open(summary, "a") as f:
             f.write("## Venue access check\n\n" + table + "\n")
     return 0
+
+
+# Markers of bot-protection pages, which are often served with HTTP 200.
+CHALLENGE_MARKERS = {
+    b"_Incapsula_Resource": "Incapsula",
+    b"sgcaptcha": "SiteGround captcha",
+    b"cf-challenge": "Cloudflare",
+    b"Attention Required! | Cloudflare": "Cloudflare",
+    b"Just a moment...": "Cloudflare",
+    b"captcha-delivery.com": "DataDome",
+}
+
+
+def _challenge(body: bytes) -> str | None:
+    head = body[:20_000]
+    return next((name for marker, name in CHALLENGE_MARKERS.items() if marker in head), None)
 
 
 if __name__ == "__main__":

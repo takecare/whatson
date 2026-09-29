@@ -68,4 +68,3 @@ class BaseAggregator(ABC):
 def text_of(node: Any) -> str:
     """Whitespace-normalised text of a BeautifulSoup node (empty string for None)."""
     return " ".join(node.get_text(" ").split()) if node is not None else ""
-
