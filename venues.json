@@ -1,4 +1,4 @@
-{"generated_at":"2026-09-29T15:26:31+00:00","venues":[
+{"generated_at":"2026-09-29T16:00:06+00:00","venues":[
 {"id":"topsecret","name":"The Top Secret Comedy Club","url":"https://thetopsecretcomedyclub.co.uk/events-listings/","address":"170 Drury Lane, London WC2B 5QF","city":"London","area":"Covent Garden","lat":51.5155,"lng":-0.1219,"tags":["Comedy"]},
 {"id":"unionchapel","name":"Union Chapel","url":"https://unionchapel.org.uk/venue/whats-on","address":"19b Compton Terrace, London N1 2UN","city":"London","area":"Islington","lat":51.5437,"lng":-0.1026,"tags":["Music"]},
 {"id":"saatchi","name":"Saatchi Gallery","url":"https://www.saatchigallery.com/whats-on","address":"Duke of York's HQ, King's Road, London SW3 4RY","city":"London","area":"Chelsea","lat":51.4906,"lng":-0.1587,"tags":["Art","Exhibition"]},
@@ -11,5 +11,14 @@
 {"id":"sadlerswells","name":"Sadler's Wells","url":"https://www.sadlerswells.com/whats-on/","address":"Rosebery Avenue, London EC1R 4TN","city":"London","area":"Clerkenwell","lat":51.5294,"lng":-0.1063,"tags":["Dance"]},
 {"id":"peacock","name":"Peacock Theatre","url":"https://www.sadlerswells.com/whats-on/","address":"Portugal Street, London WC2A 2HT","city":"London","area":"Holborn","lat":51.514,"lng":-0.1178,"tags":["Dance"]},
 {"id":"sadlerswellseast","name":"Sadler's Wells East","url":"https://www.sadlerswells.com/whats-on/","address":"Queen Elizabeth Olympic Park, London E20","city":"London","area":"Stratford","lat":51.5436,"lng":-0.0147,"tags":["Dance"]},
-{"id":"southwarkparkgalleries","name":"Southwark Park Galleries","url":"https://southwarkparkgalleries.org/category/exhibitions/","address":"Southwark Park, London SE16 2UA","city":"London","area":"Bermondsey","lat":51.494,"lng":-0.055,"tags":["Art","Exhibition"]}
+{"id":"southwarkparkgalleries","name":"Southwark Park Galleries","url":"https://southwarkparkgalleries.org/category/exhibitions/","address":"Southwark Park, London SE16 2UA","city":"London","area":"Bermondsey","lat":51.494,"lng":-0.055,"tags":["Art","Exhibition"]},
+{"id":"enb","name":"English National Ballet","url":"https://www.ballet.org.uk/whats-on/","address":"London City Island, London E14 0SY","city":"London","area":null,"lat":51.5117,"lng":0.0068,"tags":["Dance"]},
+{"id":"trinitybuoywharf","name":"Trinity Buoy Wharf","url":"https://www.trinitybuoywharf.com/whats-on","address":"64 Orchard Place, London E14 0JY","city":"London","area":"Leamouth","lat":51.5076,"lng":0.0081,"tags":["Art"]},
+{"id":"cafeoto","name":"Cafe OTO","url":"https://www.cafeoto.co.uk/events/","address":"18-22 Ashwin Street, London E8 3DL","city":"London","area":"Dalston","lat":51.5469,"lng":-0.0754,"tags":["Music"]},
+{"id":"arcola","name":"Arcola Theatre","url":"https://www.arcolatheatre.com/whats-on/","address":"24 Ashwin Street, London E8 3DL","city":"London","area":"Dalston","lat":51.5467,"lng":-0.0751,"tags":["Theatre"]},
+{"id":"rio","name":"Rio Cinema","url":"https://riocinema.org.uk/Rio.dll/WhatsOn","address":"107 Kingsland High Street, London E8 2PB","city":"London","area":"Dalston","lat":51.5487,"lng":-0.0755,"tags":["Film"]},
+{"id":"signaturebrew-haggerston","name":"Signature Brew Haggerston","url":"https://events.signaturebrew.co.uk/","address":"Haggerston, London E2","city":"London","area":"Haggerston","lat":51.5387,"lng":-0.0756,"tags":["Music"]},
+{"id":"signaturebrew-blackhorse","name":"Signature Brew Blackhorse Road","url":"https://events.signaturebrew.co.uk/","address":"Blackhorse Lane, London E17","city":"London","area":"Walthamstow","lat":51.5895,"lng":-0.0413,"tags":["Music"]},
+{"id":"sjq","name":"SJQ","url":"https://www.sjqdalston.com/programme","address":"10A Bradbury Street, London N16 8JN","city":"London","area":"Dalston","lat":51.5486,"lng":-0.0749,"tags":["Music"]},
+{"id":"courtyard","name":"The Courtyard Theatre","url":"https://thecourtyard.org.uk/whats-on/","address":"Bowling Green Walk, 40 Pitfield Street, London N1 6EU","city":"London","area":"Hoxton","lat":51.5285,"lng":-0.083,"tags":["Theatre"]}
 ]}
