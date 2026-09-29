@@ -1,4 +1,4 @@
-{"generated_at":"2026-09-29T16:00:06+00:00","sources":[
+{"generated_at":"2026-09-29T18:00:28+00:00","sources":[
 {"venue_id":"topsecret","ok":true,"event_count":272,"error":null,"duration_s":72.4,"last_success":"2026-09-29T16:00:06Z","stale":false},
 {"venue_id":"unionchapel","ok":true,"event_count":109,"error":null,"duration_s":113.3,"last_success":"2026-09-29T16:00:06Z","stale":false},
 {"venue_id":"saatchi","ok":true,"event_count":7,"error":null,"duration_s":6.4,"last_success":"2026-09-29T16:00:06Z","stale":false},
@@ -20,5 +20,6 @@
 {"venue_id":"signaturebrew-haggerston","ok":true,"event_count":42,"error":null,"duration_s":0.3,"last_success":"2026-09-29T16:00:06Z","stale":false},
 {"venue_id":"signaturebrew-blackhorse","ok":true,"event_count":43,"error":null,"duration_s":1.0,"last_success":"2026-09-29T16:00:06Z","stale":false},
 {"venue_id":"sjq","ok":true,"event_count":35,"error":null,"duration_s":0.5,"last_success":"2026-09-29T16:00:06Z","stale":false},
-{"venue_id":"courtyard","ok":true,"event_count":62,"error":null,"duration_s":22.6,"last_success":"2026-09-29T16:00:06Z","stale":false}
+{"venue_id":"courtyard","ok":true,"event_count":62,"error":null,"duration_s":22.6,"last_success":"2026-09-29T16:00:06Z","stale":false},
+{"venue_id":"excel","ok":true,"event_count":13,"error":null,"duration_s":72.6,"last_success":"2026-09-29T18:00:28Z","stale":false}
 ]}
