@@ -121,6 +121,16 @@ venues:
     lng: -0.0147
     tags: [Dance]
 
+  - id: southwarkparkgalleries
+    name: Southwark Park Galleries
+    url: https://southwarkparkgalleries.org/category/exhibitions/
+    address: Southwark Park, London SE16 2UA
+    city: London
+    area: Bermondsey
+    lat: 51.4940
+    lng: -0.0550
+    tags: [Art, Exhibition]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
@@ -176,17 +186,6 @@ venues:
     lat: 51.5237
     lng: -0.0741
     tags: [Comedy, Dance, Film, Music, Theatre]
-    enabled: false
-
-  - id: southwarkparkgalleries
-    name: Southwark Park Galleries
-    url: https://southwarkparkgalleries.org/category/exhibitions/
-    address: Southwark Park, London SE16 2UA
-    city: London
-    area: Bermondsey
-    lat: 51.4940
-    lng: -0.0550
-    tags: [Art, Exhibition]
     enabled: false
 
   - id: whitechapelgallery

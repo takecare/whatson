@@ -104,7 +104,7 @@ shows the current state.
 | Sadler's Wells | ✅ Collected | One listing (`/whats-on/page/N/`) covers all their stages; each card names its stage. This venue is the Clerkenwell building (Sadler's Wells Theatre and Lilian Baylis Studio as spaces). Dates or runs only: no times or prices on the cards. Events are tagged Dance via the venue. |
 | Peacock Theatre | ✅ Collected | Sadler's Wells' Holborn stage, from the same listing. |
 | Sadler's Wells East | ✅ Collected | Sadler's Wells' Stratford stage, from the same listing. |
-| Southwark Park Galleries | 🔜 Planned | WordPress REST API (exhibitions category); dates are in each post's text. |
+| Southwark Park Galleries | ✅ Collected | WordPress REST API lists what's on through its "Current" and "Upcoming" categories; each post's page gives dates (or, for workshop series, the title line; for talks, the time line), and which gallery. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |

@@ -43,6 +43,9 @@ _JOINER = re.compile(
 )
 _RANGE_SEP = re.compile(r"\s*(?:-|–|—|\bto\b|\buntil\b)\s*", re.IGNORECASE)
 _TIME = re.compile(r"\b(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)\b|\b(\d{1,2})[:.](\d{2})\b", re.I)
+_TIME_RANGE = re.compile(
+    r"\b(\d{1,2})(?:[:.](\d{2}))?\s*[-–]\s*(\d{1,2})(?:[:.]\d{2})?\s*(am|pm)\b", re.I
+)
 _PRICE = re.compile(r"£\s*(\d+(?:[.,]\d{1,2})?)")
 
 
@@ -127,7 +130,15 @@ def parse_date_range(text: str, ref: date | None = None) -> tuple[date, date | N
 
 
 def parse_time(text: str) -> time | None:
-    """First time of day in ``text``: "6:00PM", "7pm", "7.30pm" or "19:30"."""
+    """First time of day in ``text``: "6:00PM", "7pm", "7.30pm", "19:30", or the start
+    of a range like "4-5pm" (4pm, not 5pm)."""
+    r = _TIME_RANGE.search(text)
+    if r:
+        hour, minute, end_hour, meridiem = int(r[1]), int(r[2] or 0), int(r[3]), r[4].lower()
+        if hour <= 12 and minute <= 59:
+            if meridiem == "pm" and hour <= end_hour and hour != 12:
+                hour += 12  # "4-5pm" → 16:00 ("11-1pm" stays 11:00)
+            return time(hour % 24, minute)
     m = _TIME.search(text)
     if not m:
         return None

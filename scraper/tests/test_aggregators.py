@@ -13,6 +13,8 @@ from whatson.aggregators.sadlerswells import (
     SadlersWellsEast,
 )
 from whatson.aggregators.southbank import SouthbankCentre
+from whatson.aggregators.southwarkparkgalleries import API as SPG_API
+from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
@@ -310,3 +312,35 @@ def test_sadlerswells_stages(venues):
     assert snowman.space is None and snowman.image_url and "640" in snowman.image_url
     rhythm = next(e for e in clerkenwell if e.title == "English National Ballet - Rhythm Riot")
     assert (rhythm.start, rhythm.end) == (date(2026, 9, 30), date(2026, 10, 3))
+
+
+def test_southwarkparkgalleries(venues):
+    fixtures = "southwarkparkgalleries"
+    base = "https://southwarkparkgalleries.org/"
+    routes = {f"{SPG_API}|page=1": f"{fixtures}/posts.json"}
+    for slug in (
+        "danfong-wang-the-sparkle-the-blossom-and-the-milky-land",
+        "green-shoots-free-creative-family-workshops-2026",
+        "in-conversation-isabel-nolan-with-judith-carlton",
+    ):
+        routes[f"{base}{slug}/"] = f"{fixtures}/{slug}.html"
+    venue = venues["southwarkparkgalleries"]
+    agg = SouthwarkParkGalleries(venue, FakeFetcher(routes), date(2026, 9, 29))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    # Posts whose page isn't in the fixtures are skipped.
+    assert set(events) == {
+        "The Sparkle, The Blossom and The Milky Land",
+        "Green Shoots! Family Workshops",
+        "In Conversation with Isabel Nolan",
+    }
+    sparkle = events["The Sparkle, The Blossom and The Milky Land"]
+    assert (sparkle.start, sparkle.end) == (date(2026, 8, 15), date(2026, 11, 1))
+    assert sparkle.category == "Exhibition" and sparkle.space == "Lake Gallery"
+    assert sparkle.image_url and sparkle.summary
+    shoots = events["Green Shoots! Family Workshops"]  # dates from the title line
+    assert (shoots.start, shoots.end) == (date(2026, 5, 17), date(2026, 10, 25))
+    assert set(shoots.tags) == {"Workshop", "Family"}
+    talk = events["In Conversation with Isabel Nolan"]  # "Time: Friday 16 October, 4-5pm"
+    assert talk.start == datetime(2026, 10, 16, 16, 0, tzinfo=LONDON)
+    assert talk.category == "Talks"

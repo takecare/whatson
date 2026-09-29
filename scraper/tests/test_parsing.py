@@ -61,6 +61,9 @@ def test_parse_date_range_without_dates():
         ("Start 7.30pm", time(19, 30)),
         ("12:15am", time(0, 15)),
         ("19:30", time(19, 30)),
+        ("Friday 16 October, 4-5pm", time(16, 0)),
+        ("10am-1pm", time(10, 0)),
+        ("11-1pm", time(11, 0)),
         ("TBC", None),
     ],
 )
