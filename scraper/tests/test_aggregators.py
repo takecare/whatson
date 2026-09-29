@@ -7,6 +7,7 @@ from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
+from whatson.aggregators.southbank import SouthbankCentre
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
@@ -251,3 +252,32 @@ def test_wiltons(venues):
         datetime(2026, 10, 31, 17, 0, tzinfo=LONDON),
     ]
     assert http.requested[-1] == f"{url}?event-page=3"  # stops at the first short page
+
+
+def test_southbank(venues):
+    url = venues["southbankcentre"].url
+    http = FakeFetcher(
+        {
+            f"{url}?artform-filter=gigs": "southbank/gigs.html",
+            f"{url}?start-date=2026-10-02&end-date=2026-10-02": "southbank/day-2026-10-02.html",
+        }
+    )
+    agg = SouthbankCentre(venues["southbankcentre"], http, today=date(2026, 10, 2))
+    agg.days_ahead = 1
+    listed = list(agg.fetch_events())
+    events = {e.title: e for e in listed}
+
+    # 12 gig cards + 11 day cards, 3 of them on both pages; other art forms are skipped.
+    assert len(listed) == 20
+    orii = events["ORII Presents feat. BXKS"]
+    assert orii.start == datetime(2026, 10, 2, 19, 30, tzinfo=LONDON)  # "7.30pm"
+    assert orii.space == "Purcell Room" and orii.category == "Music"
+    assert orii.price_min is None and orii.image_url
+    assert events["futuretense x DOTWAVNOTWAVE"].price_min == 0.0  # "Tickets Free"
+    kapoor = events["Anish Kapoor"]
+    assert (kapoor.start, kapoor.end) == (date(2026, 6, 16), date(2026, 10, 18))
+    assert kapoor.category == "Exhibition" and "Art" in kapoor.tags
+    # The literature event on the gigs page keeps its own category but gains Music.
+    tice = events["Tice Cin: Safe Spaces"]
+    assert tice.category == "Talks" and "Music" in tice.tags
+    assert events["Playing with Fire"].end == date(2027, 1, 3)

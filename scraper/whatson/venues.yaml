@@ -81,6 +81,16 @@ venues:
     lng: -0.0674
     tags: [Comedy, Music, Opera, Theatre]
 
+  - id: southbankcentre
+    name: Southbank Centre
+    url: https://www.southbankcentre.co.uk/whats-on/
+    address: Belvedere Road, London SE1 8XX
+    city: London
+    area: South Bank
+    lat: 51.5059
+    lng: -0.1166
+    tags: [Art, Classical, Comedy, Dance, Exhibition, Music, Talks, Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
@@ -103,17 +113,6 @@ venues:
     lat: 51.4979
     lng: -0.0976
     tags: [Theatre]
-    enabled: false
-
-  - id: southbankcentre
-    name: Southbank Centre
-    url: https://www.southbankcentre.co.uk/whats-on/
-    address: Belvedere Road, London SE1 8XX
-    city: London
-    area: South Bank
-    lat: 51.5059
-    lng: -0.1166
-    tags: [Art, Classical, Comedy, Dance, Exhibition, Music, Talks, Theatre]
     enabled: false
 
   - id: sadlerswells
