@@ -131,6 +131,15 @@ venues:
     lng: -0.0550
     tags: [Art, Exhibition]
 
+  - id: enb
+    name: English National Ballet
+    url: https://www.ballet.org.uk/whats-on/
+    address: London City Island, London E14 0SY  # the company's home; it performs elsewhere
+    city: London
+    lat: 51.5117
+    lng: 0.0068
+    tags: [Dance]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

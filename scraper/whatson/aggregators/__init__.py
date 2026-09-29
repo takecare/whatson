@@ -2,6 +2,7 @@
 
 from whatson.aggregators import (  # noqa: F401
     barbican,
+    enb,
     princecharles,
     saatchi,
     sadlerswells,

@@ -78,3 +78,15 @@ class BaseAggregator(ABC):
 def text_of(node: Any) -> str:
     """Whitespace-normalised text of a BeautifulSoup node (empty string for None)."""
     return " ".join(node.get_text(" ").split()) if node is not None else ""
+
+
+def image_src(img: Any) -> str | None:
+    """The real URL of an <img>, looking past lazy-loading placeholders
+    (data-lazy-src, data-src) and data: URIs."""
+    if img is None:
+        return None
+    for attr in ("data-lazy-src", "data-src", "src"):
+        value = img.get(attr)
+        if value and not value.startswith("data:"):
+            return value
+    return None

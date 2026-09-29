@@ -4,6 +4,7 @@ from conftest import FakeFetcher
 
 from whatson import LONDON
 from whatson.aggregators.barbican import Barbican
+from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
@@ -352,3 +353,18 @@ def test_southwarkparkgalleries(venues):
     talk = events["In Conversation with Isabel Nolan"]  # "Time: Friday 16 October, 4-5pm"
     assert talk.start == datetime(2026, 10, 16, 16, 0, tzinfo=LONDON)
     assert talk.category == "Talks"
+
+
+def test_enb_keeps_london_only(venues):
+    http = FakeFetcher({venues["enb"].url: "enb/whats-on.html"})
+    agg = EnglishNationalBallet(venues["enb"], http, date(2026, 9, 29))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    # Touring and overseas dates are dropped, and so is Rhythm Riot: it's at Sadler's
+    # Wells, which we already collect.
+    assert set(events) == {"Nutcracker", "Swan Lake in-the-round"}
+    nutcracker = events["Nutcracker"]
+    assert (nutcracker.start, nutcracker.end) == (date(2026, 12, 17), date(2027, 1, 10))
+    assert nutcracker.space == "London Coliseum" and nutcracker.category == "Dance"
+    assert nutcracker.image_url and nutcracker.image_url.startswith("https://www.ballet.org.uk/")
+    assert events["Swan Lake in-the-round"].space == "Royal Albert Hall"
