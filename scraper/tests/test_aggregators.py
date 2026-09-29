@@ -4,6 +4,7 @@ from conftest import FakeFetcher
 
 from whatson import LONDON
 from whatson.aggregators.barbican import Barbican
+from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
@@ -392,3 +393,25 @@ def test_trinitybuoywharf(venues):
     assert (prize.start, prize.end) == (date(2026, 9, 17), date(2026, 10, 4))
     assert (walk.start, walk.end) == (date(2026, 10, 3), None)  # "3 October - 3 October"
     assert "Art" in walk.tags and prize.image_url
+
+
+def test_cafeoto(venues):
+    url = venues["cafeoto"].url
+    routes = {url: "cafeoto/events.html"}
+    routes |= {f"{url}?page={n}": f"cafeoto/events-page{n}.html" for n in (2, 3, 4, 5)}
+    http = FakeFetcher(routes)
+    events = list(CafeOto(venues["cafeoto"], http, date(2026, 9, 29)).fetch_events())
+    by_title = {e.title: e for e in events}
+
+    assert len(events) == 60
+    assert http.requested[-1] == f"{url}?page=5"  # page 5 has no next link
+    residency = by_title["Elliott Sharp two-day residency"]  # "28–29 September 2026"
+    assert (residency.start, residency.end) == (date(2026, 9, 28), date(2026, 9, 29))
+    assert residency.summary == "w/ The Clinamen + Dubmorphology + Poulomi Desai"
+    byh = by_title[
+        "Baba Yaga's Hut: Autoreverse (Nina Garcia & Arnaud Rivière) + Deep Triskell + Evitceles"
+    ]
+    assert byh.start == datetime(2026, 9, 30, 19, 30, tzinfo=LONDON)
+    assert (byh.price_min, byh.price_max) == (17.0, 18.0)  # members' £14 is ignored
+    assert byh.category == "Music" and byh.image_url
+    assert by_title["Bitchin Bajas + Ryley Walker"].sold_out

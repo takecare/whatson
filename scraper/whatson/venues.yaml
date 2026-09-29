@@ -150,6 +150,16 @@ venues:
     lng: 0.0081
     tags: [Art]
 
+  - id: cafeoto
+    name: Cafe OTO
+    url: https://www.cafeoto.co.uk/events/
+    address: 18-22 Ashwin Street, London E8 3DL
+    city: London
+    area: Dalston
+    lat: 51.5469
+    lng: -0.0754
+    tags: [Music]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
