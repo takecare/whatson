@@ -3,6 +3,7 @@ from datetime import date, datetime
 from conftest import FakeFetcher
 
 from whatson import LONDON
+from whatson.aggregators.arcola import ArcolaTheatre
 from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.enb import EnglishNationalBallet
@@ -415,3 +416,19 @@ def test_cafeoto(venues):
     assert (byh.price_min, byh.price_max) == (17.0, 18.0)  # members' £14 is ignored
     assert byh.category == "Music" and byh.image_url
     assert by_title["Bitchin Bajas + Ryley Walker"].sold_out
+
+
+def test_arcola(venues):
+    http = FakeFetcher({venues["arcola"].url: "arcola/whats-on.html"})
+    agg = ArcolaTheatre(venues["arcola"], http, date(2026, 9, 29))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    assert len(events) == 8
+    screw = events["The Turn of the Screw"]
+    assert (screw.start, screw.end) == (date(2026, 9, 11), date(2026, 10, 10))
+    assert screw.space == "Studio 1" and screw.category == "Theatre"
+    assert screw.summary == "Based on the seminal ghost story by Henry James"
+    assert screw.image_url and screw.image_url.endswith(".jpg")
+    assert screw.booking_url and screw.booking_url.endswith("#event-booking")
+    squid = events["SQUID: A Victim Impact Statement"]
+    assert (squid.start, squid.end) == (date(2026, 11, 11), date(2026, 11, 14))  # "11 - 14 Nov"

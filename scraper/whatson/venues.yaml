@@ -160,6 +160,16 @@ venues:
     lng: -0.0754
     tags: [Music]
 
+  - id: arcola
+    name: Arcola Theatre
+    url: https://www.arcolatheatre.com/whats-on/
+    address: 24 Ashwin Street, London E8 3DL
+    city: London
+    area: Dalston
+    lat: 51.5467
+    lng: -0.0751
+    tags: [Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
