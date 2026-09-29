@@ -19,6 +19,7 @@ from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
+from whatson.aggregators.trinitybuoywharf import TrinityBuoyWharf
 from whatson.aggregators.unionchapel import UnionChapel
 from whatson.aggregators.wiltons import WiltonsMusicHall
 from whatson.registry import load_aggregators
@@ -368,3 +369,26 @@ def test_enb_keeps_london_only(venues):
     assert nutcracker.space == "London Coliseum" and nutcracker.category == "Dance"
     assert nutcracker.image_url and nutcracker.image_url.startswith("https://www.ballet.org.uk/")
     assert events["Swan Lake in-the-round"].space == "Royal Albert Hall"
+
+
+def test_trinitybuoywharf(venues):
+    url = venues["trinitybuoywharf"].url
+    http = FakeFetcher(
+        {
+            url: "trinitybuoywharf/whats-on.html",
+            f"{url}/art-design": "trinitybuoywharf/whats-on-art-design.html",
+            f"{url}/events": "trinitybuoywharf/whats-on-events.html",
+        }
+    )
+    agg = TrinityBuoyWharf(venues["trinitybuoywharf"], http, date(2026, 9, 29))
+    events = list(agg.fetch_events())
+
+    # Only dated items: the "Open year round" permanent works are skipped.
+    assert [e.title for e in events] == [
+        "Trinity Buoy Wharf Drawing Prize 2026: exhibition",
+        "Director's Walkthrough. Anita Taylor: Trinity Buoy Wharf Drawing Prize 2026",
+    ]
+    prize, walk = events
+    assert (prize.start, prize.end) == (date(2026, 9, 17), date(2026, 10, 4))
+    assert (walk.start, walk.end) == (date(2026, 10, 3), None)  # "3 October - 3 October"
+    assert "Art" in walk.tags and prize.image_url

@@ -10,6 +10,7 @@ from whatson.aggregators import (  # noqa: F401
     southwarkparkgalleries,
     theo2,
     topsecret,
+    trinitybuoywharf,
     unionchapel,
     wiltons,
 )

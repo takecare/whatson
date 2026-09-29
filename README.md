@@ -106,6 +106,7 @@ shows the current state.
 | Sadler's Wells East | ✅ Collected | Sadler's Wells' Stratford stage, from the same listing. |
 | Southwark Park Galleries | ✅ Collected | WordPress REST API lists what's on through its "Current" and "Upcoming" categories; each post's page gives dates (or, for workshop series, the title line; for talks, the time line), and which gallery. |
 | English National Ballet | ✅ Collected (London only) | A touring company: its What's On page lists productions with where they play. Only London dates are kept, with the theatre as the space; productions at venues we already collect (e.g. Sadler's Wells) are skipped to avoid duplicates. |
+| Trinity Buoy Wharf | ✅ Collected | Server-rendered list; its category pages (art & design, music, events, history) give the tags. Permanent works marked "Open year round" aren't events and are skipped. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |

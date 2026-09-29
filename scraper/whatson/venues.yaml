@@ -140,6 +140,16 @@ venues:
     lng: 0.0068
     tags: [Dance]
 
+  - id: trinitybuoywharf
+    name: Trinity Buoy Wharf
+    url: https://www.trinitybuoywharf.com/whats-on
+    address: 64 Orchard Place, London E14 0JY
+    city: London
+    area: Leamouth
+    lat: 51.5076
+    lng: 0.0081
+    tags: [Art]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
