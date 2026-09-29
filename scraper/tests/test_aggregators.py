@@ -4,6 +4,7 @@ from conftest import FakeFetcher
 
 from whatson import LONDON
 from whatson.aggregators.barbican import Barbican
+from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
@@ -150,3 +151,27 @@ def test_barbican_prices():
     )
     assert _price(page) == (0.0, 12.0)  # "Pay What You Can £0 | £3 | … | £12"
     assert _price(BeautifulSoup("<p>No prices here</p>", "lxml")) == (None, None)
+
+
+def test_princecharles(venues):
+    http = FakeFetcher({venues["princecharles"].url: "princecharles/whats-on.html"})
+    agg = PrinceCharlesCinema(venues["princecharles"], http, today=date(2026, 9, 29))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    assert len(events) == 9
+    fallen = events["Fallen Angels"]
+    assert fallen.category == "Film"
+    assert fallen.performances == [
+        datetime(2026, 9, 29, 15, 15, tzinfo=LONDON),
+        datetime(2026, 11, 8, 17, 30, tzinfo=LONDON),
+        datetime(2026, 11, 23, 12, 30, tzinfo=LONDON),
+    ]
+    assert fallen.start == fallen.performances[0]
+    assert fallen.summary and fallen.summary.startswith("4K. ")
+    assert fallen.image_url and fallen.url.startswith("https://princecharlescinema.com/film/")
+    assert fallen.price_min is None  # not on the listing
+
+    # Sold out only when every showing is.
+    assert events["Silence"].sold_out and events["Teen Wolf"].sold_out
+    assert not events["Barry Lyndon"].sold_out
+    assert len(events["In The Mood For Love"].performances) == 14

@@ -41,8 +41,6 @@ venues:
     lng: -0.0938
     tags: [Art, Classical, Dance, Exhibition, Film, Music, Theatre]
 
-  # Not collected yet (enabled: false). Listed so `whatson access-check --all`
-  # covers them. Coordinates are approximate.
   - id: princecharles
     name: Prince Charles Cinema
     url: https://princecharlescinema.com/whats-on/
@@ -52,8 +50,9 @@ venues:
     lat: 51.5116
     lng: -0.1304
     tags: [Film]
-    enabled: false
 
+  # Not collected yet (enabled: false). Listed so `whatson access-check --all`
+  # covers them. Coordinates are approximate.
   - id: royalalberthall
     name: Royal Albert Hall
     url: https://www.royalalberthall.com/tickets/list

@@ -96,7 +96,7 @@ shows the current state.
 | Union Chapel | ✅ Collected | Listing page plus each event's page for the start time. They don't publish prices. |
 | Saatchi Gallery | ✅ Collected | WordPress REST API; dates come from each exhibition's description. |
 | Barbican | ✅ Collected | Day-by-day listing pages (`?page=N`, about six months ahead) plus each event's page for the first and last performance, hall and standard price. Showtimes load with JavaScript, so events on several days (films, runs) show as date ranges. About 6 minutes per run. |
-| Prince Charles Cinema | 🔜 Planned | The whole programme is on one large page; screenings are grouped into one event per film. |
+| Prince Charles Cinema | ✅ Collected | The whole programme is one page: each film with its showtimes by day, so one event per film with every showing. Format tags (35mm, 70mm, sing-along) go in the summary. Prices aren't listed. |
 | Southbank Centre | 🔜 Planned | Listing is in the page (titles, date ranges, categories). Its WordPress API is behind a Cloudflare challenge, so it has to be the HTML. |
 | Sadler's Wells | 🔜 Planned | Listing is in the page with date ranges and which theatre (Sadler's Wells, Peacock, Lilian Baylis Studio). The Peacock is in Holborn, so it may become its own venue. |
 | The O2 arena | 🔜 Planned | Listing is in the page, with some schema.org event data; same site and layout as indigo, so one aggregator can serve both. |
