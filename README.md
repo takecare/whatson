@@ -85,8 +85,8 @@ you can use directly.
 
 ## Venues
 
-Status: ✅ collected · 🔜 planned (reachable, approach known) · ❓ needs a decision ·
-⏸️ postponed (blocked by bot protection). "Blocked" means the venue's site refuses
+Status: ✅ collected · 🔜 planned (reachable, approach known) · ⏸️ postponed
+(blocked by bot protection). "Blocked" means the venue's site refuses
 our requests; `whatson access-check --all` (or the **Venue access check** workflow)
 shows the current state.
 
@@ -103,8 +103,8 @@ shows the current state.
 | indigo at The O2 | 🔜 Planned | As The O2 arena. |
 | Wilton's Music Hall | 🔜 Planned | Listing is in the page with dates, times and prices; WordPress also exposes a `whatson` post type. |
 | Southwark Park Galleries | 🔜 Planned | WordPress REST API (exhibitions category); dates are in each post's text. |
-| Troxy | ❓ Needs a decision | Its Cloudflare setup lets `curl` through but blocks the scraper's Python HTTP client, even with the same headers: it recognises the client's TLS fingerprint. Getting through means switching HTTP library to one that looks like another client, which works around a block the venue chose to have. |
-| Whitechapel Gallery | ❓ Needs a decision | Same as Troxy: `curl` gets the page, the Python client gets 403. |
+| Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
+| Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |
 | EartH Hackney | ⏸️ Postponed | SiteGround captcha for every client we tried. |
 | Royal Albert Hall | ⏸️ Postponed | Incapsula bot protection. |
