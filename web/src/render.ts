@@ -159,8 +159,13 @@ export function ago(iso: string, now = Date.now()): string {
   return relative.format(Math.round(hours / 24), "day");
 }
 
-export function renderSources(container: HTMLElement, updated: HTMLElement, data: Data): void {
+export function renderSources(container: HTMLElement, count: HTMLElement, updated: HTMLElement, data: Data): void {
   updated.textContent = data.generatedAt ? `Last updated ${ago(data.generatedAt)}.` : "";
+  // The table starts collapsed, so the heading says whether anything is failing.
+  const failing = data.sources.filter((s) => !s.ok).length;
+  const venues = data.venues.size;
+  count.textContent = `${venues} ${venues === 1 ? "venue" : "venues"}${failing ? ` · ${failing} failing` : ""}`;
+  count.classList.toggle("err", failing > 0);
   const rows = [...data.venues.values()].map((v) => {
     const s = data.sources.find((x) => x.venue_id === v.id);
     const state = !s
