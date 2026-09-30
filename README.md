@@ -133,6 +133,7 @@ shows the current state.
 | EartH Hackney | ⏸️ Postponed | SiteGround captcha for every client we tried. |
 | Royal Albert Hall | ⏸️ Postponed | Incapsula bot protection. |
 | Southwark Playhouse | ⏸️ Postponed | SiteGround captcha. |
+| ATG Tickets (London & West End) | ⏸️ Skipped for now | A ticket seller covering many theatres rather than a venue. Its robots.txt allows `/whats-on/london-west-end/` but blocks AI crawlers site-wide, and the page as linked (`london,london-west-end`) is disallowed. |
 
 Postponed venues are worth retrying from the self-hosted runner (a home IP) and
 checking for a ticketing-platform feed before giving up on them.
