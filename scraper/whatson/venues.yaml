@@ -240,6 +240,16 @@ venues:
     lng: -0.1096
     tags: [Theatre]
 
+  - id: lexington
+    name: The Lexington
+    url: https://www.thelexington.co.uk/events.php
+    address: 96-98 Pentonville Road, London N1 9JB
+    city: London
+    area: Angel
+    lat: 51.5318
+    lng: -0.1109
+    tags: [Music, Nightlife]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

@@ -10,6 +10,7 @@ from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.courtyard import CourtyardTheatre
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.excel import ExcelLondon, is_trade
+from whatson.aggregators.lexington import Lexington
 from whatson.aggregators.oldvic import OldVic
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.rio import RioCinema
@@ -571,3 +572,30 @@ def test_oldvic(venues):
     assert (story.start, story.end) == (date(2026, 12, 19), None)
     assert (story.price_min, story.price_max) == (9.5, 17.5)
     assert story.tags == ["Theatre"]
+
+
+def test_lexington(venues):
+    base = "https://www.thelexington.co.uk"
+    routes = {venues["lexington"].url: "lexington/events.html"}
+    for n in (3877, 3912):
+        routes[f"{base}/event.php?id={n}"] = f"lexington/event-{n}.html"
+    agg = Lexington(venues["lexington"], FakeFetcher(routes), date(2026, 9, 29))
+    events = {e.url.rsplit("=", 1)[1]: e for e in agg.fetch_events()}
+
+    assert len(events) == 89
+    sari = events["3877"]  # "Tue September 29, 19:00"
+    assert sari.title == "Sari Schorr, Joe Hicks"
+    assert sari.start == datetime(2026, 9, 29, 19, 0, tzinfo=LONDON)
+    assert (sari.price_min, sari.price_max) == (25.0, 25.0)  # "adv £25"
+    assert sari.summary and "Celebrate the official London launch" in sari.summary
+    assert sari.booking_url and "tickettailor" in sari.booking_url
+    assert sari.image_url == f"{base}/uploads/3877.jpg"
+    assert sari.tags == ["Music"]
+    club = events["3912"]  # a club night: "Limited free earlybird. £6 Adv. £8 on the door."
+    assert club.start == datetime(2026, 10, 2, 23, 0, tzinfo=LONDON)
+    assert (club.price_min, club.price_max) == (0.0, 8.0)
+    assert set(club.tags) == {"Nightlife", "Music"} and club.category == "Nightlife"
+    quiz = events["3936"]  # listed as a club night, but it's a quiz; no ticket link
+    assert quiz.tags == ["Nightlife"] and quiz.booking_url is None
+    assert quiz.price_min is None  # no saved event page: listed without details
+    assert events["3934"].start == datetime(2027, 3, 9, 19, 30, tzinfo=LONDON)  # next year
