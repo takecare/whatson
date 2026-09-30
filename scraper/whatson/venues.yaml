@@ -290,6 +290,16 @@ venues:
     lng: -0.0003
     tags: [Theatre]
 
+  - id: theatreship
+    name: Theatreship
+    url: https://theatreship.co.uk/#tickets
+    address: Millwall Cutting, Arts and Heritage Berth, London E14 9SH
+    city: London
+    area: Canary Wharf
+    lat: 51.5011
+    lng: -0.0161
+    tags: [Music, Film]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
