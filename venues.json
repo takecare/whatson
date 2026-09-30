@@ -1,4 +1,4 @@
-{"generated_at":"2026-09-29T18:00:28+00:00","venues":[
+{"generated_at":"2026-09-30T07:55:43+00:00","venues":[
 {"id":"topsecret","name":"The Top Secret Comedy Club","url":"https://thetopsecretcomedyclub.co.uk/events-listings/","address":"170 Drury Lane, London WC2B 5QF","city":"London","area":"Covent Garden","lat":51.5155,"lng":-0.1219,"tags":["Comedy"]},
 {"id":"unionchapel","name":"Union Chapel","url":"https://unionchapel.org.uk/venue/whats-on","address":"19b Compton Terrace, London N1 2UN","city":"London","area":"Islington","lat":51.5437,"lng":-0.1026,"tags":["Music"]},
 {"id":"saatchi","name":"Saatchi Gallery","url":"https://www.saatchigallery.com/whats-on","address":"Duke of York's HQ, King's Road, London SW3 4RY","city":"London","area":"Chelsea","lat":51.4906,"lng":-0.1587,"tags":["Art","Exhibition"]},
@@ -21,5 +21,7 @@
 {"id":"signaturebrew-blackhorse","name":"Signature Brew Blackhorse Road","url":"https://events.signaturebrew.co.uk/","address":"Blackhorse Lane, London E17","city":"London","area":"Walthamstow","lat":51.5895,"lng":-0.0413,"tags":["Music"]},
 {"id":"sjq","name":"SJQ","url":"https://www.sjqdalston.com/programme","address":"10A Bradbury Street, London N16 8JN","city":"London","area":"Dalston","lat":51.5486,"lng":-0.0749,"tags":["Music"]},
 {"id":"courtyard","name":"The Courtyard Theatre","url":"https://thecourtyard.org.uk/whats-on/","address":"Bowling Green Walk, 40 Pitfield Street, London N1 6EU","city":"London","area":"Hoxton","lat":51.5285,"lng":-0.083,"tags":["Theatre"]},
-{"id":"excel","name":"ExCeL London","url":"https://www.excel.london/visitor/whats-on","address":"1 Western Gateway, London E16 1XL","city":"London","area":"Royal Docks","lat":51.5085,"lng":0.0295,"tags":["Exhibition"]}
+{"id":"excel","name":"ExCeL London","url":"https://www.excel.london/visitor/whats-on","address":"1 Western Gateway, London E16 1XL","city":"London","area":"Royal Docks","lat":51.5085,"lng":0.0295,"tags":["Exhibition"]},
+{"id":"oldvic","name":"The Old Vic","url":"https://www.oldvictheatre.com/stage/","address":"The Cut, London SE1 8NB","city":"London","area":"Waterloo","lat":51.5022,"lng":-0.1096,"tags":["Theatre"]},
+{"id":"lexington","name":"The Lexington","url":"https://www.thelexington.co.uk/events.php","address":"96-98 Pentonville Road, London N1 9JB","city":"London","area":"Angel","lat":51.5318,"lng":-0.1109,"tags":["Music","Nightlife"]}
 ]}
