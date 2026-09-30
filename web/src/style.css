@@ -527,7 +527,32 @@ main {
 }
 .site-footer h2 {
   font-family: var(--display);
-  margin: 0 0 4px;
+  margin: 0;
+}
+.sources-panel summary {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+  width: fit-content;
+}
+.sources-panel summary::-webkit-details-marker {
+  display: none;
+}
+.sources-panel summary::before {
+  content: "▸";
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+.sources-panel[open] summary::before {
+  transform: rotate(90deg);
+}
+.sources-panel summary .err {
+  color: var(--err);
+}
+.sources-panel + p {
+  margin-top: 8px;
 }
 
 .sources {

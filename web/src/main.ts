@@ -86,7 +86,7 @@ async function start() {
 
   panel.sync();
   render();
-  renderSources($("sources"), $("updated"), data);
+  renderSources($("sources"), $("sources-count"), $("updated"), data);
 }
 
 void start();
