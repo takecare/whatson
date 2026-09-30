@@ -9,6 +9,7 @@ from whatson.aggregators import (  # noqa: F401
     excel,
     genesis,
     hackneyempire,
+    kingshead,
     lexington,
     oldvic,
     princecharles,
