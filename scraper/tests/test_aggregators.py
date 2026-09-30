@@ -4,6 +4,7 @@ import pytest
 from conftest import FakeFetcher
 
 from whatson import LONDON
+from whatson.aggregators.almeida import Almeida
 from whatson.aggregators.arcola import ArcolaTheatre
 from whatson.aggregators.barbican import Barbican
 from whatson.aggregators.cafeoto import CafeOto
@@ -762,3 +763,20 @@ def test_kingshead(venues):
     assert (gang.start, gang.end) == (date(2026, 10, 1), date(2026, 10, 10))
     assert gang.performances == []
     assert events["The Hound of the Baskervilles"].tags == ["Comedy"]
+
+
+def test_almeida(venues):
+    http = FakeFetcher({venues["almeida"].url: "almeida/whats-on.html"})
+    events = {
+        e.title: e for e in Almeida(venues["almeida"], http, date(2026, 9, 30)).fetch_events()
+    }
+
+    assert set(events) == {"Triumph", "Golden Boy", "Desire Under the Elms", "Theatre Tour"}
+    triumph = events["Triumph"]  # "Fri 16 - Fri 23 Oct 2026"
+    assert (triumph.start, triumph.end) == (date(2026, 10, 16), date(2026, 10, 23))
+    assert triumph.sold_out and triumph.tags == ["Theatre"]
+    assert triumph.image_url and "resize=960" in triumph.image_url  # the widest in srcset
+    desire = events["Desire Under the Elms"]  # "Tue 10 Nov – Wed 23 Dec 2026"
+    assert (desire.start, desire.end) == (date(2026, 11, 10), date(2026, 12, 23))
+    assert not desire.sold_out
+    assert events["Theatre Tour"].tags == ["Tours"]
