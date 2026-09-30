@@ -1,0 +1,1096 @@
+{
+  "name": "projects/theatreship/databases/(default)/documents/eventsCache/latest",
+  "fields": {
+    "eventsList": {
+      "arrayValue": {
+        "values": [
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-mystery-cinema-screening-tickets-2000463431976"
+                            },
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-09-30T19:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F754711849%2F1581883248273%2F1%2Foriginal.20240429-101719?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=4%2C0%2C1736%2C868&s=e05ccab65f2617711c5281407b5d0061"
+                },
+                "description": {
+                  "stringValue": "A completely free cinema night onboard Theatreship - only catch is you don't know what the film is going to be until you arrive."
+                },
+                "title": {
+                  "stringValue": "FREE MYSTERY CINEMA SCREENING"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://dice.fm/event/6ab93bc309ac980001dddf98"
+                            },
+                            "platform": {
+                              "stringValue": "Dice"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "Joy of Life International presents *Private View*; Sam Swinson (Ohtis), Michael Clark (Lichen) and Ben Woods (The Golden Dregs) giving a preview of new works from their future releases."
+                },
+                "date": {
+                  "stringValue": "2026-10-01T19:30:00+01:00"
+                },
+                "title": {
+                  "stringValue": "Private View; Ohtis, Lichen and The Golden Dregs"
+                },
+                "image": {
+                  "stringValue": "https://dice-media.imgix.net/attachments/2026-09-27/68c562c5-ab33-4c79-9241-fe3661b4d378.jpg?auto=format,compress&q=60&w=600"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "date": {
+                  "stringValue": "2026-10-02T19:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189558522%2F1581883248273%2F1%2Foriginal.20260724-163423?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.558&s=19c2c33e38db2e898e2f7dfc70871fe1"
+                },
+                "description": {
+                  "stringValue": "A raw coming-of-age film set against the chaos of a summer holiday in Greece, paired with a new documentary. Part of BFI's 'Rip it Up'."
+                },
+                "title": {
+                  "stringValue": "BFI 'Rip it Up' - \"How to have Sex\" + prescreening \"Between Two Worlds\""
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/bfi-rip-it-up-how-to-have-sex-prescreening-between-two-worlds-tickets-1997612747502"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/national-theatre-live-misanthrope-tickets-2001066742494"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-10-03T13:00:00"
+                },
+                "title": {
+                  "stringValue": "National Theatre Live: Misanthrope"
+                },
+                "description": {
+                  "stringValue": "Part of a series of National Theatre Live Screenings, The Misanthrope is a razor-sharp reimagining Molière’s classic dark comedy."
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193562511%2F476455179239%2F1%2Foriginal.20260915-150840?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=5f2b21b7c488264c620d59ca5f28ef25"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/hong-kong-film-festival-2026-27-classics-revisited-tickets-1998129667624"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "title": {
+                  "stringValue": "Hong Kong Film Festival 2026-27 - Classics Revisited"
+                },
+                "description": {
+                  "stringValue": "My Heart Is That Eternal Rose 殺手蝴蝶夢 (2K Restoration) + Q&A"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1191181858%2F2994776724077%2F1%2Foriginal.20260816-150840?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=06b215a896131b407075265e8828bd2d"
+                },
+                "date": {
+                  "stringValue": "2026-10-04T14:00:00"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/guest-event-femmesocial-press-autumn-book-launch-tickets-2002328546584"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-10-04T19:00:00"
+                },
+                "description": {
+                  "stringValue": "Join Femmesocial for the launch 'The Birth of Atlas' by Henry Izard-Bater, and 'Rosie, Starfish, Breakfast' by Zahra Hamdulay."
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194413936%2F476455179239%2F1%2Foriginal.20260926-112044?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=cbd3ad49aef5d0536b0add6e268aee52"
+                },
+                "title": {
+                  "stringValue": "Guest Event:  Femmesocial Press: Autumn Book Launch"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "date": {
+                  "stringValue": "2026-10-05T20:00:00"
+                },
+                "description": {
+                  "stringValue": "An evening of cutting edge, spontaneous, improvised music and more - the only club of its kind in central London."
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194219578%2F285540843664%2F1%2Foriginal.20260923-184342?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.656&fp-y=0.481&s=1bff452c382e25a1b38d9abd90dac519"
+                },
+                "title": {
+                  "stringValue": "Boat-Ting"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/boat-ting-tickets-2002163739642"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F754711849%2F1581883248273%2F1%2Foriginal.20240429-101719?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=4%2C0%2C1736%2C868&s=e05ccab65f2617711c5281407b5d0061"
+                },
+                "date": {
+                  "stringValue": "2026-10-07T19:00:00"
+                },
+                "title": {
+                  "stringValue": "FREE MYSTERY CINEMA SCREENING"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-mystery-cinema-screening-tickets-2000463446018"
+                            },
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "A completely free cinema night onboard Theatreship - only catch is you don't know what the film is going to be until you arrive."
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "description": {
+                  "stringValue": "Josephine Foster is a Colorado-born singer, composer and lyricist whose work drifts between folk, lieder, country blues and avant-song. Drawing on archaic forms and outsider traditions, she reshapes them with a distinct, spectral touch.\n\nHere, she honours longtime collaborator Víctor Herrero, who curates a set of his own compositions for Foster’s voice. Herrero’s classical guitar provides a sparse, expressive frame for her light, unguarded delivery, with echoes of Amancio Prada and Víctor Jara in their shared approach.\n\nThe result is intimate and restrained, with voice and guitar held in careful balance. These are songs that feel suspended out of time—delicate, reflective and quietly absorbing."
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://dice.fm/event/6aa854b6fcb1030001712826"
+                            },
+                            "platform": {
+                              "stringValue": "Dice"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "title": {
+                  "stringValue": "Josephine Foster sings the songs of Victor Herrero (with Victor Herrero)"
+                },
+                "image": {
+                  "stringValue": "https://dice-media.imgix.net/attachments/2026-09-14/a204676a-af17-4f96-a9c8-e1ccb2599962.jpg?auto=format,compress&q=60&w=600"
+                },
+                "date": {
+                  "stringValue": "2026-10-08T19:00:00+01:00"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-london-scandi-session-tickets-2001703284408"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-10-11T14:00:00"
+                },
+                "description": {
+                  "stringValue": "Traditional folk music session with tunes from Sweden, Norway and Denmark."
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190367067%2F476455179239%2F1%2Foriginal.20260805-123728?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=1a65fbfae9eac1217a9d2374fa176ede"
+                },
+                "title": {
+                  "stringValue": "FREE EVENT: London Scandi Session"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "description": {
+                  "stringValue": "An open singaround for everyone to share and enjoy traditional folk songs. Hosted by Lileth Chinn."
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-songs-on-the-water-tickets-1996684267393"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-10-12T19:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943917533%2F2045948654983%2F1%2Foriginal.20250124-165003?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.50946969697&fp-y=0.485465116279&s=9837c4169fdf94d4b772a00c5d724247"
+                },
+                "title": {
+                  "stringValue": "Free Event: Songs on the Water"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/madness-take-it-or-leave-it-stiff-records-qa-part-of-bfi-rip-it-up-tickets-1998538714093"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-10-16T18:30:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1191587286%2F1817878249913%2F1%2Foriginal.20260821-115923?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.445&fp-y=0.365&s=78b703ce07ae8b65b2107d8abbd3e579"
+                },
+                "description": {
+                  "stringValue": "A screening of the original film Take It Or Leave It, with Q&A from Director Dave Robinson + Stiff Records special guests and material"
+                },
+                "title": {
+                  "stringValue": "Madness: Take It Or Leave It +Stiff Records Q&A, part of BFI 'Rip It Up'"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-traditional-folk-music-session-tickets-1979850990609"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "title": {
+                  "stringValue": "Free Event: Traditional Folk Music Session"
+                },
+                "description": {
+                  "stringValue": "A free event: come along with an instrument or just come along with your ears for an evening of communal music making. Led by Owen Spafford"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F883702653%2F1581883248273%2F1%2Foriginal.20241025-205408?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.00483928554661&fp-y=0.00292315175097&s=c8b0a65c7b0759200a929ab0ac9f1d2b"
+                },
+                "date": {
+                  "stringValue": "2026-10-19T19:00:00"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "description": {
+                  "stringValue": "A vibrant short film programme, reflecting the breadth of style and skill in contemporary animation  from the UK and around the world."
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193330156%2F476455179239%2F1%2Foriginal.20260912-133646?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=ddac22cd324b51799bf0992cf0144685"
+                },
+                "date": {
+                  "stringValue": "2026-10-22T10:30:00"
+                },
+                "title": {
+                  "stringValue": "GUEST EVENT: London Breeze Film Festival Shorts: Animation"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/guest-event-london-breeze-film-festival-shorts-animation-tickets-2000724958208"
+                            },
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "title": {
+                  "stringValue": "Monde UFO + Ignatz"
+                },
+                "image": {
+                  "stringValue": "https://dice-media.imgix.net/attachments/2026-06-08/4931e8f2-48a3-414e-a00e-c189fcaf5262.jpg?auto=format,compress&q=60&w=600"
+                },
+                "date": {
+                  "stringValue": "2026-10-22T19:30:00+01:00"
+                },
+                "description": {
+                  "stringValue": "Baba Yaga's Hut presents:\n\nMonde UFO + Ignatz at Theatreship, October 22nd\n\nMonde UFO, LA-based duo of Ray Monde and Kris Chau, are a monochromatic sunset for the senses. A sonic journey through psychedelia, space rock and jazz. A cosmic space where Spacemen 3 meets Vanishing Twin, by way of Sun Ra.\n\nIn a downtown Los Angeles warehouse, on 7th Street, Ray Monde began writing songs on an old Yamaha church organ for a project that eventually became Monde UFO. Utilizing the organ as a bass, alongside keyboards and a drum machine, he began making demos on a four-track cassette recorder, adding only vocals and guitar to the organ pieces. He explored making haunting and optimistic sounds while living in Skid Row as a one-man band. Heavily influenced by the musician Sandy Bull, sonically landing in a similar no-man’s land of Worldly Jazz and Psych Folk. Monde experimented with the themes mostly of meditation and UFO lore.\n\nIn time Ray moved in with the artist Kris Chau. With little crossover in musical tastes, they exclusively started listening to jazz, ambient and new age music in the house. Increased interest in sound baths and experimental music led to seeing music in a different light. Ray thought it would be interesting to add Chau into his slow burner music project envisioning something that would sound like Don Cherry making a record with Yo La Tengo. Chau, with no previous musical experience, would play a sacral singing bowl mic’d up though various guitar pedals and singing. Ray would write songs that fit these 436hz drones and in addition to the old drum machines added modal jazz alternatives to more limited song structures. By incorporating Kris, a non-musician, there was an added emphasis on simplicity and an innocence akin to Beat Happening and K records. Alongside a Community-College taught conservatory-rejected jazz musician the duo reached back to a more youthful punk foundation; without over rehearsing, they empathized more on creativity than virtuosity.\n\n\\---\n\nIgnatz is the alter-ego of Belgian musician Bram Devens. Bram Devens uses Ignatz as his alter-ego, and comes armed with his own pile of bricks; sparse, emotive songs, wrapped in effects, corroded by tape, driven forth by improvisation and spontaneity.\n\nIgnatz’s songs stem from a stripped folk framework, being compared to the primitivism of Velvet Underground or Henry Flynt – but these songs sound inverted, cast adrift, from beneath the surface. Where Devens’ fretwork is adorned, it is executed with a refined coarseness. Autonomous loops entwine each other. Songs brush past percussion, bass notes, or a scant keyboard motif. A voice recedes from the heart of the song into a dislocated, cracked drawl."
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://dice.fm/event/6a26d81357643d00017ac63c"
+                            },
+                            "platform": {
+                              "stringValue": "Dice"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "description": {
+                  "stringValue": "A programme of short films, each with a deep consideration for the environment at their core."
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/guest-event-london-breeze-film-festival-shorts-impact-shorts-tickets-2000726296210"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "title": {
+                  "stringValue": "GUEST EVENT: London Breeze Film Festival Shorts: IMPACT Shorts"
+                },
+                "date": {
+                  "stringValue": "2026-10-24T10:30:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193433450%2F476455179239%2F1%2Foriginal.20260914-105835?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=cfb88ed684e935493796aece4f470ac2"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/guest-event-london-breeze-film-festival-shorts-through-the-lens-tickets-2000726443651"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "A programme of short films selected for their exceptional cinematography."
+                },
+                "date": {
+                  "stringValue": "2026-10-25T10:30:00"
+                },
+                "title": {
+                  "stringValue": "GUEST EVENT: London Breeze Film Festival Shorts: Through the Lens"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193433882%2F476455179239%2F1%2Foriginal.20260914-110601?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=50fd894ffcc07243535fde449dbda55c"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "date": {
+                  "stringValue": "2026-10-25T12:30:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193433999%2F476455179239%2F1%2Foriginal.20260914-110753?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=20eef30e37a9f600b897df15698d13a8"
+                },
+                "title": {
+                  "stringValue": "GUEST EVENT: LBFF Shorts: Nowt As Queer"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/guest-event-lbff-shorts-nowt-as-queer-tickets-2000726688383"
+                            },
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "A programme of six short films exploring a range of stories across the spectrum of Queerness"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "description": {
+                  "stringValue": "Abi Asisa and Theatreship present a night of Sapphic Cinema – a screening of 'Shakedown' paired with a live performance."
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/sapphic-cinema-shakedown-live-performance-tickets-2002284931129"
+                            },
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "title": {
+                  "stringValue": "Sapphic Cinema – 'Shakedown' + Live Performance"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194353182%2F285540843664%2F1%2Foriginal.20260925-114522?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=452d97a1a4329b0ee923c32dd60749b2"
+                },
+                "date": {
+                  "stringValue": "2026-10-25T18:30:00"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "description": {
+                  "stringValue": "An open singaround for everyone to share and enjoy traditional folk songs. Hosted by Lileth Chinn."
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-songs-on-the-water-tickets-1996684282438"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-10-26T19:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943917533%2F2045948654983%2F1%2Foriginal.20250124-165003?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.50946969697&fp-y=0.485465116279&s=9837c4169fdf94d4b772a00c5d724247"
+                },
+                "title": {
+                  "stringValue": "Free Event: Songs on the Water"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "date": {
+                  "stringValue": "2026-10-30T19:30:00+00:00"
+                },
+                "description": {
+                  "stringValue": "EVIL SWORD are Kate Ferencz and Ben Furgal from Philadelphia, USA. Their chaotic live shows combine elements of noise, cryptic metal overtones, performance art, and gallows humor and feature macabre props, flashing lights, stage sets and costumes. There are hardly any instruments in this group, but they make such a racket you’d never know it. The bass and the percussion sound like they’re having a great time, telling each other jokes. Then the words come in and it all locks together in these strange, hypnotic rhythms. Recent album ‘Basket Fever’ (Magic Pictures, 2023) features electrocuted bells, backwards parts, rusty horns; I’m pretty sure I even heard a clarinet in there somewhere. But, what’s this new racket? Crashing pots and pans, flashing lights, literal bells and whistles, exploding furniture… this parade of dreams and nightmares could only be Evil Sword’s new split 12” LP with Miss Pussycat - ’The Skit Split’. These unhinged songs conjure up a world of fairy tale magic and monstrosities in equal measure. Evil Sword formed on a Halloween, and now they return to London to work through their demons.\n\nhttps://evilsword.bandcamp.com/album/the-skit-split \n\nRAINHAM SHEDS present all-female maximum art-core no-wave on a primitive tip. Both incomparable and conceptual, the five Shedwomen divest themselves of all cultivated musical norms and graces to most efficiently deliver crude skronk with cloven hooves. Brainchild and performance artist Kate Mahony ruminates on subjects including French philosophy, sex with furniture in damp flats and the nuclear threat. Featuring members of bands including Shake Chain, Flat Soufflé, The Chop and Sassyhiya among others, you are never far from a Shed and upon watching, we are reminded that we are all a little part Shed.\n\nhttps://permanentslump.bandcamp.com/album/rainham-sheds \n\nEBBY are a minimalist indie-rock band from Rotterdam, Netherlands, centered around songwriter and former Rats on Rafts member Doortje Hiddema. Originally a solo project, the group expanded into a trio featuring guitarist Michiel Klein (Lewsberg) and bassist/rhythm-box player Casper van der Lans (Pip Blom).\n\nhttps://ebbyband.bandcamp.com/album/abcde"
+                },
+                "image": {
+                  "stringValue": "https://dice-media.imgix.net/attachments/2026-08-19/2206f969-29f2-4dd7-8923-0d573cae99bc.jpg?auto=format,compress&q=60&w=600"
+                },
+                "title": {
+                  "stringValue": "Evil Sword + Rainham Sheds + Ebby"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://dice.fm/event/6a85a816fbded20001479b40"
+                            },
+                            "platform": {
+                              "stringValue": "Dice"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/guest-event-arko-mukhaerjee-ft-kanishka-live-tickets-2002430522597"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "date": {
+                  "stringValue": "2026-11-06T19:30:00"
+                },
+                "title": {
+                  "stringValue": "Guest Event: Arko Mukhaerjee ft. Kanishka Live"
+                },
+                "description": {
+                  "stringValue": "Folk meets Electronica  in this live performance of songs from Bengal Nepal and Pan India."
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194516405%2F476455179239%2F1%2Foriginal.20260928-132957?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=d5115b63a314e1e5c094c1b595ecee57"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/anthonie-tonnon-presents-cinematographer-tickets-1996104920551"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "title": {
+                  "stringValue": "Anthonie Tonnon presents \"Cinematographer\""
+                },
+                "date": {
+                  "stringValue": "2026-11-07T20:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189963088%2F476455179239%2F1%2Foriginal.20260730-150304?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=71d3dd6b4693391e553c1ad8ae3a326d"
+                },
+                "description": {
+                  "stringValue": "An immersive audiovisual show by New Zealand songwriter Anthonie Tonnon: part film, part disco club set, part performance lecture."
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-songs-on-the-water-tickets-1996684286450"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "An open singaround for everyone to share and enjoy traditional folk songs. Hosted by Lileth Chinn."
+                },
+                "date": {
+                  "stringValue": "2026-11-09T19:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943917533%2F2045948654983%2F1%2Foriginal.20250124-165003?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.50946969697&fp-y=0.485465116279&s=9837c4169fdf94d4b772a00c5d724247"
+                },
+                "title": {
+                  "stringValue": "Free Event: Songs on the Water"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/howl-experimental-music-and-drawing-session-tickets-2001699582335"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "HOWL is a new experimental music and drawing  series, exploring new works and free improvisations."
+                },
+                "date": {
+                  "stringValue": "2026-11-14T19:30:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193907415%2F476455179239%2F1%2Foriginal.20260919-154335?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.08&fp-y=0.265&s=38395dd63683be9ce2f70b5149ac4ff6"
+                },
+                "title": {
+                  "stringValue": "HOWL: Experimental Music and Drawing Session"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "title": {
+                  "stringValue": "Free Event: Traditional Folk Music Session"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F883702653%2F1581883248273%2F1%2Foriginal.20241025-205408?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.00483928554661&fp-y=0.00292315175097&s=c8b0a65c7b0759200a929ab0ac9f1d2b"
+                },
+                "description": {
+                  "stringValue": "A free event: come along with an instrument or just come along with your ears for an evening of communal music making. Led by Owen Spafford"
+                },
+                "date": {
+                  "stringValue": "2026-11-16T19:00:00"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-traditional-folk-music-session-tickets-1979850991612"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Dice"
+                            },
+                            "url": {
+                              "stringValue": "https://dice.fm/event/6aa7e0419e65100001e55173"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "Fragmented loops of sound shift and evolve in **Jocelyn Campbell’s** new work, *lo-end*. The unexpected combination of tuba (**Nona Lawrence**), double bass (**Gwen Reed**), and electronics (Campbell) shifts the ambient electronic genre into the analogue world. Theatreship becomes a space of the uncanny: what is live and what is recorded becomes unknown, as sound becomes embodied and disembodied in an ever-evolving wave of ambient music. Tuba and double bass accompany themselves through live and pre-recorded elements, memories that are eroded and disappear as soon as they become live. Sounds appear between memory and invention, presence and disappearance, and electronics and analogue.\n\nSupport comes from **Pav** - a London-based composer, producer and sound designer.\n\nThe closing DJ set - a combination of modernist music and electronics - comes from **phonewifey**, Campbell’s producer and DJ alter-ego."
+                },
+                "date": {
+                  "stringValue": "2026-11-19T19:30:00+00:00"
+                },
+                "image": {
+                  "stringValue": "https://dice-media.imgix.net/attachments/2026-09-14/26c59c44-e06a-422a-9118-25567d428dfb.jpg?auto=format,compress&q=60&w=600"
+                },
+                "title": {
+                  "stringValue": "Jocelyn Campbell: lo-end / Pav"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-songs-on-the-water-tickets-1996684289459"
+                            },
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "description": {
+                  "stringValue": "An open singaround for everyone to share and enjoy traditional folk songs. Hosted by Lileth Chinn."
+                },
+                "title": {
+                  "stringValue": "Free Event: Songs on the Water"
+                },
+                "date": {
+                  "stringValue": "2026-11-23T19:00:00"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943917533%2F2045948654983%2F1%2Foriginal.20250124-165003?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.50946969697&fp-y=0.485465116279&s=9837c4169fdf94d4b772a00c5d724247"
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "title": {
+                  "stringValue": "Greet + Dawn Terry + Aster"
+                },
+                "image": {
+                  "stringValue": "https://dice-media.imgix.net/attachments/2026-07-14/51f5cc24-1af3-4de5-8b77-283951ece13b.jpg?auto=format,compress&q=60&w=600"
+                },
+                "description": {
+                  "stringValue": "**GREET**\n\nFormer DAWN RAY’D drummer Matthew Broadley blends traditional folk with heavy, looming and ever-present harmonium drone. This is apocalyptic doom that channels the untamed Yorkshire landscape through an eerie, hushed and introspective lens to deliver moving, ritualistic live performances.\n\nhttps://greet.bandcamp.com/\n\n\\--\n\n**DAWN TERRY**\n\nFour-time Roadburn alumna Dawn Terry is a mainstay of the UK underground. One of the most arresting and enveloping performers around; a visceral tour de force of other/worldly folk drones and a voice that simultaneously haunts and harrows. Wyrd folk meets murder ballads. Utterly compelling.\n\nhttps://dawnterry.bandcamp.com/\n\n\\--\n\n**ASTER**\n\nAster are poets and experimental soundmakers Alex Keramidas and Catherine Norris. Their practice is informed by perpetual choirs, sacrificial stones, and top of the pops. Full length cassette ‘Party Down The Hall’ available now on Sacred Tapes.\n\nhttps://sacredtapes.bandcamp.com/\n\n\\--\n\nFor accessibility and low income tickets, please email scenecollapser@gmail.com"
+                },
+                "date": {
+                  "stringValue": "2026-12-12T19:00:00+00:00"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "url": {
+                              "stringValue": "https://dice.fm/event/6a56b120fdfbac000199b152"
+                            },
+                            "platform": {
+                              "stringValue": "Dice"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "mapValue": {
+              "fields": {
+                "title": {
+                  "stringValue": "Free Event: Songs on the Water"
+                },
+                "image": {
+                  "stringValue": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F943917533%2F2045948654983%2F1%2Foriginal.20250124-165003?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.50946969697&fp-y=0.485465116279&s=9837c4169fdf94d4b772a00c5d724247"
+                },
+                "description": {
+                  "stringValue": "An open singaround for everyone to share and enjoy traditional folk songs. Hosted by Lileth Chinn."
+                },
+                "date": {
+                  "stringValue": "2026-12-14T19:00:00"
+                },
+                "links": {
+                  "arrayValue": {
+                    "values": [
+                      {
+                        "mapValue": {
+                          "fields": {
+                            "platform": {
+                              "stringValue": "Eventbrite"
+                            },
+                            "url": {
+                              "stringValue": "https://www.eventbrite.co.uk/e/free-event-songs-on-the-water-tickets-1996684297483"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "lastUpdated": {
+      "timestampValue": "2026-09-30T04:14:21.179Z"
+    }
+  },
+  "createTime": "2026-08-04T06:27:36.963015Z",
+  "updateTime": "2026-09-30T04:14:21.215233Z"
+}

@@ -33,6 +33,8 @@ from whatson.aggregators.southwarkparkgalleries import API as SPG_API
 from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
 from whatson.aggregators.space import TheSpace
 from whatson.aggregators.stratfordeast import StratfordEast
+from whatson.aggregators.theatreship import DOC as THEATRESHIP_DOC
+from whatson.aggregators.theatreship import Theatreship
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
@@ -692,3 +694,22 @@ def test_stratfordeast(venues):
     assert bar[0].title == "Reggae Revival" and bar[0].price_min == 0
     assert bar[0].start == datetime(2026, 10, 2, 21, 0, tzinfo=LONDON)
     assert bar[-1].title == "Salsa with DJ Hughie"  # "Salsa with DJ Hughie -9pm-12am"
+
+
+def test_theatreship(venues):
+    http = FakeFetcher({f"{THEATRESHIP_DOC}|page=1": "theatreship/events.json"})
+    events = list(Theatreship(venues["theatreship"], http, date(2026, 9, 30)).fetch_events())
+    by_title = {e.title: e for e in events}
+
+    assert len(events) == 30
+    mystery = events[0]  # an Eventbrite date, local time without an offset
+    assert mystery.title == "FREE MYSTERY CINEMA SCREENING"
+    assert mystery.start == datetime(2026, 9, 30, 19, 0, tzinfo=LONDON)
+    assert mystery.tags == ["Film"] and mystery.price_min == 0
+    assert mystery.url.startswith("https://www.eventbrite.co.uk/") and mystery.image_url
+    gig = by_title["Monde UFO + Ignatz"]  # a DICE date, with an offset
+    assert gig.start == datetime(2026, 10, 22, 19, 30, tzinfo=LONDON)
+    assert gig.tags == ["Music"] and gig.price_min is None
+    assert gig.summary and "*" not in gig.summary
+    madness = next(e for e in events if e.title.startswith("Madness: Take It Or Leave It"))
+    assert set(madness.tags) == {"Film", "Talks"}

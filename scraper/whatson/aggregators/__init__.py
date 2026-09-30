@@ -20,6 +20,7 @@ from whatson.aggregators import (  # noqa: F401
     southwarkparkgalleries,
     space,
     stratfordeast,
+    theatreship,
     theo2,
     topsecret,
     trinitybuoywharf,
