@@ -280,6 +280,16 @@ venues:
     lng: -0.0233
     tags: [Theatre, Comedy, Music]
 
+  - id: stratfordeast
+    name: Stratford East
+    url: https://www.stratfordeast.com/whats-on/
+    address: Gerry Raffles Square, London E15 1BN
+    city: London
+    area: Stratford
+    lat: 51.5429
+    lng: -0.0003
+    tags: [Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
