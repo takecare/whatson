@@ -230,6 +230,16 @@ venues:
     lng: 0.0295
     tags: [Exhibition]
 
+  - id: oldvic
+    name: The Old Vic
+    url: https://www.oldvictheatre.com/stage/
+    address: The Cut, London SE1 8NB
+    city: London
+    area: Waterloo
+    lat: 51.5022
+    lng: -0.1096
+    tags: [Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

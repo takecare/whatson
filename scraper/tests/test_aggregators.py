@@ -10,6 +10,7 @@ from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.courtyard import CourtyardTheatre
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.excel import ExcelLondon, is_trade
+from whatson.aggregators.oldvic import OldVic
 from whatson.aggregators.princecharles import PrinceCharlesCinema
 from whatson.aggregators.rio import RioCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
@@ -547,3 +548,26 @@ def test_excel_leaves_out_trade_shows(venues):
 )
 def test_excel_is_trade(title, intro, trade):
     assert is_trade(title, intro) is trade
+
+
+def test_oldvic(venues):
+    base = "https://www.oldvictheatre.com/stage"
+    routes = {venues["oldvic"].url: "oldvic/stage.html"}
+    for slug in ("martin-guerre", "a-christmas-carol-2026", "christmas-storytelling-2026"):
+        routes[f"{base}/{slug}/"] = f"oldvic/{slug}.html"
+    events = {
+        e.title: e
+        for e in OldVic(venues["oldvic"], FakeFetcher(routes), date(2026, 9, 29)).fetch_events()
+    }
+
+    assert set(events) == {"Martin Guerre", "A Christmas Carol", "Christmas Storytelling"}
+    carol = events["A Christmas Carol"]  # "10 Nov 2026–09 Jan 2027"
+    assert (carol.start, carol.end) == (date(2026, 11, 10), date(2027, 1, 9))
+    assert (carol.price_min, carol.price_max) == (19.5, 91.5)
+    assert {"Theatre", "Audio Described", "Signed", "Captioned", "Relaxed"} <= set(carol.tags)
+    assert carol.booking_url and carol.booking_url.startswith("https://my.oldvictheatre.com/")
+    assert carol.image_url and carol.summary
+    story = events["Christmas Storytelling"]
+    assert (story.start, story.end) == (date(2026, 12, 19), None)
+    assert (story.price_min, story.price_max) == (9.5, 17.5)
+    assert story.tags == ["Theatre"]
