@@ -340,6 +340,16 @@ venues:
     lng: -0.1076
     tags: [Theatre]
 
+  - id: uniontheatre
+    name: Union Theatre
+    url: https://uniontheatre.biz/whats-on/
+    address: Old Union Arches, 229 Union Street, London SE1 0LR
+    city: London
+    area: Southwark
+    lat: 51.5039
+    lng: -0.1010
+    tags: [Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
