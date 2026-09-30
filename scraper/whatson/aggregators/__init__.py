@@ -7,6 +7,7 @@ from whatson.aggregators import (  # noqa: F401
     courtyard,
     enb,
     excel,
+    genesis,
     lexington,
     oldvic,
     princecharles,

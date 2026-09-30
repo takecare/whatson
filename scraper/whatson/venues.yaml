@@ -250,6 +250,16 @@ venues:
     lng: -0.1109
     tags: [Music, Nightlife]
 
+  - id: genesis
+    name: Genesis Cinema
+    url: https://www.genesiscinema.co.uk/whatson/events
+    address: 93-95 Mile End Road, London E1 4UJ
+    city: London
+    area: Stepney Green
+    lat: 51.5218
+    lng: -0.0468
+    tags: [Film]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

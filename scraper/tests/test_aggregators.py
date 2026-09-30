@@ -10,6 +10,7 @@ from whatson.aggregators.cafeoto import CafeOto
 from whatson.aggregators.courtyard import CourtyardTheatre
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.excel import ExcelLondon, is_trade
+from whatson.aggregators.genesis import GenesisCinema
 from whatson.aggregators.lexington import Lexington
 from whatson.aggregators.oldvic import OldVic
 from whatson.aggregators.princecharles import PrinceCharlesCinema
@@ -599,3 +600,23 @@ def test_lexington(venues):
     assert quiz.tags == ["Nightlife"] and quiz.booking_url is None
     assert quiz.price_min is None  # no saved event page: listed without details
     assert events["3934"].start == datetime(2027, 3, 9, 19, 30, tzinfo=LONDON)  # next year
+
+
+def test_genesis(venues):
+    http = FakeFetcher({venues["genesis"].url: "genesis/events.html"})
+    agg = GenesisCinema(venues["genesis"], http, date(2026, 9, 30))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    assert len(events) == 6
+    slam = events["Poetry Slam"]  # two dates: "Thu 08 Oct 19:30", "Thu 12 Nov 19:30"
+    assert slam.performances == [
+        datetime(2026, 10, 8, 19, 30, tzinfo=LONDON),
+        datetime(2026, 11, 12, 19, 30, tzinfo=LONDON),
+    ]
+    assert slam.start == slam.performances[0]
+    assert slam.tags == ["Talks"]  # not a film
+    assert slam.booking_url and "admit-one" in slam.booking_url
+    assert slam.image_url == "https://www.genesiscinema.co.uk/customFilmImages/92613_3.jpg"
+    intro = events["American History X + Intro By Tony Kaye"]
+    assert set(intro.tags) == {"Film", "Talks"} and intro.category == "Film"
+    assert intro.start == datetime(2026, 10, 13, 18, 20, tzinfo=LONDON)

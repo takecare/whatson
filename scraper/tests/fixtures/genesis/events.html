@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="EN" class="">
+    <head>
+
+				        
+        <base href="">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta data-a1serv="A1Web-FE9" />
+        
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+        <link rel="manifest" href="/assets/icons/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>var sitecode = 'GENESIS';</script>
+
+        <!-- DatePicker JS  -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+        <link rel="stylesheet" href="/assets/script/datePicker/lib/themes/default.css">
+        <link rel="stylesheet" href="/assets/script/datePicker/lib/themes/default.date.css">
+        <link rel="stylesheet" href="/assets/script/datePicker/lib/themes/dateOverrites.css">
+        
+        
+        <!-- <meta name="apple-mobile-web-app-title" content="" /> -->
+        
+        <x-head/>
+        <title>What&apos;s On | Genesis Cinema</title>
+        <meta name="desciption" content="">
+        <meta name="keywords" content="">
+        <x-styles/>
+        <link rel="stylesheet" href="/splide/css/splide-core.min.css">
+        <link rel="stylesheet" href="/css/global.css">
+        <link rel="stylesheet" href="/stylesheet.css"> 
+        
+        
+    </head>
+    <body>
+      <header id="a1web-header" class="sticky top-0 a1-header-bg a1-header-border px-4 " style="z-index: 25;">
+    <div class="container mx-auto">
+        <nav class="flex justify-between items-center a1-header-bg px-4 md:px-1 py-4 md:py-6">
+            <div class="flex justify-start items-center">
+                <div class="mr-6">
+                    <a href="https://www.genesiscinema.co.uk">
+                        <img class="a1-header-logo" src="/assets/images/logo_large.png" alt="Site Logo">
+                    </a>
+                </div>
+                <div class="ml-4 hidden lg:block">
+                    <ul class="list-none flex justify-evenly items-center space-x-8">
+                        <li class="lg:pr-0 xl:pr-8">
+                            <i class="icon-a1-common-location-solid text-white items-center justify-center align-middle" style="font-size: 14px; margin-right: 1px;"></i>
+                            <span class="text-white">Whitechapel</span>
+                        </li>
+                                            
+                                                    <li class="dropdown">
+                                                                <a href="/" class="dropdown-selector text-sm a1-header-color font-medium" id="1">
+                                        Whats On                                        <i class="a1-header-color text-xs align-middle dropdown-icon icon-a1-common-down" id="1"></i>
+                                    </a>
+                                                                                            <div class="dropdown-content absolute a1-header-bg grid grid-cols-1 hidden min-w-max" id="1">
+                                                                                    <a href="/whatson/all" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Full Programme</a>
+                                                                                    <a href="/whatson/events" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Events</a>
+                                                                                    <a href="news/21162" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">NT Live</a>
+                                                                                    <a href="/whatson/35mm" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">35mm</a>
+                                                                                    <a href="/whatson/filmfestival" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Film Festivals</a>
+                                                                                    <a href="/whatson/qanda" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Screening + Q&A</a>
+                                                                                    <a href="/whatson/subtitled" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Subtitled</a>
+                                                                                    <a href="/whatson/studio-screenings" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Studio Screening</a>
+                                                                                    <a href="/whatson/bartrash" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Bar Trash</a>
+                                                                                    <a href="/whatson/seasons" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Seasons</a>
+                                                                                    <a href="/whatson/pro-wrestling" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Emporium Pro Wrestling</a>
+                                                                            </div>
+                                                          </li>
+                                                    <li class="dropdown">
+                                                                <a href="/" class="dropdown-selector text-sm a1-header-color font-medium" id="12">
+                                        Food And Drink                                        <i class="a1-header-color text-xs align-middle dropdown-icon icon-a1-common-down" id="12"></i>
+                                    </a>
+                                                                                            <div class="dropdown-content absolute a1-header-bg grid grid-cols-1 hidden min-w-max" id="12">
+                                                                                    <a href="/grindhouse-cafe" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Grindhouse Cafe</a>
+                                                                                    <a href="/kiosk" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Kiosk</a>
+                                                                                    <a href="/the-kitchen" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">The Kitchen</a>
+                                                                                    <a href="/bar-paragon" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Bar Paragon</a>
+                                                                                    <a href="/the-yard" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">The Yard</a>
+                                                                            </div>
+                                                          </li>
+                                                    <li class="">
+                                                                <a href="/membership" class="text-sm a1-header-color font-medium" >Membership</a>
+                                                                                    </li>
+                                                    <li class="">
+                                                                <a href="/giftcard" class="text-sm a1-header-color font-medium" >Gift Card</a>
+                                                                                    </li>
+                                                    <li class="">
+                                                                <a href="/hire" class="text-sm a1-header-color font-medium" >Hire</a>
+                                                                                    </li>
+                                                    <li class="dropdown">
+                                                                <a href="/" class="dropdown-selector text-sm a1-header-color font-medium" id="21">
+                                        Your Visit                                        <i class="a1-header-color text-xs align-middle dropdown-icon icon-a1-common-down" id="21"></i>
+                                    </a>
+                                                                                            <div class="dropdown-content absolute a1-header-bg grid grid-cols-1 hidden min-w-max" id="21">
+                                                                                    <a href="/our-story" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Our Story</a>
+                                                                                    <a href="/about" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">About</a>
+                                                                                    <a href="/pricing" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Pricing</a>
+                                                                                    <a href="/access-needs" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Access Needs</a>
+                                                                                    <a href="/jobs" class="dropdown-link grid-span-1 place-self-start text-sm a1-header-color m-4 font-medium">Jobs</a>
+                                                                            </div>
+                                                          </li>
+                                            </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <div class="flex items-center justify-center">
+                    <a class="flex items-center justify-end mr-4" href="https://genesis.admit-one.co.uk/payment">
+                        <i class="icon icon-a1-common-basket text-white text-2xl"></i>
+                    </a>
+                </div>
+                <div class="flex-initial">
+                    <div class="flex items-center justify-end lg:hidden">
+                        
+                                                    <a class="bg-opacity-25 bg-white rounded-full px-3 py-2 mr-4 flex items-center justify-center" href="https://genesis.admit-one.co.uk/account">
+                                <i class="icon icon-a1-common-account text-white"></i>
+                            </a>
+                                                <span id="openMenu" class="toggleMenu a1-header-color mt-1">
+                            <i class="icon icon-a1-common-menu-burger"></i>
+                        </span>
+                    </div>
+                    <div class="hidden lg:flex xl:hidden xl:justify-end">
+                                                    <a class="bg-opacity-25 bg-white rounded-full px-3 py-2 ml-2 flex items-center justify-center" href="https://genesis.admit-one.co.uk/account">
+                                <i class="icon icon-a1-common-account text-white"></i>
+                            </a>
+                                                                            <a class="bg-opacity-25 bg-white rounded-full px-3 py-2 ml-2 flex items-center justify-center" onclick="showSearchModal()">
+                                <i class="icon icon-a1-common-search text-white"></i>
+                            </a>
+                                                                            <a class="whatsOnButton_header rounded-xl inline-block btn-primary ml-2 font-body text-center text-white text-sm pt-3 px-5 py-2 font-medium" href="contact">
+                                Get in Touch
+                            </a>
+                                            </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<aside id="menuAside" class="transform top-0 right-0 w-5/6 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 translate-x-full" style="z-index:9999;">
+    <div class="border-b-2 py-4 px-12">
+        <span id="closeMenu" class="toggleMenu text-secondary mt-1">
+            <i class="icon icon-a1-common-cross text-sm align-bottom mr-2"></i>
+            Menu
+        </span>
+    </div>
+    <div class="py-8 px-16">
+        <ul class="list-none test">
+            <li class="mb-8">
+                <i id="cin_loc" class="a1-common2-a1-common-location-solid text-accent items-center justify-center align-middle" style="font-size: 14px; margin-right: 1px;"></i>
+                <span class="text-white">Bethnal Green</span>
+            </li>
+                            <li class="mb-8 dropdown">
+                                    <a href="/" class="dropdown-selector flex justify-between text-sm text-secondary font-medium">
+                            Whats On                            <i class="dropdown-icon text-secondary font-medium align-middle icon-a1-common-down"></i>
+                        </a>
+                                    <div class="dropdown-content grid grid-cols-1 place-content-center hidden">
+                                    
+                                <a href="/whatson/all" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Full Programme</a>
+                                    
+                                <a href="/whatson/events" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Events</a>
+                                    
+                                <a href="news/21162" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">NT Live</a>
+                                    
+                                <a href="/whatson/35mm" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">35mm</a>
+                                    
+                                <a href="/whatson/filmfestival" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Film Festivals</a>
+                                    
+                                <a href="/whatson/qanda" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Screening + Q&A</a>
+                                    
+                                <a href="/whatson/subtitled" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Subtitled</a>
+                                    
+                                <a href="/whatson/studio-screenings" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Studio Screening</a>
+                                    
+                                <a href="/whatson/bartrash" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Bar Trash</a>
+                                    
+                                <a href="/whatson/seasons" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Seasons</a>
+                                    
+                                <a href="/whatson/pro-wrestling" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Emporium Pro Wrestling</a>
+                                                    </div>
+                                
+                </li>
+                            <li class="mb-8 dropdown">
+                                    <a href="/" class="dropdown-selector flex justify-between text-sm text-secondary font-medium">
+                            Food And Drink                            <i class="dropdown-icon text-secondary font-medium align-middle icon-a1-common-down"></i>
+                        </a>
+                                    <div class="dropdown-content grid grid-cols-1 place-content-center hidden">
+                                    
+                                <a href="/grindhouse-cafe" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Grindhouse Cafe</a>
+                                    
+                                <a href="/kiosk" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Kiosk</a>
+                                    
+                                <a href="/the-kitchen" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">The Kitchen</a>
+                                    
+                                <a href="/bar-paragon" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Bar Paragon</a>
+                                    
+                                <a href="/the-yard" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">The Yard</a>
+                                                    </div>
+                                
+                </li>
+                            <li class="mb-8 ">
+                                    <a href="/membership" class="text-sm text-secondary font-medium" >Membership</a>
+                        
+                </li>
+                            <li class="mb-8 ">
+                                    <a href="/giftcard" class="text-sm text-secondary font-medium" >Gift Card</a>
+                        
+                </li>
+                            <li class="mb-8 ">
+                                    <a href="/hire" class="text-sm text-secondary font-medium" >Hire</a>
+                        
+                </li>
+                            <li class="mb-8 dropdown">
+                                    <a href="/" class="dropdown-selector flex justify-between text-sm text-secondary font-medium">
+                            Your Visit                            <i class="dropdown-icon text-secondary font-medium align-middle icon-a1-common-down"></i>
+                        </a>
+                                    <div class="dropdown-content grid grid-cols-1 place-content-center hidden">
+                                    
+                                <a href="/our-story" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Our Story</a>
+                                    
+                                <a href="/about" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">About</a>
+                                    
+                                <a href="/pricing" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Pricing</a>
+                                    
+                                <a href="/access-needs" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Access Needs</a>
+                                    
+                                <a href="/jobs" class="dropdown-link grid-span-1 place-self-start text-sm text-secondary font-medium ml-5 my-4">Jobs</a>
+                                                    </div>
+                                
+                </li>
+                      
+        </ul>
+                    <div class="relative bottom-0 mb-8">
+                <p class="text-sm">Stay connected</p>
+                <div class="block justify-start mt-4">
+                                            <a href="https://www.facebook.com/genesiscinema" class="flex-1 mr-1"><i class="icon icon-a1-common-facebook"></i></a>
+                                            <a href="https://x.com/genesiscinema" class="flex-1 mr-1"><i class="icon icon-a1-common-twitter"></i></a>
+                                            <a href="https://www.instagram.com/genesiscinema/" class="flex-1 mr-1"><i class="icon icon-a1-common-instagram"></i></a>
+                                    </div>
+            </div>
+            </div>
+</aside>
+
+<!-- START OF SEARCH MODAL -->
+<aside id="modalSearchBar" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50" style="display:none;" >
+    <div id="closeSearch" class="absolute z-50 w-8 h-8 bg-white text-center pt-1.5 top-12 right-20 rounded-full">
+        <i onclick="hideSearchModal()" class="icon icon-a1-common-cross"></i>
+    </div>
+    <div id="modal-overlay" onclick="hideSearchModal()" class="modal-overlay absolute w-full h-full bg-gray-900 opacity-75"></div>
+        <div class="absolute modal-container max-h-4/5 w-full md:w-3/5 mx-auto top-28 shadow-lg z-50 overflow-y-auto bg-white">
+            <div id="modal-content" class="modal-content text-center">
+                <div id="modal-login" class="modal-login modal-body-header">
+                    <div class="flex flex-col text-lg">
+                      <div class="text-2xl">
+                        <i class="icon icon-a1-common-search absolute right-3 top-3"></i>
+                        <input type="text" id="searchBarInput" onkeyup="searchForPerformance()" placeholder="Search.." class="w-full border-b-2 py-2 px-4" autocomplete="off">
+                      </div>
+                        <div class="flex w-full text-left text-black text-2xl">
+                          <ul id="performanceList">
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/983">American History X + Intro By Tony Kaye</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/105952">Avengers: Doomsday</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113503">Bad Apples</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/669">Reclaim The Frame Presents: Beautiful Thing (in 35mm) + Q&A with Director Hettie Macdonald</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/103076">Cat Video Fest 2026</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/110457">Coyote vs Acme</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/112569">Digger</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/115176">Doctor Who: The Satan Pit</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/105951">Dune: Part Three</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114454">Bar Trash: X THE UNKNOWN (1956)</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114470">Skyclimber: Scaling The Eiffel Tower (London Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114469">Sessions (London Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114467">Under The Bypass (World Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114466">Shorts Block 12 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114465">Christmas & Chaos (World Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114455">American History X + Humpty Dumpty X - PART 1 - Tony Kaye Double Bill</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114457">Humpty Dumpty X - PART 1 + Q&A with Tony Kaye</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114453">Amoeba + virtual Q&A Presented by Bun Bites</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114463">Steel of Film (in 35 mm) + Q&A</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114451">Ten Women In Black Presented by YMC</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114461">This Is Not a Burial, It�s a Resurrection (2019) + Intro - Whose Land? Whose Lens?</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114460">Tellurian Drama (2020) + Amussu (2019) + Intro - Whose Land? Whose Lens?</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114459">Replikka (2025) + My Foreign Land (2025) + Intro - Whose Land? Whose Lens?</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114458">Life on the Horn (2020) + Faya Dayi (2021) + Intro - Whose Land? Whose Lens?</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113852">Lost On The Road (World Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/114449">Colette & Justin + Q&A</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113863">I�m Not You (UK Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113864">Finding My Voice (London Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113866">Deadline</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113867">Knife: The Attempted Murder Of Salman Rushdie + Recorded Q&A</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113868">Kikuyu Land + Q&A</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113853">Finding Your Audience: Film Marketing & Distribution for Independent Filmmakers - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113854">The (First) Last Screenplay (World Premiere) - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/108750">Closing Party + Awards ceremony - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/109905">Shadows of Beirut</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/109766">EMPORIUM PRO WRESTLING PRESENTS: SLASHERAMA - �21 LOWER SECTION SEATS (BEST VIEW IN THE HOUSE)</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/109767">EMPORIUM PRO WRESTLING PRESENTS: SLASHERAMA - �16 UPPER SECTION SEATS</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/92613">Poetry Slam</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/97723">An Unfinished Film</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101939">Shorts Block 11 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101940">LIFF Mini-Market (invitation only)</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101942">Shorts Block 10 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101943">Shorts Block 9 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101946">Shorts Block 8 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101947">Shorts Block 7 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101948">Shorts Block 6 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101949">Shorts Block 5 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101950">Shorts Block 4 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101952">Shorts Block 3 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101953">Shorts Block 2 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101954">Shorts Block 1 - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101955">SMASH pitching workshop - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/101957">Opening Night Party - LIFF</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/103747">Halloween (1978)- Halloween at Genesis</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/112148">Heart Of The Beast</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113071">Her Private Hell</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113959">Hope</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/113512">National Theatre Live: Golden Boy</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/110404">Resident Evil</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/376">Rosemary's Baby Presented by the Cult Classic Collective</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/109977">Teenage Sex and Death at Camp Miasma</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/112568">Shaun the Sheep: The Beast of Mossy Bottom</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/111189">The Invite</a>
+                                </li>
+                                                            <li style="display: none;">
+                                    <a class="p-3 block" href="/event/110405">Verity</a>
+                                </li>
+                                                      </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    <script>
+        //Modal JS START
+        var modal = document.getElementById("modalSearchBar");
+        var model_span = document.getElementsByClassName("modal-overlay")[0];
+        var pop_up = localStorage.getItem('pop_up') || '';
+        var search_bar = document.getElementById("searchBarInput");
+        
+        function showSearchModal(){
+            var modal = document.getElementById("modalSearchBar");
+            document.body.classList.add("stop-scrolling");
+            modal.style.display = "flex";
+            search_bar.focus();
+        }
+
+        function hideSearchModal(){
+            var modal = document.getElementById("modalSearchBar");
+            document.body.classList.remove("stop-scrolling");
+            modal.style.display = "none";
+            search_bar.blur();
+        }
+        //Modal JS END
+        //SearchBar Functionality START
+        function searchForPerformance() {
+        var input, filter, ul, li, a, i, txtValue, shownCount, listAmount;
+        input = document.getElementById('searchBarInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("performanceList");
+        li = ul.getElementsByTagName('li');
+        a = 0;
+        shownCount = 0;
+        
+        listAmount = 5; // Set this to decide how many show on the search list
+
+        //This is where you set the style of searched Strings
+        boldText = '<span class="font-bold text-primary">' + filter + '</span>';
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i <= li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+
+            txtValue = a.textContent || a.innerText;
+
+            txtValueUpper = txtValue.toUpperCase();
+            newText = txtValueUpper.replace(filter, boldText);
+        
+            if (document.getElementById('searchBarInput').value != "") { // Hide all events when nothing has been entered
+            if ((txtValue.toUpperCase().indexOf(filter) > -1) && (shownCount < listAmount)) { // Limit amount of events shown
+                li[i].style.display = "";
+                a.innerHTML = newText;
+                shownCount++;
+            } else {
+                li[i].style.display = "none";
+            }
+            } else {
+            li[i].style.display = "none";
+            }
+        }
+        }
+        //SearchBar Functionality END
+    </script>
+<!-- END OF SEARCH MODAL -->
+<!-- START OF MODAL -->
+<aside id="modalSitePicker" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50" style="display:none;" >
+        <div id="modal-overlay" class="modal-overlay absolute w-full h-full bg-gray-900 opacity-75"></div>
+            <div class="modal-container max-h-4/5 w-4/5 md:w-1/2 lg:w-1/3 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto bg-white" style="max-width:400px">
+                <div id="modal-content" class="modal-content text-center">
+                    <div id="modal-login" class="modal-login modal-body-header py-4 px-6">
+                        <div class="flex flex-col">
+                            <div class="flex justify-center w-4/5 items-center text-center pb-3 mt-4 mx-auto">
+                                <p id="" class="font-display text-2xl font-bold text-primary">Welcome to <br/> LANDING_CIRCUIT_NAME</p>
+                            </div>
+                        <div class="flex flex-col my-2">
+                            <p>Chose your local cinema</p>
+                            <div class="input-select flex items-center mt-1 bg-white text-gray-600 placeholder-gray-700 focus:ring-gray-700 ">
+                                <select class="cinemaSelectModal my-2 w-full h-full p-2 bg-white" id="cinemaSelectModal">
+                                    <option id="disabled_input" value="" selected="true" disabled="disabled">Select a Cinema</option>
+                                                                    </select>
+                                <!-- <i class="icon-a1-common-down -ml-6 cursor-pointer pointer-events-none text-gray-600"></i> -->
+                            </div>
+                        </div>
+                        <div class="flex flex-col mb-4">
+                            <span id="cinemaSelectButton" onclick="cinemaSelectModal()" class="modal-close btn-primary w-full font-display font-semibold px-4 p-3 ">Continue</span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- END OF MODAL -->
+
+<div id="menuOverlay" class="toggleMenu hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity z-20" style="z-index:999;"></div>
+
+<script type="application/javascript">
+    let openMenu = document.getElementById('openMenu');
+    let closeMenu = document.getElementById('closeMenu');
+    document.querySelectorAll('.toggleMenu').forEach(element => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault();
+            let menuAside = document.getElementById('menuAside');
+            let menuOverlay = document.getElementById('menuOverlay');
+            menuAside.classList.toggle('translate-x-0');
+            menuOverlay.classList.toggle('hidden');
+        });
+    });
+    document.querySelectorAll('.dropdown').forEach(element => {
+        element.addEventListener('click', (event) => {
+            if(!event.target.matches('.dropdown-link')) {
+                event.preventDefault();
+                let dropdownContent = element.getElementsByClassName('dropdown-content')[0];
+                let dropdownIcon = element.getElementsByClassName('dropdown-icon')[0];
+                dropdownContent.classList.toggle('hidden');
+                dropdownIcon.classList.toggle('icon-a1-common-down');
+                dropdownIcon.classList.toggle('icon-a1-common-up');
+            }
+        });
+        
+    });
+
+
+    window.onclick = (event) => {
+        if (!event.target.matches('.dropdown-selector') && !event.target.matches('.dropdown-content') && !event.target.matches('.dropdown-icon')) {
+            document.querySelectorAll('.dropdown-content').forEach(element => {
+                if(!element.classList.contains('hidden')){
+                    element.classList.add('hidden');
+                }
+            });
+            document.querySelectorAll('.dropdown-icon').forEach(element => {
+                if(!element.classList.contains('icon-a1-common-down')){
+                    element.classList.toggle('icon-a1-common-down');
+                    element.classList.toggle('icon-a1-common-up');
+                }
+            });
+        }
+
+        if (event.target.matches('.dropdown-selector')) {
+            document.querySelectorAll('.dropdown-content').forEach(element => {
+                if(element.id != event.target.id){
+                    element.classList.add('hidden');
+                }
+            });
+        }
+
+        if (event.target.matches('.dropdown-icon')) {
+            document.querySelectorAll('.dropdown-content').forEach(element => {
+                if(element.id != event.target.id){
+                    element.classList.add('hidden');
+                }
+            });          
+        }
+    };
+    //This allows you to switch sites usign the selcet drop down in the header
+    function cinemaSelect() {
+        var x = document.getElementById("cinemaSelect").value;
+        var url = x;
+        if (url) {
+        window.location = url;
+        }
+        return false;
+    }
+    function cinemaSelectMob() {
+        var x = document.getElementById("cinemaSelectMob").value;
+        var url = x;
+        if (url) {
+        window.location = url;
+        }
+        return false;
+    }
+</script>
+<style>
+    .prose img {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+    <div class="bg-white dark:bg-gray-700">
+        <div class="container mx-auto px-4 md:px-4">
+            <div class="flex justify-between items-center py-4">
+                                <h1 class="text-accent text-xl dark:text-white leading-tight">Events </h1>
+                            </div>
+        </div>
+    </div>
+<div class="bg-white dark:bg-gray-700">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center">
+            <div class="flex flex-row w-full justify-center">
+                            </div>
+            <div class="col-span-1 col-span-full w-full py-4">
+                <article class="prose max-w-3xl mx-auto py-2 text-gray-400 dark:text-white">
+                    <div class="mt-6 article_container">
+                        <div>Events</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <div class="bg-gray-100 md:bg-white dark:bg-gray-700">
+        <div class="container mx-auto px-4 py-4 md:pt-0 md:px-4">
+            <div class="bg-white dark:bg-gray-700">
+    <div id="panels" class="container mx-auto px-4 md:px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                        <div class="bg-white md:border md:border-gray-200 dark:bg-accent dark:border-0">
+                        <div class="col-span-1">    
+                                                        <img class="object-contain object-left-top rounded-br-xl" src="/customFilmImages/983_3.jpg" alt="American History X + Intro By Tony Kaye">
+                        </div>
+                        <div class="col-span-1">
+                            <div class="grid grid-cols-1 gap-y-3 my-3 px-4">
+                                <h2 class="text-accent dark:text-white"><a href="/event/983">American History X + Intro By Tony Kaye</a></h2>
+                                <div class="flex flex-row justify-between items-center">
+                                    <p class="text-gray-200 dark:text-white">Running time: <span class="text-base text-secondary">118 mins</span></p>
+                                    <a href="/event/983" class="font-body font-semibold text-base text-secondary">  
+                                        Details
+                                        <i class="icon-a1-icons-a1-shop-information align-middle ml-1"></i>
+                                    </a>
+                                </div>
+                                                                        <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Tue 13 Oct</p>
+                                            <p>18:20</p>
+                                            <!-- object(web_performance)#395 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "13488"
+    ["hall"]=>
+    string(8) "Screen 2"
+    ["plancode"]=>
+    string(3) "4-1"
+    ["eventcode"]=>
+    string(3) "983"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(14) "ZMONTHURSEVENT"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1791912000)
+    ["runtime"]=>
+    string(3) "118"
+    ["endtime"]=>
+    int(1791919080)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "02"
+    ["halltype"]=>
+    string(3) "123"
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(19) "EVENTS;STANDARD 1-3"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=13488"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=13488" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                </div>
+                        </div>
+                    </div>  
+                                                        <div class="bg-white md:border md:border-gray-200 dark:bg-accent dark:border-0">
+                        <div class="col-span-1">    
+                                                        <img class="object-contain object-left-top rounded-br-xl" src="/customFilmImages/114455_3.jpg" alt="American History X + Humpty Dumpty X - PART 1 - Tony Kaye Double Bill">
+                        </div>
+                        <div class="col-span-1">
+                            <div class="grid grid-cols-1 gap-y-3 my-3 px-4">
+                                <h2 class="text-accent dark:text-white"><a href="/event/114455">American History X + Humpty Dumpty X - PART 1 - Tony Kaye Double Bill</a></h2>
+                                <div class="flex flex-row justify-between items-center">
+                                    <p class="text-gray-200 dark:text-white">Running time: <span class="text-base text-secondary">193 mins</span></p>
+                                    <a href="/event/114455" class="font-body font-semibold text-base text-secondary">  
+                                        Details
+                                        <i class="icon-a1-icons-a1-shop-information align-middle ml-1"></i>
+                                    </a>
+                                </div>
+                                                                        <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Tue 13 Oct</p>
+                                            <p>18:20</p>
+                                            <!-- object(web_performance)#398 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "13490"
+    ["hall"]=>
+    string(3) "Bar"
+    ["plancode"]=>
+    string(4) "11-1"
+    ["eventcode"]=>
+    string(6) "114455"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(8) "TONYKAYE"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1791912000)
+    ["runtime"]=>
+    string(3) "100"
+    ["endtime"]=>
+    int(1791918000)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "06"
+    ["halltype"]=>
+    string(0) ""
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(16) "BAR TRASH;EVENTS"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=13490"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=13490" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                </div>
+                        </div>
+                    </div>  
+                                                        <div class="bg-white md:border md:border-gray-200 dark:bg-accent dark:border-0">
+                        <div class="col-span-1">    
+                                                        <img class="object-contain object-left-top rounded-br-xl" src="/customFilmImages/114457_3.jpg" alt="Humpty Dumpty X - PART 1 + Q&A with Tony Kaye">
+                        </div>
+                        <div class="col-span-1">
+                            <div class="grid grid-cols-1 gap-y-3 my-3 px-4">
+                                <h2 class="text-accent dark:text-white"><a href="/event/114457">Humpty Dumpty X - PART 1 + Q&A with Tony Kaye</a></h2>
+                                <div class="flex flex-row justify-between items-center">
+                                    <p class="text-gray-200 dark:text-white">Running time: <span class="text-base text-secondary">74 mins</span></p>
+                                    <a href="/event/114457" class="font-body font-semibold text-base text-secondary">  
+                                        Details
+                                        <i class="icon-a1-icons-a1-shop-information align-middle ml-1"></i>
+                                    </a>
+                                </div>
+                                                                        <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Tue 13 Oct</p>
+                                            <p>20:50</p>
+                                            <!-- object(web_performance)#401 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "13489"
+    ["hall"]=>
+    string(8) "Screen 2"
+    ["plancode"]=>
+    string(3) "4-1"
+    ["eventcode"]=>
+    string(6) "114457"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(14) "ZMONTHURSEVENT"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1791921000)
+    ["runtime"]=>
+    string(3) "100"
+    ["endtime"]=>
+    int(1791927000)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "02"
+    ["halltype"]=>
+    string(3) "123"
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(19) "EVENTS;STANDARD 1-3"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=13489"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=13489" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                </div>
+                        </div>
+                    </div>  
+                                                        <div class="bg-white md:border md:border-gray-200 dark:bg-accent dark:border-0">
+                        <div class="col-span-1">    
+                                                        <img class="object-contain object-left-top rounded-br-xl" src="/customFilmImages/114453_3.jpg" alt="Amoeba + virtual Q&A Presented by Bun Bites">
+                        </div>
+                        <div class="col-span-1">
+                            <div class="grid grid-cols-1 gap-y-3 my-3 px-4">
+                                <h2 class="text-accent dark:text-white"><a href="/event/114453">Amoeba + virtual Q&A Presented by Bun Bites</a></h2>
+                                <div class="flex flex-row justify-between items-center">
+                                    <p class="text-gray-200 dark:text-white">Running time: <span class="text-base text-secondary">99 mins</span></p>
+                                    <a href="/event/114453" class="font-body font-semibold text-base text-secondary">  
+                                        Details
+                                        <i class="icon-a1-icons-a1-shop-information align-middle ml-1"></i>
+                                    </a>
+                                </div>
+                                                                        <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Sat 24 Oct</p>
+                                            <p>18:20</p>
+                                            <!-- object(web_performance)#404 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "13510"
+    ["hall"]=>
+    string(8) "Screen 2"
+    ["plancode"]=>
+    string(3) "4-1"
+    ["eventcode"]=>
+    string(6) "114453"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(12) "ZFRISUNEVENT"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1792862400)
+    ["runtime"]=>
+    string(3) "100"
+    ["endtime"]=>
+    int(1792868400)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "02"
+    ["halltype"]=>
+    string(3) "123"
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(19) "EVENTS;STANDARD 1-3"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=13510"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=13510" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                </div>
+                        </div>
+                    </div>  
+                                                        <div class="bg-white md:border md:border-gray-200 dark:bg-accent dark:border-0">
+                        <div class="col-span-1">    
+                                                        <img class="object-contain object-left-top rounded-br-xl" src="/customFilmImages/114451_3.jpg" alt="Ten Women In Black Presented by YMC">
+                        </div>
+                        <div class="col-span-1">
+                            <div class="grid grid-cols-1 gap-y-3 my-3 px-4">
+                                <h2 class="text-accent dark:text-white"><a href="/event/114451">Ten Women In Black Presented by YMC</a></h2>
+                                <div class="flex flex-row justify-between items-center">
+                                    <p class="text-gray-200 dark:text-white">Running time: <span class="text-base text-secondary">103 mins</span></p>
+                                    <a href="/event/114451" class="font-body font-semibold text-base text-secondary">  
+                                        Details
+                                        <i class="icon-a1-icons-a1-shop-information align-middle ml-1"></i>
+                                    </a>
+                                </div>
+                                                                        <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Tue 27 Oct</p>
+                                            <p>20:45</p>
+                                            <!-- object(web_performance)#407 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "13520"
+    ["hall"]=>
+    string(8) "Screen 2"
+    ["plancode"]=>
+    string(3) "4-1"
+    ["eventcode"]=>
+    string(6) "114451"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(14) "ZMONTHURSEVENT"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1793133900)
+    ["runtime"]=>
+    string(3) "100"
+    ["endtime"]=>
+    int(1793139900)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "02"
+    ["halltype"]=>
+    string(3) "123"
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(19) "EVENTS;STANDARD 1-3"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=13520"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=13520" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                </div>
+                        </div>
+                    </div>  
+                                                        <div class="bg-white md:border md:border-gray-200 dark:bg-accent dark:border-0">
+                        <div class="col-span-1">    
+                                                        <img class="object-contain object-left-top rounded-br-xl" src="/customFilmImages/92613_3.jpg" alt="Poetry Slam">
+                        </div>
+                        <div class="col-span-1">
+                            <div class="grid grid-cols-1 gap-y-3 my-3 px-4">
+                                <h2 class="text-accent dark:text-white"><a href="/event/92613">Poetry Slam</a></h2>
+                                <div class="flex flex-row justify-between items-center">
+                                    <p class="text-gray-200 dark:text-white">Running time: <span class="text-base text-secondary">150 mins</span></p>
+                                    <a href="/event/92613" class="font-body font-semibold text-base text-secondary">  
+                                        Details
+                                        <i class="icon-a1-icons-a1-shop-information align-middle ml-1"></i>
+                                    </a>
+                                </div>
+                                                                        <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Thu 08 Oct</p>
+                                            <p>19:30</p>
+                                            <!-- object(web_performance)#410 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "12953"
+    ["hall"]=>
+    string(3) "Bar"
+    ["plancode"]=>
+    string(4) "11-1"
+    ["eventcode"]=>
+    string(5) "92613"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(10) "POETRYSLAM"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1791484200)
+    ["runtime"]=>
+    string(3) "100"
+    ["endtime"]=>
+    int(1791490200)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "06"
+    ["halltype"]=>
+    string(0) ""
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(16) "BAR TRASH;EVENTS"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=12953"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=12953" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                            <div class="flex items-center justify-between w-full inline-block border border-solid border-accent dark:border-white rounded-lg focus:outline-none font-body bg-transparent text-accent text-center text-sm dark:text-white px-3 py-3">
+                                            <p>Thu 12 Nov</p>
+                                            <p>19:30</p>
+                                            <!-- object(web_performance)#412 (2) {
+  ["__pricecard"]=>
+  NULL
+  ["_values":"web_class":private]=>
+  array(36) {
+    ["sitecode"]=>
+    string(7) "GENESIS"
+    ["code"]=>
+    string(5) "13500"
+    ["hall"]=>
+    string(3) "Bar"
+    ["plancode"]=>
+    string(4) "11-1"
+    ["eventcode"]=>
+    string(5) "92613"
+    ["specialsimage"]=>
+    string(0) ""
+    ["pricecard"]=>
+    string(10) "POETRYSLAM"
+    ["perftype"]=>
+    string(6) "Events"
+    ["keywords"]=>
+    string(0) ""
+    ["time"]=>
+    int(1794511800)
+    ["runtime"]=>
+    string(3) "100"
+    ["endtime"]=>
+    int(1794517800)
+    ["expired"]=>
+    string(1) "0"
+    ["additionalinfo"]=>
+    string(0) ""
+    ["showsynopsisonticketspage"]=>
+    bool(false)
+    ["hallcode"]=>
+    string(2) "06"
+    ["halltype"]=>
+    string(0) ""
+    ["venuename"]=>
+    string(0) ""
+    ["generaladmission"]=>
+    bool(false)
+    ["allocated"]=>
+    bool(false)
+    ["soldout"]=>
+    bool(false)
+    ["comingsoon"]=>
+    bool(false)
+    ["language"]=>
+    string(3) "ENG"
+    ["perfstatus"]=>
+    string(1) "0"
+    ["advancescreening"]=>
+    bool(false)
+    ["subtitled"]=>
+    bool(false)
+    ["wheelchairaccess"]=>
+    bool(false)
+    ["audiodescription"]=>
+    bool(false)
+    ["hoh"]=>
+    bool(false)
+    ["autismfriendly"]=>
+    bool(false)
+    ["suffix"]=>
+    string(0) ""
+    ["nosalesbefore"]=>
+    bool(false)
+    ["nomembersalesbefore"]=>
+    bool(false)
+    ["memberonly"]=>
+    bool(false)
+    ["performancetags"]=>
+    string(16) "BAR TRASH;EVENTS"
+    ["link"]=>
+    string(53) "https://genesis.admit-one.co.uk/seats/?perfCode=13500"
+  }
+}
+ -->
+                                            <a href="https://genesis.admit-one.co.uk/seats/?perfCode=13500" class="text-accent dark:text-primary font-bold">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                                                </div>
+                        </div>
+                    </div>  
+                            </div>
+            </div>
+</div>
+        </div>
+    </div>
+            <div id="ppb_bottom" class="bg-secondary dark:bg-accent ">
+            <div class="container mx-auto px-4 py-6 md:px-4">
+                <div class="grid grid-cols-3 place-content-center text-white dark:text-white">
+    <div class="col-span-3 md:col-span-2">
+        <h2>Visit our Kiosk</h2>
+        <p>Open for the first film of the day.</p>
+    </div>
+    <div class="col-span-3 md:col-span-1 place-self-start md:place-self-end pt-2 md:pt-0 flex items-center h-full">
+        <a class="inline-block btn-primary font-body text-white text-sm px-3 py-3" href="/kiosk">
+            Learn More
+        </a>
+    </div>
+</div>
+            </div>   
+        </div>
+    <footer id="a1web-footer" class="bg-gray-300 ">
+    <div class="container mx-auto px-6 pt-10 pb-8 md:px-4">
+        <div class="flex gap-x-2 flex-col md:flex-row">
+            <div class="flex flex-col flex-grow justify-start">
+                <h4 class="font-display font-bold text-sm uppercase mb-2">Join the conversation</h4>
+                                    <div class="flex flex-row justify-start">
+                                                    <div class="flex items-center w-10 h-10 justify-center align-middle border border-accent rounded-full mr-2">
+                                <a href="https://www.facebook.com/genesiscinema" target="_blank" class="w-5 h-5 text-center">
+                                                                            <i class="icon-a1-common-facebook text-accent"></i>
+                                                                    </a>
+                            </div>
+                                                    <div class="flex items-center w-10 h-10 justify-center align-middle border border-accent rounded-full mr-2">
+                                <a href="https://x.com/genesiscinema" target="_blank" class="w-5 h-5 text-center">
+                                                                            <i class="icon-a1-common-twitter text-accent"></i>
+                                                                    </a>
+                            </div>
+                                                    <div class="flex items-center w-10 h-10 justify-center align-middle border border-accent rounded-full mr-2">
+                                <a href="https://www.instagram.com/genesiscinema/" target="_blank" class="w-5 h-5 text-center">
+                                                                            <i class="icon-a1-common-instagram text-accent"></i>
+                                                                    </a>
+                            </div>
+                                            </div>  
+                                <div class="flex flex-row justify-start mt-6 gap-x-6">
+                    <div class="flex flex-col">
+                                                                            
+                            <a href="/terms" class="my-2 text-secondary text-md" >Terms & Conditions</a>
+                                                        
+                            <a href="/faqs" class="my-2 text-secondary text-md" >FAQ</a>
+                                                        
+                            <a href="/privacy" class="my-2 text-secondary text-md" >Privacy Policy</a>
+                                                            </div>
+                                    <div class="flex flex-col">
+                                                        
+                            <a href="/cookies" class="my-2 text-secondary text-md" >Cookie Policy</a>
+                                            </div>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <h4 class="font-display font-bold text-sm tracking-tight uppercase mb-4 md:mb-2">Receive our latest releases and offers</h4>
+                                <form action="https://genesis.admit-one.co.uk/newsletter/" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                    <div class="mb-4">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mce-EMAIL" type="email" name="EMAIL" placeholder="Your Email Address">
+                    </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="" tabindex="-1" value=""></div>
+                    <div>
+                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="w-full inline-block btn-primary font-body text-center text-white text-sm px-3 py-3 cursor-pointer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-6 md:px-0">
+        <div class="border-t-2 border-white flex flex-col items-left">
+            <div class="sm:w-2/3 text-left py-6">
+                <p class="text-sm text-secondary mb-2">
+                    &copy; 2026 93-95 Mile End Road, Whitechapel, London E1 4UJ                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="trailerOverlay" class="toggleTrailer hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity z-20">
+    <div id="trailerViewport" class="absolute inset-0 mx-auto my-auto w-screen h-auto md:w-[840px] md:h-[690px] pt-5">
+    <span class="text-white float-right py-2 px-2 cursor-pointer">Close<span class="pl-2">X</span></span>
+        <iframe id="trailerIframe" width="0" height="auto" src="/loading"></iframe>
+    </div>
+</div>
+<script type="application/javascript">
+    let trailerOverlay = document.getElementById('trailerOverlay');
+    let showTrailer = (trailerID) => {
+        let trailerIframe = document.getElementById('trailerIframe');
+        if(window.innerWidth > 375) {
+            trailerIframe.style.width = '100%';
+            trailerIframe.style.height = '56.25%';
+            trailerIframe.style.marginTop = '50px;';
+        } else if(window.innerWidth > 768) {
+            trailerIframe.style.width = '600px';
+            trailerIframe.style.height = '338px';
+        } else {
+            trailerIframe.style.width = '100%';
+            trailerIframe.style.height = '56.25%';
+        }
+        trailerIframe.src = 'https://www.youtube.com/embed/' + trailerID;
+        trailerIframe.src += '?autoplay=1';
+        console.log(trailerIframe.style);
+        trailerOverlay.classList.toggle("hidden");
+    }
+    trailerOverlay.addEventListener('click', function(e) {
+        e.preventDefault();
+        trailerIframe.src = '/loading';
+        trailerOverlay.classList.toggle("hidden");
+    });
+
+    //Modal JS START
+    var modal = document.getElementById("modalSitePicker");
+        var model_span = document.getElementsByClassName("modal-overlay")[0];
+        var pop_up = localStorage.getItem('pop_up') || '';
+        function showModal(){
+            document.body.classList.add("stop-scrolling");
+            modal.style.display = "flex";
+        }
+
+        // model_span.onclick = function() {
+        //     hideModal();
+        // }
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //     hideModal();
+        //     }
+        // }
+
+        //USE ME --------
+        function hideModal(){
+            document.body.classList.remove("stop-scrolling");
+            modal.style.display = "none";
+        }
+        
+        if(1 == '2'){
+            showModal();
+        }
+    //Modal JS END
+</script>
+
+<style>#cookieManage{max-height: 325px}@media(min-width:768px){#cookieManage{max-height: 480px}}#cookieOverlay{z-index: 999;}#a1CookieBar{z-index: 9999;}.no-scrollbar::-webkit-scrollbar{display: none;}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none;}</style>
+
+<!-- <div id="updateCookiePrefsContainer" class="fixed bottom-0 cursor-pointer right-0 p-2 text-white bg-black">
+  <p onclick="showCookieManager()">Manage Cookies</p>
+</div> -->
+
+<!-- A1 Cookie Manager Start ===========================================  -->
+<div id="cookieOverlay" class="hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
+<img src="" id="cookiePixel" alt="Cookie Pixel" width="1" height="1" style="display:none;" />
+<div id="a1CookieBar" class=" hidden w-full p-2 fixed bottom-0 bg-white">
+  <div id="cookieBar" class="flex flex-col md:flex-row items-center justify-between">
+    <div class="p-3">
+      <p class="text-black">We use cookies on our website to personalise and improve your experience and ensure the website works correctly. View our Cookie Policy.</p>
+    </div>
+    <div class="flex p-3">
+      <button id="all_cookies" onclick="setCookieCookie('ALL')"
+        class="btn-primary px-3 py-3 m-2">Accept All</button>
+      <button id="save_cookies" onclick="checkCookiePrefs()"
+        class="btn-primary px-3 py-3 m-2 hidden">Save Preferences</button>
+      <button id="manage_cookies" onclick="manageCookies()"
+        class="btn-primary px-3 ml-2 py-3 m-2">Manage</button>
+            <button id="reject_all" onclick="rejectAllCookie()"
+        class="btn-secondary px-3 ml-2 py-3 m-2">Reject All</button>
+          </div>
+  </div>
+  <div id="cookieManage" class="hidden overflow-scroll no-scrollbar">
+    <div id="cookieOptions">
+                        <div id="cookieOption">
+            <div id="cookieSwitch" class="flex justify-between items-center p-2">
+              <div
+                class="flex-1 flex items-center hover:bg-gray-200 hover:text-black"
+                onclick="toggleDropdown('Necessary')">
+                <div class="p-2">
+                  <i id="dropdownToggle_Necessary"
+                    class="dropdownToggle text-xs icon-a1-common-up align-middle"></i>
+                </div>
+                <div class="p-2">
+                  <h3 class="text-black">Necessary</h3>
+                  <p class="text-black">Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.</p>
+                </div>
+              </div>
+              <div class="p-2 mx-4">
+                <div class="cookiePrefs_input flex items-center justify-between">
+                  <input id="Necessary" title="Necessary" type="checkbox"
+                    class="bg-gray-300 border-gray-400 ring-gray-400 checked:bg-primary checked:hover:bg-primary checked:focus:bg-primary checked:active:bg-primary checked:ring-primary checked:focus:ring-primary checked:active:ring-primary disabled:opacity-60 disabled:cursor-not-allowedrounded h-6 w-6 cursor-pointer"
+                    checked                    disabled>
+                </div>
+              </div>
+            </div> 
+            <div id="cookieBreakdown_Necessary" class="cookieFurtherInfo hidden">
+                                          <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  A1WCC</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  1 year</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  This cookie is stored to understand how our users would like us to use their cookies according to their preferences.</li>
+              </ul>
+                            <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  PHPSESSID</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  SESSION</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  The PHPSESSID cookie is vital as it allows us to keep a user's order tied to their session throughout the entire booking process.</li>
+              </ul>
+                            <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  SITECODE</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  1 year</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  Used to ensure user is kept on the correct site</li>
+              </ul>
+                            <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  SITECODE-URI</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  1 year</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  Used to ensure user is kept on the correct site</li>
+              </ul>
+                                        </div> <!-- END cookieBreakdown -->
+          </div> <!-- END cookieOption -->
+                                <div id="cookieOption">
+            <div id="cookieSwitch" class="flex justify-between items-center p-2">
+              <div
+                class="flex-1 flex items-center hover:bg-gray-200 hover:text-black"
+                onclick="toggleDropdown('Analytics')">
+                <div class="p-2">
+                  <i id="dropdownToggle_Analytics"
+                    class="dropdownToggle text-xs icon-a1-common-up align-middle"></i>
+                </div>
+                <div class="p-2">
+                  <h3 class="text-black">Analytics</h3>
+                  <p class="text-black">Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.</p>
+                </div>
+              </div>
+              <div class="p-2 mx-4">
+                <div class="cookiePrefs_input flex items-center justify-between">
+                  <input id="Analytics" title="Analytics" type="checkbox"
+                    class="bg-gray-300 border-gray-400 ring-gray-400 checked:bg-primary checked:hover:bg-primary checked:focus:bg-primary checked:active:bg-primary checked:ring-primary checked:focus:ring-primary checked:active:ring-primary disabled:opacity-60 disabled:cursor-not-allowedrounded h-6 w-6 cursor-pointer"
+                    checked                    >
+                </div>
+              </div>
+            </div> 
+            <div id="cookieBreakdown_Analytics" class="cookieFurtherInfo hidden">
+                                          <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  _ga</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  1 year</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  GA cookie description</li>
+              </ul>
+                            <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  _gid</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  1 day</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  GID Cookie Description</li>
+              </ul>
+                            <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  _fbp</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  1 Year +</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  The _fbp cookie is set by Facebook to identify browsers for delivering targeted advertising and tracking user interactions across websites using the Facebook Pixel.</li>
+              </ul>
+                                        </div> <!-- END cookieBreakdown -->
+          </div> <!-- END cookieOption -->
+                                <div id="cookieOption">
+            <div id="cookieSwitch" class="flex justify-between items-center p-2">
+              <div
+                class="flex-1 flex items-center hover:bg-gray-200 hover:text-black"
+                onclick="toggleDropdown('Functional')">
+                <div class="p-2">
+                  <i id="dropdownToggle_Functional"
+                    class="dropdownToggle text-xs icon-a1-common-up align-middle"></i>
+                </div>
+                <div class="p-2">
+                  <h3 class="text-black">Functional</h3>
+                  <p class="text-black">Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features.</p>
+                </div>
+              </div>
+              <div class="p-2 mx-4">
+                <div class="cookiePrefs_input flex items-center justify-between">
+                  <input id="Functional" title="Functional" type="checkbox"
+                    class="bg-gray-300 border-gray-400 ring-gray-400 checked:bg-primary checked:hover:bg-primary checked:focus:bg-primary checked:active:bg-primary checked:ring-primary checked:focus:ring-primary checked:active:ring-primary disabled:opacity-60 disabled:cursor-not-allowedrounded h-6 w-6 cursor-pointer"
+                                        >
+                </div>
+              </div>
+            </div> 
+            <div id="cookieBreakdown_Functional" class="cookieFurtherInfo hidden">
+                            <div class="w-full bg-gray-100   p-4 mx-4 my-2">
+                <p class="text-black">
+                  No cookies are used in this category.</p>
+              </div>
+                          </div> <!-- END cookieBreakdown -->
+          </div> <!-- END cookieOption -->
+                                <div id="cookieOption">
+            <div id="cookieSwitch" class="flex justify-between items-center p-2">
+              <div
+                class="flex-1 flex items-center hover:bg-gray-200 hover:text-black"
+                onclick="toggleDropdown('Performance')">
+                <div class="p-2">
+                  <i id="dropdownToggle_Performance"
+                    class="dropdownToggle text-xs icon-a1-common-up align-middle"></i>
+                </div>
+                <div class="p-2">
+                  <h3 class="text-black">Performance</h3>
+                  <p class="text-black">Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.</p>
+                </div>
+              </div>
+              <div class="p-2 mx-4">
+                <div class="cookiePrefs_input flex items-center justify-between">
+                  <input id="Performance" title="Performance" type="checkbox"
+                    class="bg-gray-300 border-gray-400 ring-gray-400 checked:bg-primary checked:hover:bg-primary checked:focus:bg-primary checked:active:bg-primary checked:ring-primary checked:focus:ring-primary checked:active:ring-primary disabled:opacity-60 disabled:cursor-not-allowedrounded h-6 w-6 cursor-pointer"
+                    checked                    >
+                </div>
+              </div>
+            </div> 
+            <div id="cookieBreakdown_Performance" class="cookieFurtherInfo hidden">
+                                          <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  TEST</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  TEST</li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  TEST</li>
+              </ul>
+                                        </div> <!-- END cookieBreakdown -->
+          </div> <!-- END cookieOption -->
+                                <div id="cookieOption">
+            <div id="cookieSwitch" class="flex justify-between items-center p-2">
+              <div
+                class="flex-1 flex items-center hover:bg-gray-200 hover:text-black"
+                onclick="toggleDropdown('Advertisement')">
+                <div class="p-2">
+                  <i id="dropdownToggle_Advertisement"
+                    class="dropdownToggle text-xs icon-a1-common-up align-middle"></i>
+                </div>
+                <div class="p-2">
+                  <h3 class="text-black">Advertisement</h3>
+                  <p class="text-black">Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns.</p>
+                </div>
+              </div>
+              <div class="p-2 mx-4">
+                <div class="cookiePrefs_input flex items-center justify-between">
+                  <input id="Advertisement" title="Advertisement" type="checkbox"
+                    class="bg-gray-300 border-gray-400 ring-gray-400 checked:bg-primary checked:hover:bg-primary checked:focus:bg-primary checked:active:bg-primary checked:ring-primary checked:focus:ring-primary checked:active:ring-primary disabled:opacity-60 disabled:cursor-not-allowedrounded h-6 w-6 cursor-pointer"
+                                        >
+                </div>
+              </div>
+            </div> 
+            <div id="cookieBreakdown_Advertisement" class="cookieFurtherInfo hidden">
+                            <div class="w-full bg-gray-100   p-4 mx-4 my-2">
+                <p class="text-black">
+                  No cookies are used in this category.</p>
+              </div>
+                          </div> <!-- END cookieBreakdown -->
+          </div> <!-- END cookieOption -->
+                                <div id="cookieOption">
+            <div id="cookieSwitch" class="flex justify-between items-center p-2">
+              <div
+                class="flex-1 flex items-center hover:bg-gray-200 hover:text-black"
+                onclick="toggleDropdown('Other')">
+                <div class="p-2">
+                  <i id="dropdownToggle_Other"
+                    class="dropdownToggle text-xs icon-a1-common-up align-middle"></i>
+                </div>
+                <div class="p-2">
+                  <h3 class="text-black">Other</h3>
+                  <p class="text-black">Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.</p>
+                </div>
+              </div>
+              <div class="p-2 mx-4">
+                <div class="cookiePrefs_input flex items-center justify-between">
+                  <input id="Other" title="Other" type="checkbox"
+                    class="bg-gray-300 border-gray-400 ring-gray-400 checked:bg-primary checked:hover:bg-primary checked:focus:bg-primary checked:active:bg-primary checked:ring-primary checked:focus:ring-primary checked:active:ring-primary disabled:opacity-60 disabled:cursor-not-allowedrounded h-6 w-6 cursor-pointer"
+                                        >
+                </div>
+              </div>
+            </div> 
+            <div id="cookieBreakdown_Other" class="cookieFurtherInfo hidden">
+                                          <ul
+                class='cookieTable w-full bg-gray-100  text-black  p-4 mx-4 my-2'>
+                <li class="text-black">
+                  <strong>Cookie:</strong>
+                  Title</li>
+                <li class="text-black">
+                  <strong>Duration::</strong>
+                  </li>
+                <li class="text-black">
+                  <strong>Description:</strong>
+                  Description</li>
+              </ul>
+                                        </div> <!-- END cookieBreakdown -->
+          </div> <!-- END cookieOption -->
+                  </div> <!-- END cookieOptions -->
+  </div> <!-- END cookieManage" -->
+</div> <!-- END a1CookieBar -->
+<!-- A1 Cookie Manager End  ==============================================  -->
+
+<script>
+  function deleteCookie(name, domain, path) {
+    if (domain) {
+      document.cookie = name + `=;expires=Thu, 01 Jan 1970 00:00:00 GMT;domain=${domain};path=${path || '/'}`;
+    } else {
+      document.cookie = name + `=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=${path || '/'}`;
+    }
+  }
+
+  function clearAllCookies() {
+    console.log('start clear cookie');
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i];
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+
+      // Skip these cookies
+      const skipNames = new Set(['PHPSESSID']);
+      if (skipNames.has(name)) {
+        continue;
+      }
+
+      deleteCookie(name);
+      deleteCookie(name, window.location.hostname, '/');
+      deleteCookie(name, window.location.hostname, '/path');
+      const parts = window.location.hostname.split('.');
+      if (parts.length > 2) {
+        const parentDomain = parts.slice(parts.length - 2).join('.');
+        deleteCookie(name, parentDomain, '/');
+        deleteCookie(name, parentDomain, '/path');
+      }
+    }
+    console.log('end clear cookie');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const cookieStatus = getCookie('a1wcc');
+    if (cookieStatus) {
+      updateCheckboxes(cookieStatus);
+    } else {
+      showCookieManager();
+    }
+
+    // Check what cookie value is and check is any tracking cookies remain
+    const cookieValue = cookieStatus.split(',');
+    let shouldRun = true;
+    cookieValue.forEach(value => {
+      if (value === 'ALL' || value === 'ANALYTICS') {
+        shouldRun = false;
+      }
+    });
+
+    if (shouldRun) {
+      console.log('hit');
+      const cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+        if (name.includes("_ga")) {
+          deleteCookie(name);
+          deleteCookie(name, window.location.hostname, '/');
+          deleteCookie(name, window.location.hostname, '/path');
+          const parts = window.location.hostname.split('.');
+          if (parts.length > 2) {
+            parts.shift();
+          }
+          const newHostname = parts.join('.');
+          deleteCookie(name, newHostname, '/');
+          deleteCookie(name, newHostname, '/path');
+        }
+      }
+    }
+  });
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  function updateCheckboxes(cookieValue) {
+    const categories = cookieValue.split(', ');
+    document.querySelectorAll('.cookiePrefs_input input[type="checkbox"]').forEach((checkbox) => {
+      if (cookieValue === "ALL") {
+        checkbox.checked = true;
+      } else {
+        checkbox.checked = categories.includes(checkbox.id.toUpperCase());
+      }
+    });
+  }
+  
+  function setBECookie() {
+    var URL = 'https://genesis.admit-one.co.uk/cookieajax/?a1wcc=ALL';    
+    
+    /*$.post(
+      URL, 
+  
+      { a1wcc: 'ALL' }, 
+                       
+      function(data) {   
+      }).done(function(data) {
+       console.log('setBECookie OK ' + data);
+      }).fail(function(data) {
+       console.log('setBECookie FAILED ' + data);
+      });*/
+      
+    /*$.post(URL, { a1wcc: 'ALL' })
+    .done(function( data ) {
+      alert( "Data Loaded: " + data );
+    });*/
+    document.getElementById('cookiePixel').src = URL;
+    // alert(URL);
+  }
+
+  function setCookieCookie(status) {
+    const currentDate = new Date();
+    currentDate.setFullYear(currentDate.getFullYear() + 1);
+    document.cookie = `a1wcc=${status}; expires=${currentDate.toUTCString()}; path=/`;
+    hideCookieManager();
+    
+  }
+
+  function rejectAllCookie() {
+   if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.reload();
+    }
+  }
+
+  function checkCookiePrefs() {
+    const cookieCategories = [];
+    document.querySelectorAll('.cookiePrefs_input input[type="checkbox"]').forEach((checkbox) => {
+      if (checkbox.checked) {
+        cookieCategories.push(checkbox.id.toUpperCase());
+      }
+    });
+    setCookieCookie(cookieCategories.join(', '));
+  }
+
+  function showCookieManager() {
+    const cookieManagerOverlay = document.getElementById('cookieOverlay');
+    const cookieManager = document.getElementById('a1CookieBar');
+
+    document.body.style.overflow = 'hidden';
+    document.body.style.pointerEvents = 'none';
+
+    cookieManagerOverlay.classList.remove('hidden');
+    cookieManager.classList.remove('hidden');
+    cookieManager.style.pointerEvents = 'auto';
+
+    clearAllCookies();
+  }
+
+  function hideCookieManager() {
+    const cookieManagerOverlay = document.getElementById('cookieOverlay');
+    const cookieManager = document.getElementById('a1CookieBar');
+
+    document.body.style.overflow = 'auto';
+    document.body.style.pointerEvents = 'auto';
+
+    cookieManagerOverlay.classList.add('hidden');
+    cookieManager.classList.add('hidden');
+  }
+
+  function toggleDropdown(categoryName) {
+    const dropdownId = `cookieBreakdown_${categoryName}`;
+    const dropdownToggleId = `dropdownToggle_${categoryName}`;
+    const dropdown = document.getElementById(dropdownId);
+    const dropdownToggle = document.getElementById(dropdownToggleId);
+    const allDropdowns = document.querySelectorAll('.cookieFurtherInfo');
+    const allDropdownToggles = document.querySelectorAll('.dropdownToggle');
+    const isHidden = dropdown.classList.contains('hidden');
+
+    allDropdowns.forEach(d => d.classList.add('hidden'));
+    allDropdownToggles.forEach(d => {
+      d.classList.add('icon-a1-common-up');
+      d.classList.remove('icon-a1-common-down');
+    });
+
+    if (isHidden) {
+      dropdown.classList.remove('hidden');
+      dropdownToggle.classList.remove('icon-a1-common-up');
+      dropdownToggle.classList.add('icon-a1-common-down');
+    } else {
+      dropdown.classList.add('hidden');
+      dropdownToggle.classList.add('icon-a1-common-up');
+      dropdownToggle.classList.remove('icon-a1-common-down');
+    }
+  }
+
+  function manageCookies() {
+    const cookieManager = document.getElementById('cookieManage');
+    const allCookiesButton = document.getElementById('all_cookies');
+    const saveCookiesButton = document.getElementById('save_cookies');
+    cookieManager.classList.toggle("hidden");
+    allCookiesButton.classList.toggle("hidden");
+    saveCookiesButton.classList.toggle("hidden");
+  }
+
+  // ---- Params can set Cookies ---------------------------------
+  function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
+  function setCookie(name, value, days) {
+    const currentDate = new Date();
+    currentDate.setTime(currentDate.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + currentDate.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
+  function hideCookieManager() {
+    const cookieManagerOverlay = document.getElementById('cookieOverlay');
+    const cookieManager = document.getElementById('a1CookieBar');
+
+    document.body.style.overflow = 'auto';
+    document.body.style.pointerEvents = 'auto';
+
+    cookieManagerOverlay.classList.add('hidden');
+    cookieManager.classList.add('hidden');
+  }
+
+  function checkAndSetCookie() {
+    const cvValue = getURLParameter('cv');
+    const currentCookieStatus = getCookie('a1wcc');
+    if (cvValue) {
+      if (!currentCookieStatus || currentCookieStatus !== cvValue) {
+        clearAllCookies();
+        setCookieCookie(cvValue);
+      }
+    } else {
+      if (!currentCookieStatus) {
+        clearAllCookies();
+        showCookieManager();
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAndSetCookie);
+
+</script>
+
+
+        <x-scripts/>
+        <!--<script src="/assets/script/app.js" type="module"></script>-->
+        <script src="/assets/script/splide.js"></script>
+        <script src="/splide/js/splide.min.js"></script>
+                  <!-- <script src="/assets\script\cookies.js?v=1790755325"></script> -->
+        
+        <script type="text/javascript">
+  $('#datePickerContainer').hide();
+  </script>
+  <script src="/assets/script/datePicker/lib/picker.js"></script>
+  <script src="/assets/script/datePicker/lib/picker.date.js"></script>
+  <script src="/assets/script/datePicker/lib/legacy.js"></script>
+
+  <script type="text/javascript">
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+
+  today = dd + '/' + mm + '/' + yyyy;
+
+  var $input = $('.datepicker').pickadate({
+    formatSubmit: 'dd/mm/yyyy',
+    min: 0,
+    max: +,
+    disable: [  ],
+    container: '#datePickerContainer',
+    closeOnSelect: true,
+    closeOnClear: false,
+    onRender: function() {
+      var dateElements = $('#datePickerContainer').find('.picker__day');
+      var c = 0;
+      dateElements.each(function(index) {
+        if ($(this).hasClass('picker__day--disabled')) {
+          // Disabled - do nothing or perform some action for disabled days
+        } else {
+          $(this).attr('data-inc-number', c++);
+        }
+      });
+    }
+  });
+
+  var picker = $input.pickadate('picker');
+  </script>
+  <script type="text/javascript">
+  $('.picker__frame').on('click', '.picker__day', function() {
+
+    const tabs = document.getElementById('scheduleTabs').getElementsByClassName('tab');
+    for (let i = 0; i < tabs.length; i++) {
+      for (let j = 0; j < tabs.length; j++) {
+        tabs[j].classList.remove('relative', 'font-bold', 'activeScheduleItem');
+      }
+    }  
+
+    const panels = document.querySelectorAll('div.whatson_panel');
+    panels.forEach(function(panel) {
+      document.getElementById(panel.id).classList.remove("block");
+      document.getElementById(panel.id).classList.add("hidden");
+    });
+
+    //let tabId = this.getAttribute("data-inc-number");
+
+    let timestamp = this.getAttribute("data-pick");
+    let getDate = this.getAttribute('aria-label');
+    const date = new Date(parseInt(timestamp));
+
+    const formattedDate = date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "long"
+    });
+
+    document.getElementById('selectedDateDisplay').innerHTML = formattedDate;
+    
+    // PHP doesnt have the extra zeros?    
+    timestamp = timestamp / 1000;
+
+
+    function convertDate(dateString) {
+      // Split the input date string by '/'
+      let parts = dateString.split('/');
+      
+      // Rearrange the parts to form "yyyymmdd"
+      let formattedDate = parts[2] + parts[1] + parts[0];
+      
+      return formattedDate;
+    }
+
+    var newDateFormat = convertDate(getDate);
+    
+
+    for (let i = 0; i < tabs.length; i++) {
+      for (let j = 0; j < tabs.length; j++) {
+        if(tabs[j].dataset.target == newDateFormat){
+          tabs[j].classList.add('relative', 'font-bold', 'activeScheduleItem');
+        }
+      }
+    }  
+    
+    if (document.getElementById('panel_' + newDateFormat) != null) {
+      document.getElementById('panel_' + newDateFormat).classList.remove("hidden");
+      document.getElementById('panel_' + newDateFormat).classList.add("block");
+    }
+  });
+  </script>
+
+
+  <script>
+  $(document).ready(function() {
+    function updateCalendarPosition() {
+      var buttonRightOffset = $('#chooseDate_button').offset().left + $('#chooseDate_button').outerWidth();
+      var calendarWidth = $('#datePickerContainer').outerWidth();
+      var windowWidth = $(window).width();
+      var calendarRightOffset = (windowWidth - buttonRightOffset) + 400;
+
+      $('#datePickerContainer').css({
+        'position': 'absolute',
+        'right': calendarRightOffset + 'px'
+      });
+    }
+    updateCalendarPosition();
+    $(window).resize(updateCalendarPosition);
+  });
+  </script>
+    </body>
+</html>
+
