@@ -300,6 +300,16 @@ venues:
     lng: -0.0161
     tags: [Music, Film]
 
+  - id: hackneyempire
+    name: Hackney Empire
+    url: https://www.hackneyempire.co.uk/whats-on
+    address: 291 Mare Street, London E8 1EJ
+    city: London
+    area: Hackney Central
+    lat: 51.5463
+    lng: -0.0555
+    tags: [Comedy, Theatre, Music, Opera, Dance]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
