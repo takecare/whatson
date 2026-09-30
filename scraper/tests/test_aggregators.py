@@ -11,6 +11,7 @@ from whatson.aggregators.courtyard import CourtyardTheatre
 from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.excel import ExcelLondon, is_trade
 from whatson.aggregators.genesis import GenesisCinema
+from whatson.aggregators.hackneyempire import HackneyEmpire
 from whatson.aggregators.lexington import Lexington
 from whatson.aggregators.oldvic import OldVic
 from whatson.aggregators.princecharles import PrinceCharlesCinema
@@ -713,3 +714,28 @@ def test_theatreship(venues):
     assert gig.summary and "*" not in gig.summary
     madness = next(e for e in events if e.title.startswith("Madness: Take It Or Leave It"))
     assert set(madness.tags) == {"Film", "Talks"}
+
+
+def test_hackneyempire(venues):
+    base = "https://www.hackneyempire.co.uk/whats-on"
+    http = FakeFetcher(
+        {
+            base: "hackneyempire/whats-on.html",
+            f"{base}/page-2": "hackneyempire/whats-on-page-2.html",
+            f"{base}/category/comedy": "hackneyempire/category-comedy.html",
+        }
+    )
+    agg = HackneyEmpire(venues["hackneyempire"], http, date(2026, 9, 30))
+    listed = list(agg.fetch_events())
+    events = {e.title: e for e in listed}
+
+    assert len(listed) == 45  # Gluck's Orpheus and Eurydice is on twice, months apart
+    assert http.requested[-1] == f"{base}/page-2"  # page 2's "next" wraps to page 1
+    amstell = events["Simon Amstell: I Love It Here"]
+    assert amstell.start == datetime(2026, 10, 9, 19, 30, tzinfo=LONDON)
+    assert amstell.tags == ["Comedy"]  # from the comedy category page
+    assert amstell.url == "https://www.hackneyempire.co.uk/events/simon-amstell-i-love-it-here"
+    assert amstell.image_url
+    dexys = events["Dexys Midnight Runners"]  # two nights: shown by dates
+    assert (dexys.start, dexys.end) == (date(2026, 10, 27), date(2026, 10, 28))
+    assert dexys.tags == ["Theatre"]  # its category page wasn't saved
