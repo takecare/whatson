@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
 from datetime import date
@@ -90,3 +91,17 @@ def image_src(img: Any) -> str | None:
         if value and not value.startswith("data:"):
             return value
     return None
+
+
+_NEXT_FLIGHT = re.compile(r"self\.__next_f\.push\(\[1,(\".*?\")\]\)</script>", re.S)
+
+
+def next_data(html: str, key: str) -> Any:
+    """The first object in a Next.js app-router page's streamed data that starts with
+    ``key`` (e.g. '{"events":['), or None. The page streams its data as string chunks
+    in ``self.__next_f.push([1, "..."])`` scripts."""
+    flight = "".join(json.loads(chunk) for chunk in _NEXT_FLIGHT.findall(html))
+    at = flight.find(key)
+    if at < 0:
+        return None
+    return json.JSONDecoder().raw_decode(flight, at)[0]

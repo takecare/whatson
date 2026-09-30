@@ -260,6 +260,16 @@ venues:
     lng: -0.0468
     tags: [Film]
 
+  - id: yard
+    name: The Yard Theatre
+    url: https://www.theyardtheatre.co.uk/whats-on
+    address: Unit 2a Queen's Yard, White Post Lane, London E9 5EN
+    city: London
+    area: Hackney Wick
+    lat: 51.5440
+    lng: -0.0249
+    tags: [Theatre, Nightlife]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
