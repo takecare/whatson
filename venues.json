@@ -1,4 +1,4 @@
-{"generated_at":"2026-09-30T07:55:43+00:00","venues":[
+{"generated_at":"2026-09-30T08:19:55+00:00","venues":[
 {"id":"topsecret","name":"The Top Secret Comedy Club","url":"https://thetopsecretcomedyclub.co.uk/events-listings/","address":"170 Drury Lane, London WC2B 5QF","city":"London","area":"Covent Garden","lat":51.5155,"lng":-0.1219,"tags":["Comedy"]},
 {"id":"unionchapel","name":"Union Chapel","url":"https://unionchapel.org.uk/venue/whats-on","address":"19b Compton Terrace, London N1 2UN","city":"London","area":"Islington","lat":51.5437,"lng":-0.1026,"tags":["Music"]},
 {"id":"saatchi","name":"Saatchi Gallery","url":"https://www.saatchigallery.com/whats-on","address":"Duke of York's HQ, King's Road, London SW3 4RY","city":"London","area":"Chelsea","lat":51.4906,"lng":-0.1587,"tags":["Art","Exhibition"]},
@@ -23,5 +23,15 @@
 {"id":"courtyard","name":"The Courtyard Theatre","url":"https://thecourtyard.org.uk/whats-on/","address":"Bowling Green Walk, 40 Pitfield Street, London N1 6EU","city":"London","area":"Hoxton","lat":51.5285,"lng":-0.083,"tags":["Theatre"]},
 {"id":"excel","name":"ExCeL London","url":"https://www.excel.london/visitor/whats-on","address":"1 Western Gateway, London E16 1XL","city":"London","area":"Royal Docks","lat":51.5085,"lng":0.0295,"tags":["Exhibition"]},
 {"id":"oldvic","name":"The Old Vic","url":"https://www.oldvictheatre.com/stage/","address":"The Cut, London SE1 8NB","city":"London","area":"Waterloo","lat":51.5022,"lng":-0.1096,"tags":["Theatre"]},
-{"id":"lexington","name":"The Lexington","url":"https://www.thelexington.co.uk/events.php","address":"96-98 Pentonville Road, London N1 9JB","city":"London","area":"Angel","lat":51.5318,"lng":-0.1109,"tags":["Music","Nightlife"]}
+{"id":"lexington","name":"The Lexington","url":"https://www.thelexington.co.uk/events.php","address":"96-98 Pentonville Road, London N1 9JB","city":"London","area":"Angel","lat":51.5318,"lng":-0.1109,"tags":["Music","Nightlife"]},
+{"id":"genesis","name":"Genesis Cinema","url":"https://www.genesiscinema.co.uk/whatson/events","address":"93-95 Mile End Road, London E1 4UJ","city":"London","area":"Stepney Green","lat":51.5218,"lng":-0.0468,"tags":["Film"]},
+{"id":"yard","name":"The Yard Theatre","url":"https://www.theyardtheatre.co.uk/whats-on","address":"Unit 2a Queen's Yard, White Post Lane, London E9 5EN","city":"London","area":"Hackney Wick","lat":51.544,"lng":-0.0249,"tags":["Nightlife","Theatre"]},
+{"id":"space","name":"The Space","url":"https://space.org.uk/whats-on/","address":"269 Westferry Road, London E14 3RS","city":"London","area":"Isle of Dogs","lat":51.4905,"lng":-0.0233,"tags":["Comedy","Music","Theatre"]},
+{"id":"stratfordeast","name":"Stratford East","url":"https://www.stratfordeast.com/whats-on/","address":"Gerry Raffles Square, London E15 1BN","city":"London","area":"Stratford","lat":51.5429,"lng":-0.0003,"tags":["Theatre"]},
+{"id":"theatreship","name":"Theatreship","url":"https://theatreship.co.uk/#tickets","address":"Millwall Cutting, Arts and Heritage Berth, London E14 9SH","city":"London","area":"Canary Wharf","lat":51.5011,"lng":-0.0161,"tags":["Film","Music"]},
+{"id":"hackneyempire","name":"Hackney Empire","url":"https://www.hackneyempire.co.uk/whats-on","address":"291 Mare Street, London E8 1EJ","city":"London","area":"Hackney Central","lat":51.5463,"lng":-0.0555,"tags":["Comedy","Dance","Music","Opera","Theatre"]},
+{"id":"kingshead","name":"King's Head Theatre","url":"https://kingsheadtheatre.com/whats-on","address":"Islington Square, 115 Upper Street, London N1 1QN","city":"London","area":"Islington","lat":51.5392,"lng":-0.1027,"tags":["Theatre"]},
+{"id":"almeida","name":"Almeida Theatre","url":"https://almeida.co.uk/whats-on/","address":"Almeida Street, London N1 1TA","city":"London","area":"Islington","lat":51.5395,"lng":-0.1025,"tags":["Theatre"]},
+{"id":"youngvic","name":"Young Vic","url":"https://www.youngvic.org/whats-on/","address":"66 The Cut, London SE1 8LZ","city":"London","area":"Waterloo","lat":51.5036,"lng":-0.1076,"tags":["Theatre"]},
+{"id":"uniontheatre","name":"Union Theatre","url":"https://uniontheatre.biz/whats-on/","address":"Old Union Arches, 229 Union Street, London SE1 0LR","city":"London","area":"Southwark","lat":51.5039,"lng":-0.101,"tags":["Theatre"]}
 ]}
