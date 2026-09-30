@@ -18,6 +18,7 @@ from whatson.aggregators import (  # noqa: F401
     sjq,
     southbank,
     southwarkparkgalleries,
+    space,
     theo2,
     topsecret,
     trinitybuoywharf,

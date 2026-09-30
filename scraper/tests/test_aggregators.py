@@ -31,6 +31,7 @@ from whatson.aggregators.sjq import SJQ
 from whatson.aggregators.southbank import SouthbankCentre
 from whatson.aggregators.southwarkparkgalleries import API as SPG_API
 from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
+from whatson.aggregators.space import TheSpace
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
@@ -638,3 +639,20 @@ def test_yard(venues):
     assert draft.start == datetime(2026, 12, 4, 17, 0, tzinfo=LONDON) and draft.end is None
     assert events["Mrs Dalloway"].summary == "Times: 2:30pm & 7:00pm"
     assert events["Mrs Dalloway"].tags == ["Theatre"]
+
+
+def test_space(venues):
+    http = FakeFetcher({venues["space"].url: "space/whats-on.html"})
+    events = {e.title: e for e in TheSpace(venues["space"], http, date(2026, 9, 30)).fetch_events()}
+
+    assert len(events) == 31
+    kate = events["Kate Kelly"]  # "1 Oct - 4 Oct"
+    assert (kate.start, kate.end) == (date(2026, 10, 1), date(2026, 10, 4))
+    assert kate.tags == ["Theatre"] and kate.summary
+    assert kate.url == "https://space.org.uk/event/kate-kelly/"
+    assert kate.image_url and kate.image_url.startswith("https://space.org.uk/wp-content/uploads/")
+    assert events["Hauntings"].end == date(2026, 10, 9)
+    assert events["Space For Laughs - Open Mic Night"].tags == ["Comedy"]
+    assert events["Space For Laughs - Open Mic Night"].end is None  # "18 Oct - 18 Oct"
+    assert set(events["Enter The Shadows: All Hallows Eve Night"].tags) == {"Music", "Nightlife"}
+    assert events["The Battle of Stockton"].tags == ["Film"]
