@@ -43,6 +43,7 @@ from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
 from whatson.aggregators.trinitybuoywharf import TrinityBuoyWharf
 from whatson.aggregators.unionchapel import UnionChapel
+from whatson.aggregators.uniontheatre import UnionTheatre
 from whatson.aggregators.wiltons import WiltonsMusicHall
 from whatson.aggregators.yard import YardTheatre
 from whatson.aggregators.youngvic import YoungVic
@@ -801,3 +802,18 @@ def test_youngvic(venues):
     assert (eulogy.start, eulogy.end) == (date(2027, 3, 24), date(2027, 4, 17))
     assert eulogy.space is None
     assert events["Girls"].space == "The Maria"
+
+
+def test_uniontheatre(venues):
+    http = FakeFetcher({venues["uniontheatre"].url: "uniontheatre/whats-on.html"})
+    agg = UnionTheatre(venues["uniontheatre"], http, date(2026, 9, 30))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    assert len(events) == 19
+    soldier = events["TOY SOLDIER"]  # "3 October 2026 - 18 October 2026"
+    assert (soldier.start, soldier.end) == (date(2026, 10, 3), date(2026, 10, 18))
+    assert soldier.url == "https://uniontheatre.biz/show/toy-soldier/"
+    assert soldier.booking_url and "savoysystems" in soldier.booking_url
+    assert soldier.image_url and soldier.tags == ["Theatre"]
+    hood = events["THROBBIN’ HOOD & HIS MESSY MEN"]
+    assert (hood.start, hood.end) == (date(2026, 12, 3), date(2027, 1, 9))

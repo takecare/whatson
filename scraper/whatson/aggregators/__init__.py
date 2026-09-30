@@ -28,6 +28,7 @@ from whatson.aggregators import (  # noqa: F401
     topsecret,
     trinitybuoywharf,
     unionchapel,
+    uniontheatre,
     wiltons,
     yard,
     youngvic,
