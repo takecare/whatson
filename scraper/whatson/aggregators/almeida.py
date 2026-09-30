@@ -3,22 +3,12 @@ from __future__ import annotations
 import re
 from collections.abc import Iterator
 
-from whatson.aggregators.base import BaseAggregator, text_of
+from whatson.aggregators.base import BaseAggregator, largest, text_of
 from whatson.models import Event
 from whatson.parsing import parse_date_range
 from whatson.registry import register
 
 _TOUR = re.compile(r"\btour\b", re.I)
-
-
-def largest(srcset: str) -> str | None:
-    """The widest candidate in an ``srcset`` ("url 480w, url 960w")."""
-    candidates = []
-    for part in srcset.split(","):
-        url, _, width = part.strip().rpartition(" ")
-        if url and width.endswith("w") and width[:-1].isdigit():
-            candidates.append((int(width[:-1]), url))
-    return max(candidates)[1] if candidates else None
 
 
 @register

@@ -125,6 +125,7 @@ shows the current state.
 | Hackney Empire | ✅ Collected | Listing pages (`/whats-on/page-N`; the last page's "next" wraps round to page 1) give title, start time, image and link; runs show as dates. Cards carry no category, so the seven category pages (theatre, comedy, live music, opera, talks, family, dance) are read for tags: 9 requests. Prices are only in the event pages' text and aren't collected. |
 | King's Head Theatre | ✅ Collected | The listing gives each show's run, genres and stage (Main House, 4Below); each show's page has a JSON-LD Event per performance, so every performance time is listed. Prices are banded and only described in text, so they aren't collected. |
 | Almeida Theatre | ✅ Collected | One listing page of cards: title, run, sold-out state and artwork. Show pages describe prices and access performances only in text, so runs are shown as dates, without times or prices. |
+| Young Vic | ✅ Collected | One listing page of cards: title, run, space (Main House, The Maria) and image. NT at Home streams and productions staged elsewhere are skipped. No times or prices on the listing. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |
