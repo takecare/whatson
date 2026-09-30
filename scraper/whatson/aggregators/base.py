@@ -93,6 +93,16 @@ def image_src(img: Any) -> str | None:
     return None
 
 
+def largest(srcset: str) -> str | None:
+    """The widest candidate in an ``srcset`` ("url 480w, url 960w")."""
+    candidates = []
+    for part in srcset.split(","):
+        url, _, width = part.strip().rpartition(" ")
+        if url and width.endswith("w") and width[:-1].isdigit():
+            candidates.append((int(width[:-1]), url))
+    return max(candidates)[1] if candidates else None
+
+
 _NEXT_FLIGHT = re.compile(r"self\.__next_f\.push\(\[1,(\".*?\")\]\)</script>", re.S)
 
 

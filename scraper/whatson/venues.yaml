@@ -330,6 +330,16 @@ venues:
     lng: -0.1025
     tags: [Theatre]
 
+  - id: youngvic
+    name: Young Vic
+    url: https://www.youngvic.org/whats-on/
+    address: 66 The Cut, London SE1 8LZ
+    city: London
+    area: Waterloo
+    lat: 51.5036
+    lng: -0.1076
+    tags: [Theatre]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

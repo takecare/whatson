@@ -30,4 +30,5 @@ from whatson.aggregators import (  # noqa: F401
     unionchapel,
     wiltons,
     yard,
+    youngvic,
 )

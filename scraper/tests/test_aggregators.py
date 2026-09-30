@@ -45,6 +45,7 @@ from whatson.aggregators.trinitybuoywharf import TrinityBuoyWharf
 from whatson.aggregators.unionchapel import UnionChapel
 from whatson.aggregators.wiltons import WiltonsMusicHall
 from whatson.aggregators.yard import YardTheatre
+from whatson.aggregators.youngvic import YoungVic
 from whatson.registry import load_aggregators
 
 
@@ -780,3 +781,23 @@ def test_almeida(venues):
     assert (desire.start, desire.end) == (date(2026, 11, 10), date(2026, 12, 23))
     assert not desire.sold_out
     assert events["Theatre Tour"].tags == ["Tours"]
+
+
+def test_youngvic(venues):
+    http = FakeFetcher({venues["youngvic"].url: "youngvic/whats-on.html"})
+    listed = list(YoungVic(venues["youngvic"], http, date(2026, 9, 30)).fetch_events())
+    events = {e.title: e for e in listed}
+
+    # 15 cards: the banner repeats Thelma & Louise, three are NT at Home streams and
+    # The Pelicot Trial is at County Hall.
+    assert len(listed) == 10
+    assert "Yerma" not in events and "The Pelicot Trial" not in events
+    thelma = events["Thelma & Louise"]  # "3 SEP - 24 OCT"
+    assert (thelma.start, thelma.end) == (date(2026, 9, 3), date(2026, 10, 24))
+    assert thelma.space == "Main House"
+    assert thelma.image_url and "fill-1560x1200" in thelma.image_url
+    assert thelma.url == "https://www.youngvic.org/whats-on/thelma-louise/"
+    eulogy = events["Eulogy"]  # "Wed 24 Mar – Sat 17 Apr 2027", venue "Young Vic"
+    assert (eulogy.start, eulogy.end) == (date(2027, 3, 24), date(2027, 4, 17))
+    assert eulogy.space is None
+    assert events["Girls"].space == "The Maria"
