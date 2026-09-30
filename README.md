@@ -119,6 +119,7 @@ shows the current state.
 | The Lexington | ✅ Collected | One page lists every gig and club night with date and time (no year; inferred), image and ticket link; each event's page adds the price line and description (about 90 pages, 1.5 minutes). Club nights are tagged Nightlife, the weekly quiz Nightlife only. |
 | Genesis Cinema | ✅ Collected (events only) | Its events page (Q&As, double bills, poetry slams) lists each event with its performances: date, time, booking link. The regular film programme (`/whatson/all`) isn't collected. No prices. |
 | The Yard Theatre | ✅ Collected | A Next.js site: the What's On page's embedded data lists each show with category, run (ISO start and end) and performance times ("2:30pm & 7:00pm", kept in the summary). Single performances keep their time; runs show as dates. No prices. |
+| The Space | ✅ Collected | WordPress listing of cards: title, dates ("1 Oct - 4 Oct"), blurb, image. The site's own categories only say "In Person" or "Online", so comedy, music, club nights and screenings are recognised from the title and blurb; the rest is tagged Theatre. No times or prices (booking is embedded). |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |

@@ -270,6 +270,16 @@ venues:
     lng: -0.0249
     tags: [Theatre, Nightlife]
 
+  - id: space
+    name: The Space
+    url: https://space.org.uk/whats-on/
+    address: 269 Westferry Road, London E14 3RS
+    city: London
+    area: Isle of Dogs
+    lat: 51.4905
+    lng: -0.0233
+    tags: [Theatre, Comedy, Music]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
