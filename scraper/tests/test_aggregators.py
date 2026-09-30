@@ -32,6 +32,7 @@ from whatson.aggregators.southbank import SouthbankCentre
 from whatson.aggregators.southwarkparkgalleries import API as SPG_API
 from whatson.aggregators.southwarkparkgalleries import SouthwarkParkGalleries
 from whatson.aggregators.space import TheSpace
+from whatson.aggregators.stratfordeast import StratfordEast
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
@@ -656,3 +657,38 @@ def test_space(venues):
     assert events["Space For Laughs - Open Mic Night"].end is None  # "18 Oct - 18 Oct"
     assert set(events["Enter The Shadows: All Hallows Eve Night"].tags) == {"Music", "Nightlife"}
     assert events["The Battle of Stockton"].tags == ["Film"]
+
+
+def test_stratfordeast(venues):
+    url = venues["stratfordeast"].url
+    shows = f"{url}all-shows"
+    routes = {url: "stratfordeast/whats-on.html"}
+    for slug in (
+        "bloodsport-after-helen-of-troy",
+        "vittorio-angelone-you-cant-say-nothing-any-more",
+        "surinderella",
+        "robin-hood-and-the-merry-mandem",
+        "bar-events",
+    ):
+        routes[f"{shows}/{slug}"] = f"stratfordeast/{slug}.html"
+    agg = StratfordEast(venues["stratfordeast"], FakeFetcher(routes), date(2026, 9, 30))
+    events = list(agg.fetch_events())
+    by_title = {e.title: e for e in events}
+
+    # Shows without a saved page are skipped, like a failed request.
+    robin = by_title["Robin Hood and the Merry Mandem"]
+    assert len(robin.performances) == 53
+    assert robin.start == datetime(2026, 11, 21, 19, 0, tzinfo=LONDON)
+    assert (robin.price_min, robin.price_max) == (6.0, 41.5)
+    assert {"Theatre", "Family", "Signed", "Captioned", "Relaxed"} <= set(robin.tags)
+    assert robin.category == "Theatre" and robin.summary and robin.image_url
+    blood = by_title["BLOODSPORT: After Helen of Troy"]  # genre "Drama", from another page
+    assert blood.performances[0] == datetime(2026, 9, 30, 19, 30, tzinfo=LONDON)
+    assert blood.category == "Theatre"
+    comedy = by_title["Vittorio Angelone: you can’t Say Nothing any more"]
+    assert comedy.tags == ["Comedy"]  # the site says only "On Stage"
+    bar = [e for e in events if e.url.endswith("/bar-events")]
+    assert len(bar) == 10
+    assert bar[0].title == "Reggae Revival" and bar[0].price_min == 0
+    assert bar[0].start == datetime(2026, 10, 2, 21, 0, tzinfo=LONDON)
+    assert bar[-1].title == "Salsa with DJ Hughie"  # "Salsa with DJ Hughie -9pm-12am"
