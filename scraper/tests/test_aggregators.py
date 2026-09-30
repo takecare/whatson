@@ -12,6 +12,7 @@ from whatson.aggregators.enb import EnglishNationalBallet
 from whatson.aggregators.excel import ExcelLondon, is_trade
 from whatson.aggregators.genesis import GenesisCinema
 from whatson.aggregators.hackneyempire import HackneyEmpire
+from whatson.aggregators.kingshead import KingsHeadTheatre
 from whatson.aggregators.lexington import Lexington
 from whatson.aggregators.oldvic import OldVic
 from whatson.aggregators.princecharles import PrinceCharlesCinema
@@ -739,3 +740,25 @@ def test_hackneyempire(venues):
     dexys = events["Dexys Midnight Runners"]  # two nights: shown by dates
     assert (dexys.start, dexys.end) == (date(2026, 10, 27), date(2026, 10, 28))
     assert dexys.tags == ["Theatre"]  # its category page wasn't saved
+
+
+def test_kingshead(venues):
+    url = venues["kingshead"].url
+    routes = {url: "kingshead/whats-on.html"}
+    for slug in ("dick-whittington-and-his-cat-x9y6", "dick-whittington-adults-only-5tkn"):
+        routes[f"{url}/{slug}"] = f"kingshead/{slug}.html"
+    agg = KingsHeadTheatre(venues["kingshead"], FakeFetcher(routes), date(2026, 9, 30))
+    events = {e.title: e for e in agg.fetch_events()}
+
+    assert len(events) == 6
+    panto = events["Dick Whittington and His Cat"]  # one JSON-LD Event per performance
+    assert len(panto.performances) == 35
+    assert panto.start == datetime(2026, 11, 22, 13, 0, tzinfo=LONDON)
+    assert set(panto.tags) == {"Theatre", "Family"} and panto.space == "Main House"
+    assert panto.image_url and panto.summary == "Our annual King's Head pantomime returns!"
+    assert "Family" not in events["Dick Whittington: Adults Only"].tags
+    # Without its page (not saved), a show falls back to the listing's run.
+    gang = events["The Gang Of Three"]
+    assert (gang.start, gang.end) == (date(2026, 10, 1), date(2026, 10, 10))
+    assert gang.performances == []
+    assert events["The Hound of the Baskervilles"].tags == ["Comedy"]
