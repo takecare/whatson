@@ -23,4 +23,5 @@ from whatson.aggregators import (  # noqa: F401
     trinitybuoywharf,
     unionchapel,
     wiltons,
+    yard,
 )

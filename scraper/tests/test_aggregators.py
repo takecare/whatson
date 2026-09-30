@@ -37,6 +37,7 @@ from whatson.aggregators.topsecret import TopSecretComedyClub
 from whatson.aggregators.trinitybuoywharf import TrinityBuoyWharf
 from whatson.aggregators.unionchapel import UnionChapel
 from whatson.aggregators.wiltons import WiltonsMusicHall
+from whatson.aggregators.yard import YardTheatre
 from whatson.registry import load_aggregators
 
 
@@ -620,3 +621,20 @@ def test_genesis(venues):
     intro = events["American History X + Intro By Tony Kaye"]
     assert set(intro.tags) == {"Film", "Talks"} and intro.category == "Film"
     assert intro.start == datetime(2026, 10, 13, 18, 20, tzinfo=LONDON)
+
+
+def test_yard(venues):
+    http = FakeFetcher({venues["yard"].url: "yard/whats-on.html"})
+    events = {
+        e.title: e for e in YardTheatre(venues["yard"], http, date(2026, 9, 30)).fetch_events()
+    }
+
+    assert len(events) == 9
+    lear = events["Lear"]  # a run: shown by its dates
+    assert (lear.start, lear.end) == (date(2026, 11, 17), date(2027, 1, 2))
+    assert lear.url == "https://www.theyardtheatre.co.uk/events/lear"
+    assert lear.image_url and lear.image_url.startswith("https://cdn.sanity.io/images/vs3yf10f/")
+    draft = events["Live Drafts: Coming Home"]  # one performance, 17:00 UTC in December
+    assert draft.start == datetime(2026, 12, 4, 17, 0, tzinfo=LONDON) and draft.end is None
+    assert events["Mrs Dalloway"].summary == "Times: 2:30pm & 7:00pm"
+    assert events["Mrs Dalloway"].tags == ["Theatre"]
