@@ -8,6 +8,8 @@ export interface Filters {
   from: Day | null;
   to: Day | null;
   tags: string[];
+  /** Events with any of these tags are left out. */
+  excludeTags: string[];
   tagMode: "any" | "all";
   /** Upper bound on the cheapest ticket; null means no limit. */
   maxPrice: number | null;
@@ -15,7 +17,9 @@ export interface Filters {
   includeUnknownPrice: boolean;
   hideSoldOut: boolean;
   areas: string[];
+  excludeAreas: string[];
   venues: string[];
+  excludeVenues: string[];
 }
 
 export const DEFAULT_FILTERS: Filters = {
@@ -24,13 +28,16 @@ export const DEFAULT_FILTERS: Filters = {
   from: null,
   to: null,
   tags: [],
+  excludeTags: [],
   tagMode: "any",
   maxPrice: null,
   freeOnly: false,
   includeUnknownPrice: true,
   hideSoldOut: false,
   areas: [],
+  excludeAreas: [],
   venues: [],
+  excludeVenues: [],
 };
 
 /** An event on one particular day, with that day's showtimes. */
@@ -70,10 +77,13 @@ export function effectiveTags(e: WhatsOnEvent, venue: Venue | undefined): string
 function matchesNonDate(e: WhatsOnEvent, venue: Venue | undefined, f: Filters): boolean {
   if (f.hideSoldOut && e.sold_out) return false;
   if (f.venues.length && !f.venues.includes(e.venue_id)) return false;
+  if (f.excludeVenues.includes(e.venue_id)) return false;
   if (f.areas.length && !(venue?.area && f.areas.includes(venue.area))) return false;
+  if (venue?.area && f.excludeAreas.includes(venue.area)) return false;
 
+  const tags = effectiveTags(e, venue);
+  if (f.excludeTags.some((t) => tags.includes(t))) return false;
   if (f.tags.length) {
-    const tags = effectiveTags(e, venue);
     const hit = f.tagMode === "all" ? f.tags.every((t) => tags.includes(t)) : f.tags.some((t) => tags.includes(t));
     if (!hit) return false;
   }
@@ -164,7 +174,10 @@ const PRESET_IDS = new Set<string>(PRESETS.map((p) => p.id));
 
 export function filtersFromQuery(search: string): Filters {
   const p = new URLSearchParams(search);
-  const list = (key: string) => (p.get(key) ? p.get(key)!.split(",").filter(Boolean) : []);
+  const all = (key: string) => (p.get(key) ? p.get(key)!.split(",").filter(Boolean) : []);
+  // Excluded values are listed with a leading "-": tags=Theatre,-Comedy.
+  const list = (key: string) => all(key).filter((v) => !v.startsWith("-"));
+  const excluded = (key: string) => all(key).filter((v) => v.startsWith("-")).map((v) => v.slice(1)).filter(Boolean);
   const day = (key: string) => (/^\d{4}-\d{2}-\d{2}$/.test(p.get(key) ?? "") ? p.get(key) : null);
   const when = p.get("when") ?? "";
   const from = day("from");
@@ -176,13 +189,16 @@ export function filtersFromQuery(search: string): Filters {
     from,
     to,
     tags: list("tags"),
+    excludeTags: excluded("tags"),
     tagMode: p.get("mode") === "all" ? "all" : "any",
     maxPrice: p.has("max") && Number.isFinite(max) && max >= 0 ? max : null,
     freeOnly: p.get("free") === "1",
     includeUnknownPrice: p.get("unknown") !== "0",
     hideSoldOut: p.get("soldout") === "0",
     areas: list("area"),
+    excludeAreas: excluded("area"),
     venues: list("venue"),
+    excludeVenues: excluded("venue"),
   };
 }
 
@@ -195,14 +211,18 @@ export function filtersToQuery(f: Filters): string {
   } else if (f.when !== "all") {
     p.set("when", f.when);
   }
-  if (f.tags.length) p.set("tags", f.tags.join(","));
+  const both = (key: string, included: string[], excluded: string[]) => {
+    const values = [...included, ...excluded.map((v) => `-${v}`)];
+    if (values.length) p.set(key, values.join(","));
+  };
+  both("tags", f.tags, f.excludeTags);
   if (f.tagMode === "all") p.set("mode", "all");
   if (f.maxPrice !== null) p.set("max", String(f.maxPrice));
   if (f.freeOnly) p.set("free", "1");
   if (!f.includeUnknownPrice) p.set("unknown", "0");
   if (f.hideSoldOut) p.set("soldout", "0");
-  if (f.areas.length) p.set("area", f.areas.join(","));
-  if (f.venues.length) p.set("venue", f.venues.join(","));
+  both("area", f.areas, f.excludeAreas);
+  both("venue", f.venues, f.excludeVenues);
   const s = p.toString();
   return s ? `?${s}` : "";
 }

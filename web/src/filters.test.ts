@@ -87,7 +87,33 @@ describe("applyFilters", () => {
   });
 });
 
+describe("exclusions", () => {
+  it("leaves out excluded tags, using venue tags as a fallback", () => {
+    expect(titles(run({ excludeTags: ["Comedy"] })).sort()).toEqual(["Big exhibition", "Film", "Film"]);
+    expect(titles(run({ excludeTags: ["Art"] }))).not.toContain("Big exhibition"); // a venue tag
+  });
+
+  it("combines with included tags", () => {
+    expect(titles(run({ tags: ["Comedy", "Film"], excludeTags: ["Film"] })).sort()).toEqual([
+      "Early show", "Late show", "Next week",
+    ]);
+  });
+
+  it("leaves out excluded venues and areas", () => {
+    expect(titles(run({ excludeVenues: ["comedy", "cinema"] }))).toEqual(["Big exhibition"]);
+    expect(titles(run({ excludeAreas: ["Covent Garden", "Chelsea"] }))).toEqual(["Film", "Film"]);
+  });
+});
+
 describe("URL state", () => {
+  it("writes exclusions with a leading minus", () => {
+    const f: Filters = { ...DEFAULT_FILTERS, tags: ["Theatre"], excludeTags: ["Comedy"], excludeVenues: ["o2arena"] };
+    expect(decodeURIComponent(filtersToQuery(f))).toBe("?tags=Theatre,-Comedy&venue=-o2arena");
+    expect(filtersFromQuery(filtersToQuery(f))).toEqual(f);
+    expect(filtersFromQuery("?area=-Soho,-").excludeAreas).toEqual(["Soho"]);
+  });
+
+
   it("round-trips", () => {
     const f: Filters = {
       ...DEFAULT_FILTERS, q: "jazz", when: "custom", from: "2026-10-01", to: "2026-10-05",
