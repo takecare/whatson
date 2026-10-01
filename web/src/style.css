@@ -242,6 +242,21 @@ h3 {
   border-color: var(--accent);
   color: var(--accent-text);
 }
+/* Excluded: struck through, with a minus sign. */
+.chip[aria-pressed="mixed"] {
+  border-color: var(--err);
+  color: var(--err);
+  text-decoration: line-through;
+}
+.chip[aria-pressed="mixed"]::before {
+  content: "−";
+  font-weight: 700;
+  text-decoration: none;
+}
+.check.is-excluded {
+  color: var(--muted);
+  text-decoration: line-through;
+}
 .chip .count,
 .check .count {
   font-size: 0.75rem;
@@ -294,6 +309,12 @@ select {
   font-variant-numeric: tabular-nums;
   min-width: 82px;
   text-align: right;
+}
+
+.hint {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 .check {

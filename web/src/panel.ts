@@ -14,8 +14,25 @@ export function buildPanel(
   set: (f: Filters) => void,
 ): { sync: () => void } {
   const update = (patch: Partial<Filters>) => set({ ...get(), ...patch });
-  const toggle = (list: string[], value: string) =>
-    list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
+  const without = (list: string[], value: string) => list.filter((v) => v !== value);
+  // Each tag, area and venue cycles: off → included → excluded → off.
+  const cycle = (key: "tags" | "areas" | "venues", value: string) => {
+    const excludeKey = EXCLUDE[key];
+    const f = get();
+    const included = f[key];
+    const excluded = f[excludeKey];
+    if (included.includes(value)) {
+      update({ [key]: without(included, value), [excludeKey]: [...excluded, value] });
+    } else if (excluded.includes(value)) {
+      update({ [excludeKey]: without(excluded, value) });
+    } else {
+      update({ [key]: [...included, value] });
+    }
+  };
+  const stateOf = (key: "tags" | "areas" | "venues", value: string): State => {
+    const f = get();
+    return f[key].includes(value) ? "included" : f[EXCLUDE[key]].includes(value) ? "excluded" : "off";
+  };
 
   // Counts per tag, area and venue across all upcoming events.
   const tagCounts = new Map<string, number>();
@@ -45,8 +62,9 @@ export function buildPanel(
   const tagButtons = [...tagCounts.entries()].sort(byName).map(([tag, n]) =>
     h(
       "button",
-      { type: "button", class: "chip", "data-value": tag, onclick: () => update({ tags: toggle(get().tags, tag) }) },
+      { type: "button", class: "chip", "data-value": tag, onclick: () => cycle("tags", tag) },
       tag,
+      h("span", { class: "visually-hidden" }),
       h("span", { class: "count" }, String(n)),
     ),
   );
@@ -82,8 +100,9 @@ export function buildPanel(
   const areaButtons = [...areaCounts.entries()].sort(byName).map(([area, n]) =>
     h(
       "button",
-      { type: "button", class: "chip", "data-value": area, onclick: () => update({ areas: toggle(get().areas, area) }) },
+      { type: "button", class: "chip", "data-value": area, onclick: () => cycle("areas", area) },
       area,
+      h("span", { class: "visually-hidden" }),
       h("span", { class: "count" }, String(n)),
     ),
   );
@@ -93,15 +112,24 @@ export function buildPanel(
       const input = h("input", {
         type: "checkbox",
         value: v.id,
-        onchange: () => update({ venues: toggle(get().venues, v.id) }),
+        onchange: () => cycle("venues", v.id),
       });
-      return { input, el: h("label", { class: "check" }, input, v.name, h("span", { class: "count" }, String(venueCounts.get(v.id) ?? 0))) };
+      const el = h(
+        "label",
+        { class: "check" },
+        input,
+        v.name,
+        h("span", { class: "visually-hidden" }),
+        h("span", { class: "count" }, String(venueCounts.get(v.id) ?? 0)),
+      );
+      return { input, el };
     });
 
   const reset = h("button", { type: "button", class: "button subtle", onclick: () => set({ ...DEFAULT_FILTERS, q: get().q }) }, "Reset filters");
 
   container.replaceChildren(
     group("When", h("div", { class: "chips" }, presetButtons), h("div", { class: "date-inputs" }, fromInput, h("span", {}, "to"), toInput)),
+    h("p", { class: "hint" }, "Click a tag, area or venue once to show only those, again to hide them, and a third time to clear."),
     group("What", h("div", { class: "chips" }, tagButtons), h("label", { class: "inline" }, "Match ", tagMode)),
     group("Price", h("div", { class: "price" }, priceRange, priceOut), free.el, unknown.el, soldOut.el),
     group("Where", h("div", { class: "chips" }, areaButtons)),
@@ -111,6 +139,15 @@ export function buildPanel(
 
   const press = (buttons: HTMLElement[], selected: (v: string) => boolean) =>
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(selected(b.dataset.value!))));
+  // Three-state chips: aria-pressed "true" (included), "mixed" (excluded) or "false".
+  const pressCycle = (buttons: HTMLElement[], key: "tags" | "areas") =>
+    buttons.forEach((b) => {
+      const value = b.dataset.value!;
+      const state = stateOf(key, value);
+      b.setAttribute("aria-pressed", PRESSED[state]);
+      b.title = HINTS[state];
+      b.querySelector(".visually-hidden")!.textContent = state === "excluded" ? " (hidden)" : "";
+    });
 
   return {
     sync() {
@@ -120,7 +157,7 @@ export function buildPanel(
       fromInput.value = from;
       toInput.value = to ?? "";
       fromInput.min = toInput.min = now();
-      press(tagButtons, (v) => f.tags.includes(v));
+      pressCycle(tagButtons, "tags");
       tagMode.value = f.tagMode;
       const step = f.maxPrice === null ? PRICE_STEPS.length : PRICE_STEPS.findIndex((p) => p >= f.maxPrice!);
       priceRange.value = String(step === -1 ? PRICE_STEPS.length : step);
@@ -128,11 +165,29 @@ export function buildPanel(
       free.input.checked = f.freeOnly;
       unknown.input.checked = f.includeUnknownPrice;
       soldOut.input.checked = f.hideSoldOut;
-      press(areaButtons, (v) => f.areas.includes(v));
-      venueChecks.forEach((c) => (c.input.checked = f.venues.includes(c.input.value)));
+      pressCycle(areaButtons, "areas");
+      venueChecks.forEach(({ input, el }) => {
+        // An excluded venue shows as an indeterminate checkbox: [-].
+        const state = stateOf("venues", input.value);
+        input.checked = state === "included";
+        input.indeterminate = state === "excluded";
+        el.classList.toggle("is-excluded", state === "excluded");
+        el.querySelector(".visually-hidden")!.textContent = state === "excluded" ? " (hidden)" : "";
+        el.title = HINTS[state];
+      });
     },
   };
 }
+
+type State = "off" | "included" | "excluded";
+
+const EXCLUDE = { tags: "excludeTags", areas: "excludeAreas", venues: "excludeVenues" } as const;
+const PRESSED: Record<State, string> = { off: "false", included: "true", excluded: "mixed" };
+const HINTS: Record<State, string> = {
+  off: "Click to show only these",
+  included: "Shown · click again to hide",
+  excluded: "Hidden · click again to clear",
+};
 
 function group(title: string, ...children: HTMLElement[]) {
   return h("fieldset", { class: "group" }, h("legend", {}, title), ...children);
@@ -143,6 +198,7 @@ export function activeCount(f: Filters): number {
   let n = 0;
   if (f.when !== "all") n++;
   n += f.tags.length + f.areas.length + f.venues.length;
+  n += f.excludeTags.length + f.excludeAreas.length + f.excludeVenues.length;
   if (f.maxPrice !== null || f.freeOnly || !f.includeUnknownPrice) n++;
   if (f.hideSoldOut) n++;
   return n;
