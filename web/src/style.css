@@ -653,6 +653,10 @@ main {
     display: none;
     position: fixed;
     inset: 0;
+    /* The desktop sidebar's align-self: start also applies to fixed boxes and
+       would size the sheet to its content, leaving nothing to scroll. */
+    align-self: stretch;
+    overscroll-behavior: contain;
     z-index: 20;
     max-height: none;
     background: var(--bg);
@@ -667,6 +671,7 @@ main {
     justify-content: space-between;
     position: sticky;
     top: 0;
+    z-index: 1; /* above the semi-transparent counts, which get their own layer */
     background: var(--bg);
     padding: 12px 0;
     margin-bottom: 8px;
