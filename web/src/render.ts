@@ -64,13 +64,19 @@ function runCard(r: Run, data: Data) {
   return card(r.event, data.venues.get(r.event.venue_id), range + (t ? ` · ${t}` : ""), range);
 }
 
+export interface ResultsView {
+  /** Scrolls to `day`'s section, or the next day with events. Returns the day shown,
+   * or null if no listed day is on or after it. */
+  jumpTo(day: Day): Day | null;
+}
+
 export function renderResults(
   main: HTMLElement,
   results: Results,
   data: Data,
   now: Day,
   onReset: () => void,
-): void {
+): ResultsView {
   main.replaceChildren();
   const total = results.count;
   main.append(
@@ -90,7 +96,7 @@ export function renderResults(
         h("button", { class: "button", type: "button", onclick: onReset }, "Clear filters"),
       ),
     );
-    return;
+    return { jumpTo: () => null };
   }
 
   if (results.runs.length) {
@@ -149,6 +155,19 @@ export function renderResults(
   more.addEventListener("click", renderPage);
   main.append(more);
   renderPage();
+
+  const sectionFor = (day: Day) => main.querySelector<HTMLElement>(`section[data-day="${day}"]`);
+  return {
+    jumpTo(target) {
+      const found = results.days.find((d) => d.day >= target);
+      if (!found) return null;
+      // Days further down may not be rendered yet.
+      while (!sectionFor(found.day) && dayIndex < results.days.length) renderPage();
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      sectionFor(found.day)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      return found.day;
+    },
+  };
 }
 
 const relative = new Intl.RelativeTimeFormat("en-GB", { numeric: "auto" });
