@@ -2,7 +2,7 @@ name: Scrape and deploy
 
 # The schedule only checks hourly whether a scrape is due. How often events are
 # actually collected is set by the repository variable SCRAPE_INTERVAL_HOURS
-# (default 24; 0 pauses scheduled scraping). See README.md.
+# (default 12, i.e. twice a day; 0 pauses scheduled scraping). See README.md.
 on:
   schedule:
     - cron: "17 * * * *"
@@ -40,7 +40,7 @@ jobs:
         env:
           EVENT: ${{ github.event_name }}
           INPUT_SCRAPE: ${{ inputs.scrape }}
-          INTERVAL: ${{ vars.SCRAPE_INTERVAL_HOURS || '24' }}
+          INTERVAL: ${{ vars.SCRAPE_INTERVAL_HOURS || '12' }}
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
         run: |
