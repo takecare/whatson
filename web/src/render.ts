@@ -68,6 +68,8 @@ export interface ResultsView {
   /** Scrolls to `day`'s section, or the next day with events. Returns the day shown,
    * or null if no listed day is on or after it. */
   jumpTo(day: Day): Day | null;
+  /** The days that have events listed. */
+  days(): Day[];
 }
 
 export function renderResults(
@@ -96,7 +98,7 @@ export function renderResults(
         h("button", { class: "button", type: "button", onclick: onReset }, "Clear filters"),
       ),
     );
-    return { jumpTo: () => null };
+    return { jumpTo: () => null, days: () => [] };
   }
 
   if (results.runs.length) {
@@ -167,6 +169,7 @@ export function renderResults(
       sectionFor(found.day)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
       return found.day;
     },
+    days: () => results.days.map((d) => d.day),
   };
 }
 

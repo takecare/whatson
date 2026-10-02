@@ -28,10 +28,7 @@
         <nav class="jump" aria-label="Jump to a day">
           <button type="button" class="jump-button" data-jump="today">Today</button>
           <button type="button" class="jump-button" data-jump="tomorrow">Tomorrow</button>
-          <label class="jump-button jump-choose">
-            Choose
-            <input id="jump-date" type="date" aria-label="Choose a day to jump to" />
-          </label>
+          <button type="button" class="jump-button" id="jump-choose" aria-haspopup="dialog">Choose</button>
           <p id="jump-note" class="jump-note" role="status" aria-live="polite" hidden></p>
         </nav>
       </div>
