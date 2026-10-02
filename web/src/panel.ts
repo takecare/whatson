@@ -1,6 +1,6 @@
 import { type Day, PRESETS } from "./dates";
 import { h } from "./dom";
-import { DEFAULT_FILTERS, type Filters, dateRange, effectiveTags } from "./filters";
+import { DEFAULT_FILTERS, type Filters, type WhenPreset, effectiveTags, isCustom } from "./filters";
 import type { Data } from "./types";
 
 const PRICE_STEPS = [5, 10, 15, 20, 30, 40, 50, 75, 100];
@@ -14,7 +14,7 @@ export function buildPanel(
   set: (f: Filters) => void,
 ): { sync: () => void } {
   const update = (patch: Partial<Filters>) => set({ ...get(), ...patch });
-  const without = (list: string[], value: string) => list.filter((v) => v !== value);
+  const without = <T>(list: T[], value: T) => list.filter((v) => v !== value);
   // Each tag, area and venue cycles: off → included → excluded → off.
   const cycle = (key: "tags" | "areas" | "venues", value: string) => {
     const excludeKey = EXCLUDE[key];
@@ -48,13 +48,25 @@ export function buildPanel(
   const byName = (a: [string, number], b: [string, number]) => a[0].localeCompare(b[0]);
 
   // When ------------------------------------------------------------------------
+  // Presets combine (Today + Tomorrow shows both); "All upcoming" clears them, and
+  // choosing a date or range replaces them.
+  const pickPreset = (id: string) => {
+    if (id === "all") return update({ when: [], from: null, to: null });
+    const preset = id as WhenPreset;
+    const when = get().when;
+    update({ when: when.includes(preset) ? without(when, preset) : [...when, preset], from: null, to: null });
+  };
   const presetButtons = PRESETS.map((p) =>
-    h("button", { type: "button", class: "chip", "data-value": p.id, onclick: () => update({ when: p.id }) }, p.label),
+    h("button", { type: "button", class: "chip chip-when", "data-value": p.id, onclick: () => pickPreset(p.id) }, p.label),
   );
   const fromInput = h("input", { type: "date", "aria-label": "From" });
   const toInput = h("input", { type: "date", "aria-label": "To" });
-  const onDate = () =>
-    update({ when: "custom", from: fromInput.value || null, to: toInput.value || null });
+  const onDate = () => {
+    const from = fromInput.value || null;
+    // One date picked: just that day, until a "to" date is chosen.
+    const to = toInput.value || (from && !get().to ? from : null);
+    update({ when: [], from, to: to && from && to < from ? from : to });
+  };
   fromInput.addEventListener("change", onDate);
   toInput.addEventListener("change", onDate);
 
@@ -152,10 +164,10 @@ export function buildPanel(
   return {
     sync() {
       const f = get();
-      press(presetButtons, (v) => v === f.when);
-      const [from, to] = dateRange(f, now());
-      fromInput.value = from;
-      toInput.value = to ?? "";
+      const custom = isCustom(f);
+      press(presetButtons, (v) => (v === "all" ? !custom && !f.when.length : !custom && f.when.includes(v as WhenPreset)));
+      fromInput.value = f.from ?? "";
+      toInput.value = f.to ?? "";
       fromInput.min = toInput.min = now();
       pressCycle(tagButtons, "tags");
       tagMode.value = f.tagMode;
@@ -196,7 +208,7 @@ function group(title: string, ...children: HTMLElement[]) {
 /** How many filters differ from the defaults (shown on the mobile Filters button). */
 export function activeCount(f: Filters): number {
   let n = 0;
-  if (f.when !== "all") n++;
+  if (f.when.length || isCustom(f)) n++;
   n += f.tags.length + f.areas.length + f.venues.length;
   n += f.excludeTags.length + f.excludeAreas.length + f.excludeVenues.length;
   if (f.maxPrice !== null || f.freeOnly || !f.includeUnknownPrice) n++;

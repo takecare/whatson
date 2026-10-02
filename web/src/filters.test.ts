@@ -61,9 +61,21 @@ describe("applyFilters", () => {
   });
 
   it("filters by date range, including runs that overlap it", () => {
-    expect(titles(run({ when: "today" }))).toEqual(["Early show", "Late show"]);
-    expect(titles(run({ when: "weekend" }))).toEqual(["Film", "Film"]);
-    expect(titles(run({ when: "custom", from: "2026-12-01", to: "2026-12-02" }))).toEqual(["Big exhibition"]);
+    expect(titles(run({ when: ["today"] }))).toEqual(["Early show", "Late show"]);
+    expect(titles(run({ when: ["weekend"] }))).toEqual(["Film", "Film"]);
+    expect(titles(run({ from: "2026-12-01", to: "2026-12-02" }))).toEqual(["Big exhibition"]);
+  });
+
+  it("combines selected presets", () => {
+    // Today (Tue 29 Sep) and the weekend (2–4 Oct), but not the days between.
+    expect(titles(run({ when: ["today", "weekend"] }))).toEqual(["Early show", "Late show", "Film", "Film"]);
+    expect(run({ when: ["today", "weekend"] }).days.map((d) => d.day)).toEqual([
+      "2026-09-29", "2026-10-02", "2026-10-03",
+    ]);
+  });
+
+  it("uses a chosen date instead of the presets", () => {
+    expect(titles(run({ when: ["today"], from: "2026-10-06", to: "2026-10-06" }))).toEqual(["Next week"]);
   });
 
   it("filters by tags, falling back to venue tags", () => {
@@ -79,7 +91,7 @@ describe("applyFilters", () => {
   });
 
   it("filters by sold out, area, venue and text", () => {
-    expect(titles(run({ hideSoldOut: true, when: "today" }))).toEqual(["Late show"]);
+    expect(titles(run({ hideSoldOut: true, when: ["today"] }))).toEqual(["Late show"]);
     expect(titles(run({ areas: ["Chelsea"] }))).toEqual(["Big exhibition"]);
     expect(titles(run({ venues: ["cinema"] }))).toEqual(["Film", "Film"]);
     expect(titles(run({ q: "late SHOW" }))).toEqual(["Late show"]);
@@ -116,12 +128,16 @@ describe("URL state", () => {
 
   it("round-trips", () => {
     const f: Filters = {
-      ...DEFAULT_FILTERS, q: "jazz", when: "custom", from: "2026-10-01", to: "2026-10-05",
+      ...DEFAULT_FILTERS, q: "jazz", from: "2026-10-01", to: "2026-10-05",
       tags: ["Music", "Jazz"], tagMode: "all", maxPrice: 20, hideSoldOut: true, areas: ["Soho"],
     };
     expect(filtersFromQuery(filtersToQuery(f))).toEqual(f);
     expect(filtersToQuery(DEFAULT_FILTERS)).toBe("");
-    expect(filtersFromQuery("?when=weekend").when).toBe("weekend");
+    expect(filtersFromQuery("?when=weekend").when).toEqual(["weekend"]);
+    expect(filtersFromQuery("?when=today,tomorrow,bogus,today").when).toEqual(["today", "tomorrow"]);
+    expect(filtersFromQuery("?when=all").when).toEqual([]);
+    expect(filtersToQuery({ ...DEFAULT_FILTERS, when: ["today", "tomorrow"] })).toBe("?when=today%2Ctomorrow");
+    expect(filtersFromQuery("?when=today&from=2026-10-06").when).toEqual([]); // a date wins
     expect(filtersFromQuery("?max=abc").maxPrice).toBeNull();
   });
 });

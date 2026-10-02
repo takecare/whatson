@@ -1,10 +1,14 @@
 import { type Day, type Preset, PRESETS, dayOf, presetRange, timeOf } from "./dates";
 import type { Venue, WhatsOnEvent } from "./types";
 
+/** The date presets that can be combined; none selected means "All upcoming". */
+export type WhenPreset = Exclude<Preset, "all">;
+
 export interface Filters {
   q: string;
-  /** A preset date range, or "custom" to use from/to. */
-  when: Preset | "custom";
+  /** Selected presets; events in any of them are shown. Empty: all upcoming. */
+  when: WhenPreset[];
+  /** A chosen date or range. When set, it replaces the presets. */
   from: Day | null;
   to: Day | null;
   tags: string[];
@@ -24,7 +28,7 @@ export interface Filters {
 
 export const DEFAULT_FILTERS: Filters = {
   q: "",
-  when: "all",
+  when: [],
   from: null,
   to: null,
   tags: [],
@@ -63,10 +67,16 @@ export interface Results {
   count: number;
 }
 
-export function dateRange(f: Filters, now: Day): [Day, Day | null] {
-  if (f.when !== "custom") return presetRange(f.when, now);
-  const from = f.from && f.from > now ? f.from : now;
-  return [from, f.to];
+/** True when a specific date or range has been chosen (instead of presets). */
+export function isCustom(f: Filters): boolean {
+  return f.from !== null || f.to !== null;
+}
+
+/** The day ranges to show: the chosen range, each selected preset's, or all upcoming. */
+export function dateRanges(f: Filters, now: Day): [Day, Day | null][] {
+  if (isCustom(f)) return [[f.from && f.from > now ? f.from : now, f.to]];
+  if (f.when.length) return f.when.map((p) => presetRange(p, now));
+  return [presetRange("all", now)];
 }
 
 /** Tags used for filtering: the event's own, or the venue's when it has none. */
@@ -111,8 +121,8 @@ export function applyFilters(
   f: Filters,
   now: Day,
 ): Results {
-  const [from, to] = dateRange(f, now);
-  const inRange = (d: Day) => d >= from && (to === null || d <= to);
+  const ranges = dateRanges(f, now);
+  const inRange = (d: Day) => ranges.some(([from, to]) => d >= from && (to === null || d <= to));
   const byDay = new Map<Day, Occurrence[]>();
   const runs: Run[] = [];
   const matched = new Set<string>();
@@ -141,7 +151,7 @@ export function applyFilters(
     const start = dayOf(e.start);
     const end = e.end ? dayOf(e.end) : start;
     if (end > start) {
-      if (start <= (to ?? end) && end >= from) {
+      if (ranges.some(([from, to]) => start <= (to ?? end) && end >= from)) {
         runs.push({ kind: "run", from: start, to: end, event: e });
         matched.add(e.id);
       }
@@ -170,7 +180,7 @@ function push<K, V>(map: Map<K, V[]>, key: K, value: V) {
 
 // URL state ---------------------------------------------------------------------
 
-const PRESET_IDS = new Set<string>(PRESETS.map((p) => p.id));
+const WHEN_IDS = new Set<string>(PRESETS.map((p) => p.id).filter((id) => id !== "all"));
 
 export function filtersFromQuery(search: string): Filters {
   const p = new URLSearchParams(search);
@@ -179,13 +189,14 @@ export function filtersFromQuery(search: string): Filters {
   const list = (key: string) => all(key).filter((v) => !v.startsWith("-"));
   const excluded = (key: string) => all(key).filter((v) => v.startsWith("-")).map((v) => v.slice(1)).filter(Boolean);
   const day = (key: string) => (/^\d{4}-\d{2}-\d{2}$/.test(p.get(key) ?? "") ? p.get(key) : null);
-  const when = p.get("when") ?? "";
   const from = day("from");
   const to = day("to");
+  // A chosen date replaces the presets; "all" (or nothing) means all upcoming.
+  const when = from || to ? [] : [...new Set(all("when").filter((w) => WHEN_IDS.has(w)))];
   const max = Number(p.get("max"));
   return {
     q: p.get("q") ?? "",
-    when: PRESET_IDS.has(when) ? (when as Preset) : from || to ? "custom" : "all",
+    when: when as WhenPreset[],
     from,
     to,
     tags: list("tags"),
@@ -205,11 +216,11 @@ export function filtersFromQuery(search: string): Filters {
 export function filtersToQuery(f: Filters): string {
   const p = new URLSearchParams();
   if (f.q) p.set("q", f.q);
-  if (f.when === "custom") {
+  if (isCustom(f)) {
     if (f.from) p.set("from", f.from);
     if (f.to) p.set("to", f.to);
-  } else if (f.when !== "all") {
-    p.set("when", f.when);
+  } else if (f.when.length) {
+    p.set("when", f.when.join(","));
   }
   const both = (key: string, included: string[], excluded: string[]) => {
     const values = [...included, ...excluded.map((v) => `-${v}`)];
