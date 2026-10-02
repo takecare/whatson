@@ -242,16 +242,11 @@ h3 {
   border-color: var(--accent);
   color: var(--accent-text);
 }
-/* Excluded: struck through, with a minus sign. */
+/* Excluded: struck through. */
 .chip[aria-pressed="mixed"] {
   border-color: var(--err);
   color: var(--err);
   text-decoration: line-through;
-}
-.chip[aria-pressed="mixed"]::before {
-  content: "−";
-  font-weight: 700;
-  text-decoration: none;
 }
 .check.is-excluded {
   color: var(--muted);
