@@ -1,3 +1,4 @@
+import { openCalendar } from "./calendar";
 import { type Day, addDays, dayHeading, today } from "./dates";
 import { DEFAULT_FILTERS, type Filters, applyFilters, filtersFromQuery, filtersToQuery } from "./filters";
 import { activeCount, buildPanel } from "./panel";
@@ -49,7 +50,7 @@ async function start() {
   const openButton = $("open-filters");
 
   const closeButton = $("close-filters");
-  let view: ResultsView = { jumpTo: () => null };
+  let view: ResultsView = { jumpTo: () => null, days: () => [] };
   const render = () => {
     const results = applyFilters(data.events, data.venues, filters, today());
     view = renderResults(main, results, data, today(), () => setFilters({ ...DEFAULT_FILTERS }));
@@ -113,20 +114,8 @@ function setUpJump(view: () => ResultsView, now: () => Day) {
   for (const button of document.querySelectorAll<HTMLButtonElement>("[data-jump]")) {
     button.addEventListener("click", () => jump(button.dataset.jump === "tomorrow" ? addDays(now(), 1) : now()));
   }
-  // The date input covers the Choose button, so a tap opens the native calendar.
-  const picker = $<HTMLInputElement>("jump-date");
-  picker.addEventListener("click", () => {
-    picker.min = now();
-    try {
-      picker.showPicker(); // desktop browsers only open it from the calendar icon
-    } catch {
-      // already open, or not supported: the browser's own handling applies
-    }
-  });
-  picker.addEventListener("change", () => {
-    if (picker.value) jump(picker.value);
-    picker.value = "";
-  });
+  const choose = $<HTMLButtonElement>("jump-choose");
+  choose.addEventListener("click", () => openCalendar(choose, now(), new Set(view().days()), jump));
 }
 
 void start();
