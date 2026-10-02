@@ -4,7 +4,8 @@ import type { Occurrence, Results, Run } from "./filters";
 import type { Data, Venue, WhatsOnEvent } from "./types";
 
 const PAGE_SIZE = 150;
-const RUNS_PREVIEW = 6;
+/** Runs shown before "Show more": 4 on wide screens, 3 on phones. */
+const runsPreview = () => (window.matchMedia("(max-width: 860px)").matches ? 3 : 4);
 
 export function priceLabel(e: WhatsOnEvent): string | null {
   const { price_min: min, price_max: max } = e;
@@ -94,8 +95,9 @@ export function renderResults(
 
   if (results.runs.length) {
     const list = h("div", { class: "cards" });
-    const more = results.runs.length - RUNS_PREVIEW;
-    results.runs.slice(0, RUNS_PREVIEW).forEach((r) => list.append(runCard(r, data)));
+    const preview = runsPreview();
+    const more = results.runs.length - preview;
+    results.runs.slice(0, preview).forEach((r) => list.append(runCard(r, data)));
     const section = h(
       "section",
       { class: "day runs" },
@@ -103,9 +105,9 @@ export function renderResults(
       list,
     );
     if (more > 0) {
-      const button = h("button", { class: "button subtle", type: "button" }, `Show ${more} more`);
+      const button = h("button", { class: "button subtle runs-more", type: "button" }, `Show ${more} more`);
       button.addEventListener("click", () => {
-        results.runs.slice(RUNS_PREVIEW).forEach((r) => list.append(runCard(r, data)));
+        results.runs.slice(preview).forEach((r) => list.append(runCard(r, data)));
         button.remove();
       });
       section.append(button);
