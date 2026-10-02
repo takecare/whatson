@@ -173,6 +173,63 @@ h3 {
   display: none;
 }
 
+/* Jump to a day: in the header on wide screens, a bar at the bottom on phones. */
+.jump {
+  position: relative;
+  display: flex;
+  gap: 6px;
+}
+.jump-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.jump-button:hover {
+  border-color: var(--muted);
+}
+.jump-button:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+/* The date input sits invisibly over "Choose" so a tap opens the calendar. */
+.jump-choose input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.jump-note {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 2;
+  margin: 0;
+  width: max-content;
+  max-width: 280px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
 /* Layout ------------------------------------------------------------------------ */
 
 .layout {
@@ -398,6 +455,7 @@ main {
 
 .day {
   margin-bottom: 28px;
+  scroll-margin-top: 72px; /* below the sticky header when jumped to */
 }
 .day-heading {
   position: sticky;
@@ -621,6 +679,43 @@ main {
 /* Small screens: filters become a sheet ------------------------------------------ */
 
 @media (max-width: 860px) {
+  /* A blurred header would hold the fixed jump bar inside itself. */
+  .site-header {
+    backdrop-filter: none;
+    background: var(--bg);
+  }
+  .jump {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  .jump-button {
+    padding: 10px 8px;
+    font-size: 0.95rem;
+  }
+  .jump-note {
+    top: auto;
+    bottom: calc(100% + 8px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+  }
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+  .day {
+    scroll-margin-top: 112px;
+  }
+
   .header-inner {
     flex-wrap: wrap;
     gap: 8px 12px;

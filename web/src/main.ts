@@ -1,7 +1,7 @@
-import { today } from "./dates";
+import { type Day, addDays, dayHeading, today } from "./dates";
 import { DEFAULT_FILTERS, type Filters, applyFilters, filtersFromQuery, filtersToQuery } from "./filters";
 import { activeCount, buildPanel } from "./panel";
-import { renderResults, renderSources } from "./render";
+import { type ResultsView, renderResults, renderSources } from "./render";
 import type { Data, SourceStatus, Venue, WhatsOnEvent } from "./types";
 
 async function getJson<T>(name: string): Promise<T | null> {
@@ -49,9 +49,10 @@ async function start() {
   const openButton = $("open-filters");
 
   const closeButton = $("close-filters");
+  let view: ResultsView = { jumpTo: () => null };
   const render = () => {
     const results = applyFilters(data.events, data.venues, filters, today());
-    renderResults(main, results, data, today(), () => setFilters({ ...DEFAULT_FILTERS }));
+    view = renderResults(main, results, data, today(), () => setFilters({ ...DEFAULT_FILTERS }));
     closeButton.textContent = `Show ${results.count} ${results.count === 1 ? "event" : "events"}`;
     const n = activeCount(filters);
     badge.hidden = n === 0;
@@ -84,9 +85,48 @@ async function start() {
   closeButton.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (e) => e.key === "Escape" && setOpen(false));
 
+  setUpJump(() => view, today);
+
   panel.sync();
   render();
   renderSources($("sources"), $("sources-count"), $("updated"), data);
+}
+
+/** The Today / Tomorrow / Choose buttons: scroll to a day in the current results. */
+function setUpJump(view: () => ResultsView, now: () => Day) {
+  const note = $("jump-note");
+  let hideNote: number | undefined;
+  const say = (text: string) => {
+    clearTimeout(hideNote);
+    note.textContent = text;
+    note.hidden = !text;
+    if (text) hideNote = window.setTimeout(() => (note.hidden = true), 4000);
+  };
+  const jump = (day: Day) => {
+    const shown = view().jumpTo(day);
+    // "today", "tomorrow" or "Saturday 3 October"
+    const name = (d: Day) => dayHeading(d, now()).replace(/^(Today|Tomorrow)$/, (w) => w.toLowerCase());
+    if (shown === null) say(`No events from ${name(day)} onwards with these filters.`);
+    else if (shown !== day) say(`Nothing on ${name(day)}. Showing ${name(shown)}.`);
+    else say("");
+  };
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-jump]")) {
+    button.addEventListener("click", () => jump(button.dataset.jump === "tomorrow" ? addDays(now(), 1) : now()));
+  }
+  // The date input covers the Choose button, so a tap opens the native calendar.
+  const picker = $<HTMLInputElement>("jump-date");
+  picker.addEventListener("click", () => {
+    picker.min = now();
+    try {
+      picker.showPicker(); // desktop browsers only open it from the calendar icon
+    } catch {
+      // already open, or not supported: the browser's own handling applies
+    }
+  });
+  picker.addEventListener("change", () => {
+    if (picker.value) jump(picker.value);
+    picker.value = "";
+  });
 }
 
 void start();
