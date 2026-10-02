@@ -242,6 +242,21 @@ h3 {
   border-color: var(--accent);
   color: var(--accent-text);
 }
+/* Date presets combine differently from tags, so they look different:
+   rounded rectangles with a tick, rather than filled pills. */
+.chip-when {
+  border-radius: 8px;
+}
+.chip-when[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--text);
+}
+.chip-when[aria-pressed="true"]::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+}
 /* Excluded: struck through. */
 .chip[aria-pressed="mixed"] {
   border-color: var(--err);
