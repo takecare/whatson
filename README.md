@@ -36,7 +36,7 @@ GitHub Actions (hourly check, scrapes every SCRAPE_INTERVAL_HOURS)
 
 | Variable | Default | What it does |
 |---|---|---|
-| `SCRAPE_INTERVAL_HOURS` | `24` | Hours between scrapes. The workflow checks hourly and scrapes once this much time has passed since the last scrape. `0` pauses scheduled scraping. |
+| `SCRAPE_INTERVAL_HOURS` | `12` | Hours between scrapes (12: twice a day). The workflow checks hourly and scrapes once this much time has passed since the last scrape. `0` pauses scheduled scraping. |
 | `SCRAPE_RUNS_ON` | `"ubuntu-latest"` | Where the scrape job runs, as JSON. Set to `["self-hosted","whatson"]` to use a self-hosted runner (see PLAN.md §4). Deleting it moves back to GitHub's machines. |
 
 **Actions → Venue access check** fetches each venue's page once and reports whether

@@ -6,7 +6,7 @@ filterable view (tags, dates, price, location, text search).
 ## 1. Architecture
 
 ```
-          (GitHub Actions, cron ~daily)                         (GitHub Pages)
+          (GitHub Actions, twice a day)                         (GitHub Pages)
 ┌───────────────────────────────────────────────┐        ┌──────────────────────────┐
 │ scraper (Python)                              │        │ web (static, TypeScript) │
 │  venues.yaml ─► registry ─► Aggregator per    │  JSON  │  loads events.json and   │
@@ -93,7 +93,7 @@ class BaseAggregator(ABC):
 - Two fetch strategies behind the same interface: `httpx` (default) and a
   `BrowserAggregator` using Playwright for JS-rendered or challenge-protected sites.
 - Politeness: identifiable User-Agent, respect robots.txt, ≤1 req/s per host,
-  run ~daily, link out to the venue for booking, keep only a short summary and
+  run twice a day, link out to the venue for booking, keep only a short summary and
   hotlink images rather than copying them.
 
 ### What the example venues look like (probed 2026-09-28)
@@ -121,7 +121,7 @@ The site is static and stays on **GitHub Pages**. Only the scrape job moves.
 **Stage A: GitHub-hosted runners (start here).**
 `scrape-and-deploy.yml` runs hourly and has four jobs:
 
-1. `plan`: decides whether a scrape is due (`SCRAPE_INTERVAL_HOURS`, default 24).
+1. `plan`: decides whether a scrape is due (`SCRAPE_INTERVAL_HOURS`, default 12).
 2. `scrape`: runs the aggregators and uploads the JSON as an artifact.
 3. `publish`: commits the JSON to the `data` branch.
 4. `deploy`: builds `web/` with that data and deploys to Pages.
@@ -224,7 +224,8 @@ Built: 1–5 (with three venues: Top Secret Comedy Club, Union Chapel, Saatchi G
 
 1. Python for scraping; TypeScript (Vite, no framework) for the site.
 2. The repo is public (needed for GitHub Pages on a free plan).
-3. Scrape daily by default, configurable with the `SCRAPE_INTERVAL_HOURS` repository
+3. Scrape every 12 hours by default (daily until The O2 started refusing some GitHub
+   runners; twice a day gives it two chances), configurable with the `SCRAPE_INTERVAL_HOURS` repository
    variable: the workflow checks hourly and scrapes once that many hours have passed
    since the last scrape (`0` pauses it).
 4. Royal Albert Hall and Southwark Playhouse are postponed (bot protection).
