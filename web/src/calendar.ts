@@ -1,4 +1,5 @@
 import { type Day, addDays, weekday } from "./dates";
+import { showDialog } from "./dialog";
 import { h } from "./dom";
 
 const monthTitle = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
@@ -40,7 +41,7 @@ export function openCalendar(anchor: HTMLElement, now: Day, days: Set<Day>, onPi
   const grid = h("div", { class: "calendar-grid", role: "group", "aria-labelledby": "calendar-title" });
   const dialog = h(
     "dialog",
-    { class: "calendar", "aria-labelledby": "calendar-title" },
+    { class: "popover calendar", "aria-labelledby": "calendar-title" },
     h(
       "div",
       { class: "calendar-head" },
@@ -76,12 +77,6 @@ export function openCalendar(anchor: HTMLElement, now: Day, days: Set<Day>, onPi
       }),
     );
   };
-  const close = () => {
-    dialog.close();
-    dialog.remove();
-    anchor.focus({ preventScroll: true });
-  };
-
   prev.addEventListener("click", () => {
     month = monthOf(shiftMonth(month, -1));
     show();
@@ -90,29 +85,16 @@ export function openCalendar(anchor: HTMLElement, now: Day, days: Set<Day>, onPi
     month = monthOf(shiftMonth(month, 1));
     show();
   });
-  dialog.querySelector(".calendar-close")!.addEventListener("click", close);
+  dialog.querySelector(".calendar-close")!.addEventListener("click", () => close());
   grid.addEventListener("click", (ev) => {
     const day = (ev.target as HTMLElement).closest<HTMLButtonElement>("button[data-day]")?.dataset.day;
     if (!day) return;
     close();
     onPick(day);
   });
-  // A click on the backdrop lands on the dialog element itself.
-  dialog.addEventListener("click", (ev) => ev.target === dialog && close());
-  dialog.addEventListener("cancel", (ev) => {
-    ev.preventDefault();
-    close();
-  });
 
   show();
-  document.body.append(dialog);
-  // On wide screens, open under the button; on phones it sits above the bottom bar (CSS).
-  if (!window.matchMedia("(max-width: 860px)").matches) {
-    const r = anchor.getBoundingClientRect();
-    dialog.style.top = `${r.bottom + 8}px`;
-    dialog.style.right = `${Math.max(16, window.innerWidth - r.right)}px`;
-  }
-  dialog.showModal();
+  const close = showDialog(anchor, dialog);
   // Focus the first pickable day without scrolling the page.
   dialog.querySelector<HTMLButtonElement>(".calendar-day:not(:disabled)")?.focus({ preventScroll: true });
 }

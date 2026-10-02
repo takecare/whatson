@@ -1,5 +1,7 @@
+import { calendarIcon, openAddToCalendar } from "./addtocalendar";
 import { type Day, dayHeading, shortDate, timeOf } from "./dates";
 import { h } from "./dom";
+import { slotsFor } from "./icalendar";
 import type { Occurrence, Results, Run } from "./filters";
 import type { Data, Venue, WhatsOnEvent } from "./types";
 
@@ -15,8 +17,19 @@ export function priceLabel(e: WhatsOnEvent): string | null {
   return `${fmt(min)}–${fmt(max)}`;
 }
 
-function card(e: WhatsOnEvent, venue: Venue | undefined, when: string | null, whenLabel: string) {
+/** The day a card is for (its showings that day), or the run it shows. */
+type CardFor = { day: Day } | { run: { from: Day; to: Day } };
+
+function card(e: WhatsOnEvent, venue: Venue | undefined, when: string | null, whenLabel: string, cardFor: CardFor) {
   const price = priceLabel(e);
+  const addToCalendar = h(
+    "button",
+    { type: "button", class: "addcal-button", "aria-label": `Add “${e.title}” to your calendar`, title: "Add to calendar", "aria-haspopup": "dialog" },
+    calendarIcon(),
+  );
+  addToCalendar.addEventListener("click", () =>
+    openAddToCalendar(addToCalendar, e, venue, slotsFor(e, "day" in cardFor ? cardFor.day : null, "run" in cardFor ? cardFor.run : null)),
+  );
   const place = [venue?.name ?? e.venue_id, e.space, venue?.area].filter(Boolean).join(" · ");
   return h(
     "article",
@@ -34,9 +47,14 @@ function card(e: WhatsOnEvent, venue: Venue | undefined, when: string | null, wh
         e.sold_out ? h("span", { class: "pill pill-soldout" }, "Sold out") : null,
         h("span", { class: `pill pill-price${price ? "" : " is-unknown"}` }, price ?? "Price TBC"),
         ...e.tags.map((t) => h("span", { class: "pill" }, t)),
-        e.booking_url && !e.sold_out
-          ? h("a", { class: "book", href: e.booking_url, target: "_blank", rel: "noopener" }, "Book")
-          : null,
+        h(
+          "span",
+          { class: "card-actions" },
+          e.booking_url && !e.sold_out
+            ? h("a", { class: "book", href: e.booking_url, target: "_blank", rel: "noopener" }, "Book")
+            : null,
+          addToCalendar,
+        ),
       ),
     ),
     e.image_url
@@ -55,13 +73,15 @@ function card(e: WhatsOnEvent, venue: Venue | undefined, when: string | null, wh
 
 function occurrenceCard(o: Occurrence, data: Data) {
   const when = o.times.length ? o.times.join(", ") : null;
-  return card(o.event, data.venues.get(o.event.venue_id), when, when ?? "All day");
+  return card(o.event, data.venues.get(o.event.venue_id), when, when ?? "All day", { day: o.day });
 }
 
 function runCard(r: Run, data: Data) {
   const range = `${shortDate(r.from)} – ${shortDate(r.to)}`;
   const t = timeOf(r.event.start);
-  return card(r.event, data.venues.get(r.event.venue_id), range + (t ? ` · ${t}` : ""), range);
+  return card(r.event, data.venues.get(r.event.venue_id), range + (t ? ` · ${t}` : ""), range, {
+    run: { from: r.from, to: r.to },
+  });
 }
 
 export interface ResultsView {
