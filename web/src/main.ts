@@ -1,6 +1,7 @@
 import { openCalendar } from "./calendar";
 import { type Day, addDays, dayHeading, today } from "./dates";
 import { DEFAULT_FILTERS, type Filters, applyFilters, filtersFromQuery, filtersToQuery } from "./filters";
+import { setUpAddToHome } from "./install";
 import { activeCount, buildPanel } from "./panel";
 import { type ResultsView, renderResults, renderSources } from "./render";
 import type { Data, SourceStatus, Venue, WhatsOnEvent } from "./types";
@@ -118,4 +119,5 @@ function setUpJump(view: () => ResultsView, now: () => Day) {
   choose.addEventListener("click", () => openCalendar(choose, now(), new Set(view().days()), jump));
 }
 
+setUpAddToHome($<HTMLButtonElement>("add-to-home"));
 void start();
