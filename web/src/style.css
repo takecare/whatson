@@ -173,6 +173,53 @@ h3 {
   display: none;
 }
 
+/* Add to home: only ever shown on phones (see install.ts), as an icon to fit
+   beside the logo and Filters. */
+.add-to-home {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  padding: 0;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.add-to-home[hidden] {
+  display: none;
+}
+.add-to-home:not([hidden]) + .filters-toggle {
+  margin-left: 0;
+}
+.add-to-home svg,
+.install-share svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.install-steps {
+  margin: 8px 0;
+  padding-left: 22px;
+  line-height: 1.7;
+}
+.install-share {
+  display: inline-flex;
+  vertical-align: -3px;
+  color: var(--accent);
+}
+.install-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 /* Jump to a day: in the header on wide screens, a bar at the bottom on phones. */
 .jump {
   position: relative;

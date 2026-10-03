@@ -21,7 +21,8 @@ GitHub Actions (hourly check, scrapes every SCRAPE_INTERVAL_HOURS)
   site's Sources table.
 - **`web/`** — a static TypeScript site (Vite, no framework). It loads the JSON and
   does all filtering client-side; filter state lives in the URL, so filtered views
-  can be shared.
+  can be shared. It's installable on phones ("Add to home": a web app manifest and
+  a network-first service worker, so the last listings also open offline).
 - **`data` branch** — the latest JSON, one commit per scrape.
 
 ## Setup (once)
