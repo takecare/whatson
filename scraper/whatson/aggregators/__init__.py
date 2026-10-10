@@ -14,6 +14,7 @@ from whatson.aggregators import (  # noqa: F401
     lexington,
     oldvic,
     princecharles,
+    rbo,
     rio,
     saatchi,
     sadlerswells,
