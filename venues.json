@@ -1,4 +1,4 @@
-{"generated_at":"2026-10-09T20:53:43+00:00","venues":[
+{"generated_at":"2026-10-10T08:00:18+00:00","venues":[
 {"id":"topsecret","name":"The Top Secret Comedy Club","url":"https://thetopsecretcomedyclub.co.uk/events-listings/","address":"170 Drury Lane, London WC2B 5QF","city":"London","area":"Covent Garden","lat":51.5155,"lng":-0.1219,"tags":["Comedy"]},
 {"id":"unionchapel","name":"Union Chapel","url":"https://unionchapel.org.uk/venue/whats-on","address":"19b Compton Terrace, London N1 2UN","city":"London","area":"Islington","lat":51.5437,"lng":-0.1026,"tags":["Music"]},
 {"id":"saatchi","name":"Saatchi Gallery","url":"https://www.saatchigallery.com/whats-on","address":"Duke of York's HQ, King's Road, London SW3 4RY","city":"London","area":"Chelsea","lat":51.4906,"lng":-0.1587,"tags":["Art","Exhibition"]},
@@ -33,5 +33,7 @@
 {"id":"kingshead","name":"King's Head Theatre","url":"https://kingsheadtheatre.com/whats-on","address":"Islington Square, 115 Upper Street, London N1 1QN","city":"London","area":"Islington","lat":51.5392,"lng":-0.1027,"tags":["Theatre"]},
 {"id":"almeida","name":"Almeida Theatre","url":"https://almeida.co.uk/whats-on/","address":"Almeida Street, London N1 1TA","city":"London","area":"Islington","lat":51.5395,"lng":-0.1025,"tags":["Theatre"]},
 {"id":"youngvic","name":"Young Vic","url":"https://www.youngvic.org/whats-on/","address":"66 The Cut, London SE1 8LZ","city":"London","area":"Waterloo","lat":51.5036,"lng":-0.1076,"tags":["Theatre"]},
-{"id":"uniontheatre","name":"Union Theatre","url":"https://uniontheatre.biz/whats-on/","address":"Old Union Arches, 229 Union Street, London SE1 0LR","city":"London","area":"Southwark","lat":51.5039,"lng":-0.101,"tags":["Theatre"]}
+{"id":"uniontheatre","name":"Union Theatre","url":"https://uniontheatre.biz/whats-on/","address":"Old Union Arches, 229 Union Street, London SE1 0LR","city":"London","area":"Southwark","lat":51.5039,"lng":-0.101,"tags":["Theatre"]},
+{"id":"rbo","name":"Royal Opera House","url":"https://www.rbo.org.uk/tickets-and-events","address":"Bow Street, London WC2E 9DD","city":"London","area":"Covent Garden","lat":51.5129,"lng":-0.1222,"tags":["Dance","Opera"]},
+{"id":"tobaccodock","name":"Tobacco Dock","url":"https://www.tobaccodocklondon.com/events/","address":"50 Porter's Walk, London E1W 2SF","city":"London","area":"Wapping","lat":51.5084,"lng":-0.059,"tags":["Exhibition","Festival"]}
 ]}
