@@ -17,6 +17,7 @@ from whatson.aggregators.kingshead import KingsHeadTheatre
 from whatson.aggregators.lexington import Lexington
 from whatson.aggregators.oldvic import OldVic
 from whatson.aggregators.princecharles import PrinceCharlesCinema
+from whatson.aggregators.rbo import RoyalOperaHouse
 from whatson.aggregators.rio import RioCinema
 from whatson.aggregators.saatchi import API as SAATCHI_API
 from whatson.aggregators.saatchi import SaatchiGallery
@@ -817,3 +818,37 @@ def test_uniontheatre(venues):
     assert soldier.image_url and soldier.tags == ["Theatre"]
     hood = events["THROBBIN’ HOOD & HIS MESSY MEN"]
     assert (hood.start, hood.end) == (date(2026, 12, 3), date(2027, 1, 9))
+
+
+def test_rbo(venues):
+    # A trimmed copy of the page: its programme JSON with a dozen of the events.
+    http = FakeFetcher({venues["rbo"].url: "rbo/tickets-and-events.html"})
+    listed = list(RoyalOperaHouse(venues["rbo"], http, date(2026, 10, 10)).fetch_events())
+    events = {e.title: e for e in listed}
+
+    # Left out: the cinema relay of Alice, the Met's cinema broadcast, the Thurrock
+    # workshop tour, and Chroma (part of a mixed bill, listed without dates).
+    assert set(events) == {
+        "Behind the Scenes Tour",
+        "Carmen",
+        "Swan Lake",
+        "Recitals at Lunch",
+        "Opera on the Terrace",
+        "Next Generation Festival 2027",
+    }
+    carmen = events["Carmen"]
+    assert carmen.space == "Main Stage" and carmen.category == "Opera"
+    assert {"Opera", "Audio Described", "Signed", "Captioned", "Relaxed"} <= set(carmen.tags)
+    assert len(carmen.performances) == 9  # the schools matinee is left out
+    assert carmen.start == datetime(2026, 10, 29, 19, 0, tzinfo=LONDON)
+    assert carmen.url == "https://www.rbo.org.uk/production/carmen-damiano-michieletto"
+    assert carmen.image_url and carmen.summary
+    tour = events["Behind the Scenes Tour"]
+    assert tour.tags == ["Tours"]
+    assert tour.url == "https://www.rbo.org.uk/tickets-and-events/roh-behind-the-scene-tour-details"
+    assert events["Recitals at Lunch"].tags == ["Music"]  # untagged; from the title
+    # A series listed whole and per date: only the dated cards, which have no page.
+    terrace = [e for e in listed if e.title == "Opera on the Terrace"]
+    assert len(terrace) == 2 and all(e.url == venues["rbo"].url for e in terrace)
+    festival = events["Next Generation Festival 2027"]  # midnight to midnight
+    assert (festival.start, festival.end) == (date(2027, 6, 11), date(2027, 6, 24))

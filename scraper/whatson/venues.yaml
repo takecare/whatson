@@ -350,6 +350,16 @@ venues:
     lng: -0.1010
     tags: [Theatre]
 
+  - id: rbo
+    name: Royal Opera House
+    url: https://www.rbo.org.uk/tickets-and-events
+    address: Bow Street, London WC2E 9DD
+    city: London
+    area: Covent Garden
+    lat: 51.5129
+    lng: -0.1222
+    tags: [Opera, Dance]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall

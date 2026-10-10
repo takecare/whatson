@@ -128,6 +128,7 @@ shows the current state.
 | Almeida Theatre | ✅ Collected | One listing page of cards: title, run, sold-out state and artwork. Show pages describe prices and access performances only in text, so runs are shown as dates, without times or prices. |
 | Young Vic | ✅ Collected | One listing page of cards: title, run, space (Main House, The Maria) and image. NT at Home streams and productions staged elsewhere are skipped. No times or prices on the listing. |
 | Union Theatre | ✅ Collected | WordPress listing of show thumbnails: title, dates, image and Savoy booking link. No times or prices. |
+| Royal Opera House | ✅ Collected | Royal Ballet and Opera's What's On page embeds its whole programme as JSON (every `?page=` holds the same data, so one request): productions and events with every performance, stage and tags, including access performances. Cinema relays, the Thurrock workshop site, online events and schools-only matinees are left out. Event pages sit under `/events/`, which robots.txt disallows, so prices aren't collected. |
 | Troxy | ⏸️ Postponed | Cloudflare blocks the scraper's Python HTTP client by its TLS fingerprint (plain `curl` gets through). We don't work around blocks a venue has chosen; retry from the self-hosted runner or look for a feed. |
 | Whitechapel Gallery | ⏸️ Postponed | Same as Troxy: the Python client gets 403 while `curl` gets the page. |
 | Rich Mix | ⏸️ Postponed | Cloudflare challenge page for every client we tried. |
