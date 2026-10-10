@@ -437,3 +437,14 @@ venues:
     lng: -0.0703
     tags: [Art, Exhibition, Talks]
     enabled: false
+
+  - id: britishacademy
+    name: The British Academy
+    url: https://www.thebritishacademy.ac.uk/events/
+    address: 10-11 Carlton House Terrace, London SW1Y 5AH
+    city: London
+    area: St James's
+    lat: 51.5063
+    lng: -0.1315
+    tags: [Talks]
+    enabled: false
