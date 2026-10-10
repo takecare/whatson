@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from pathlib import Path
 
 import pytest
 from conftest import FakeFetcher
@@ -40,6 +41,7 @@ from whatson.aggregators.stratfordeast import StratfordEast
 from whatson.aggregators.theatreship import DOC as THEATRESHIP_DOC
 from whatson.aggregators.theatreship import Theatreship
 from whatson.aggregators.theo2 import AJAX, RSS, Indigo, O2Arena
+from whatson.aggregators.tobaccodock import TobaccoDock
 from whatson.aggregators.topsecret import AJAX as TOPSECRET_AJAX
 from whatson.aggregators.topsecret import TopSecretComedyClub
 from whatson.aggregators.trinitybuoywharf import TrinityBuoyWharf
@@ -852,3 +854,28 @@ def test_rbo(venues):
     assert len(terrace) == 2 and all(e.url == venues["rbo"].url for e in terrace)
     festival = events["Next Generation Festival 2027"]  # midnight to midnight
     assert (festival.start, festival.end) == (date(2027, 6, 11), date(2027, 6, 24))
+
+
+def test_tobaccodock_leaves_out_conferences(venues):
+    url = venues["tobaccodock"].url
+    routes = {url: "tobaccodock/events.html"}
+    for page in Path(__file__).parent.glob("fixtures/tobaccodock/*.html"):
+        if page.stem != "events":
+            routes[f"{url}{page.stem}/"] = f"tobaccodock/{page.name}"
+    listed = list(
+        TobaccoDock(venues["tobaccodock"], FakeFetcher(routes), date(2026, 10, 10)).fetch_events()
+    )
+    events = {e.title: e for e in listed}
+
+    # Tricentis Transform, Black Tech Fest and Ubiq X LIVE are business conferences.
+    assert len(listed) == 6
+    assert not {"Tricentis Transform 2026", "Black Tech Fest", "Ubiq X LIVE"} & set(events)
+    waitrose = events["Waitrose Food & Drink Festival"]  # "20 November - 22 November 2026"
+    assert (waitrose.start, waitrose.end) == (date(2026, 11, 20), date(2026, 11, 22))
+    assert waitrose.price_min == 75 and waitrose.tags == ["Festival"]
+    assert waitrose.booking_url and waitrose.image_url and waitrose.summary
+    workout = events["Battle Cancer Hybrid Workout"]
+    assert workout.space == "Dock Gallery" and workout.price_min == 0 and workout.tags == ["Sport"]
+    party = [e for e in listed if e.title.startswith("Cirque De Noël")]
+    assert len(party) == 3 and party[0].space is None  # "Wapping Lane Entrance" isn't a space
+    assert party[0].tags == ["Nightlife"]

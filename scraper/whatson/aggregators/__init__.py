@@ -26,6 +26,7 @@ from whatson.aggregators import (  # noqa: F401
     stratfordeast,
     theatreship,
     theo2,
+    tobaccodock,
     topsecret,
     trinitybuoywharf,
     unionchapel,

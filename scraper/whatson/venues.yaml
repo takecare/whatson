@@ -360,6 +360,16 @@ venues:
     lng: -0.1222
     tags: [Opera, Dance]
 
+  - id: tobaccodock
+    name: Tobacco Dock
+    url: https://www.tobaccodocklondon.com/events/
+    address: 50 Porter's Walk, London E1W 2SF
+    city: London
+    area: Wapping
+    lat: 51.5084
+    lng: -0.0590
+    tags: [Festival, Exhibition]
+
   # Not collected yet (enabled: false). Listed so `whatson access-check --all`
   # covers them. Coordinates are approximate.
   - id: royalalberthall
