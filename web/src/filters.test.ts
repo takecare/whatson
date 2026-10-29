@@ -66,6 +66,18 @@ describe("applyFilters", () => {
     expect(titles(run({ from: "2026-12-01", to: "2026-12-02" }))).toEqual(["Big exhibition"]);
   });
 
+  it("includes a run whenever its days overlap the window", () => {
+    // An exhibition from 1 to 31 October, seen from 28 October.
+    const show = ev({ title: "October show", venue_id: "gallery", start: "2026-10-01", end: "2026-10-31" });
+    const view = (over: Partial<Filters>) =>
+      applyFilters([show], VENUES, { ...DEFAULT_FILTERS, ...over }, "2026-10-28").runs.map((r) => r.event.title);
+    expect(view({ from: "2026-10-28", to: "2026-10-30" })).toEqual(["October show"]);
+    expect(view({ when: ["today"] })).toEqual(["October show"]);
+    expect(view({ when: ["tomorrow"] })).toEqual(["October show"]);
+    expect(view({ from: "2026-10-31", to: "2026-11-02" })).toEqual(["October show"]); // its last day
+    expect(view({ from: "2026-11-01", to: "2026-11-02" })).toEqual([]); // after it closes
+  });
+
   it("combines selected presets", () => {
     // Today (Tue 29 Sep) and the weekend (2–4 Oct), but not the days between.
     expect(titles(run({ when: ["today", "weekend"] }))).toEqual(["Early show", "Late show", "Film", "Film"]);
